@@ -1,0 +1,158 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: transparent; }
+.wrap { padding: 1.5rem 0; font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+.title { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.25rem; letter-spacing: 0.04em; }
+.chart-area { position: relative; width: 100%; max-width: 1000px; min-width: 300px; height: 400px; margin-bottom: 1.25rem; }
+svg#bars { width: 100%; height: 100%; display: block; }
+.controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.btn { font-family: inherit; font-size: 12px; padding: 6px 16px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; color: var(--color-text-primary); cursor: pointer; transition: background 0.15s; }
+.btn:hover { background: var(--color-background-secondary); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.primary { background: #1a1b2e; color: #7dcfff; border-color: #7dcfff55; }
+.btn.primary:hover { background: #7dcfff22; }
+.stat { font-size: 12px; color: var(--color-text-secondary); margin-left: auto; }
+.stat span { color: var(--color-text-primary); font-weight: 500; }
+.speed-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; width: 100%; }
+.speed-row label { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+.speed-row input[type=range] { flex: 1; max-width: 140px; }
+.speed-row .val { font-size: 12px; color: var(--color-text-primary); min-width: 32px; }
+.legend { display: flex; gap: 14px; margin-top: 10px; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+.dot { width: 10px; height: 10px; border-radius: 2px; }
+</style>
+
+<div class="wrap">
+  <div class="title">// bubble sort — d3.js animation</div>
+  <div class="chart-area">
+    <svg id="bars"></svg>
+  </div>
+  <div class="controls">
+    <button class="btn primary" id="startBtn">run sort</button>
+    <button class="btn" id="resetBtn">reset</button>
+    <div class="stat">comparisons: <span id="compCount">0</span> &nbsp; swaps: <span id="swapCount">0</span></div>
+  </div>
+  <div class="speed-row">
+    <label>speed:</label>
+    <input type="range" id="speedSlider" min="1" max="10" step="1" value="5">
+    <span class="val" id="speedVal">5</span>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="dot" style="background:#7dcfff"></div>unsorted</div>
+    <div class="legend-item"><div class="dot" style="background:#ff9e64"></div>comparing</div>
+    <div class="legend-item"><div class="dot" style="background:#9ece6a"></div>sorted</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const N = 20;
+const C_DEFAULT = '#7dcfff';
+const C_COMPARE = '#ff9e64';
+const C_SORTED  = '#9ece6a';
+const BG_BAR    = '#1a1b2e';
+
+let data = [], running = false, comparisons = 0, swaps = 0, sortedIdx = new Set();
+
+function randArr(n) {
+  return Array.from({length: n}, (_, i) => Math.round((i + 1) * (100 / n))).sort(() => Math.random() - 0.5);
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function getDelay() {
+  const v = +document.getElementById('speedSlider').value;
+  return Math.round(550 / v);
+}
+
+function updateStats() {
+  document.getElementById('compCount').textContent = comparisons;
+  document.getElementById('swapCount').textContent = swaps;
+}
+
+const svgEl = document.getElementById('bars');
+
+function drawBars(highlight = [], greenFrom = N) {
+  const W = svgEl.clientWidth || 500;
+  const H = svgEl.clientHeight || 500;
+  const pad = 3;
+  const barW = (W - pad * (N - 1)) / N;
+
+  d3.select(svgEl).selectAll('*').remove();
+  const svg = d3.select(svgEl);
+
+  const yScale = d3.scaleLinear().domain([0, 100]).range([0, H - 20]);
+
+  svg.selectAll('rect')
+    .data(data)
+    .join('rect')
+    .attr('x', (d, i) => i * (barW + pad))
+    .attr('y', (d, i) => H - yScale(d) - 20)
+    .attr('width', barW)
+    .attr('height', d => yScale(d))
+    .attr('rx', 3)
+    .attr('fill', (d, i) => {
+      if (i >= greenFrom) return C_SORTED;
+      if (highlight.includes(i)) return C_COMPARE;
+      return C_DEFAULT;
+    })
+    .attr('opacity', 0.9);
+
+  svg.selectAll('text')
+    .data(data)
+    .join('text')
+    .attr('x', (d, i) => i * (barW + pad) + barW / 2)
+    .attr('y', H - 6)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', Math.max(8, Math.min(11, barW - 2)) + 'px')
+    .attr('fill', '#565f89')
+    .attr('font-family', 'JetBrains Mono, monospace')
+    .text(d => d);
+}
+
+async function bubbleSortAnim() {
+  running = true;
+  document.getElementById('startBtn').disabled = true;
+  document.getElementById('resetBtn').disabled = true;
+  comparisons = 0; swaps = 0; updateStats();
+
+  const n = data.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      comparisons++;
+      updateStats();
+      drawBars([j, j + 1], n - i);
+      await delay(getDelay());
+
+      if (data[j] > data[j + 1]) {
+        swaps++;
+        [data[j], data[j + 1]] = [data[j + 1], data[j]];
+        updateStats();
+        drawBars([j, j + 1], n - i);
+        await delay(getDelay());
+      }
+    }
+  }
+  drawBars([], 0);
+  running = false;
+  document.getElementById('startBtn').disabled = false;
+  document.getElementById('resetBtn').disabled = false;
+}
+
+function reset() {
+  if (running) return;
+  data = randArr(N);
+  comparisons = 0; swaps = 0; updateStats();
+  drawBars([], N);
+}
+
+document.getElementById('startBtn').addEventListener('click', () => { if (!running) bubbleSortAnim(); });
+document.getElementById('resetBtn').addEventListener('click', reset);
+document.getElementById('speedSlider').addEventListener('input', function() {
+  document.getElementById('speedVal').textContent = this.value;
+});
+
+window.addEventListener('load', () => { reset(); });
+setTimeout(() => { if (!data.length) reset(); }, 200);
+</script>

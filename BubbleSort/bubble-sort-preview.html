@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubble Sort</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #06080f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  }
+
+  .browser {
+    width: 680px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px #2a2c4a,
+      0 40px 80px rgba(0,0,0,0.7),
+      0 0 60px rgba(125,207,255,0.06);
+  }
+
+  /* --- titlebar --- */
+  .titlebar {
+    background: #13141f;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #1e2030;
+  }
+
+  .dots { display: flex; gap: 7px; }
+  .dot {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+  }
+  .dot.red    { background: #ff5f57; }
+  .dot.yellow { background: #febc2e; }
+  .dot.green  { background: #28c840; }
+
+  .urlbar {
+    flex: 1;
+    background: #0d0e1a;
+    border: 1px solid #2a2c4a;
+    border-radius: 7px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #565f89;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .urlbar .lock { color: #9ece6a; font-size: 10px; }
+  .urlbar .domain { color: #7dcfff; }
+
+  /* --- tabs bar --- */
+  .tabbar {
+    background: #0d0e1a;
+    padding: 0 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    border-bottom: 1px solid #1e2030;
+  }
+  .tab {
+    padding: 8px 18px 7px;
+    font-size: 11px;
+    color: #565f89;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    cursor: default;
+    white-space: nowrap;
+  }
+  .tab.active {
+    background: #0a0d14;
+    border-color: #1e2030;
+    color: #c0caf5;
+  }
+
+  /* --- content --- */
+  .content {
+    background: #0a0d14;
+    padding: 32px 32px 28px;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .code-title {
+    font-size: 13px;
+    color: #565f89;
+  }
+  .code-title .hl { color: #7dcfff; }
+
+  .badge {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+  .badge.running { color: #ff9e64; border-color: #ff9e6455; background: #ff9e6411; }
+  .badge.done    { color: #9ece6a; border-color: #9ece6a55; background: #9ece6a11; display: none; }
+
+  /* --- bars chart --- */
+  .chart {
+    position: relative;
+    height: 200px;
+    margin-bottom: 16px;
+  }
+
+  svg#chart {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* --- stats row --- */
+  .stats {
+    display: flex;
+    gap: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #1e2030;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 3px; }
+  .stat-label { font-size: 10px; color: #565f89; letter-spacing: 0.06em; text-transform: uppercase; }
+  .stat-value { font-size: 18px; color: #c0caf5; font-weight: 600; }
+  .stat-value.orange { color: #ff9e64; }
+  .stat-value.blue   { color: #7dcfff; }
+  .stat-value.green  { color: #9ece6a; }
+
+  /* --- progress bar --- */
+  .progress-wrap {
+    height: 2px;
+    background: #1e2030;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #7dcfff, #bb9af7);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="browser">
+  <!-- titlebar -->
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+    <div class="urlbar">
+      <span class="lock">🔒</span>
+      <span class="domain">nbyfrontend.dev</span>
+      <span style="color:#2a2c4a">/</span>
+      <span>bubble-sort</span>
+    </div>
+  </div>
+
+  <!-- tabs -->
+  <div class="tabbar">
+    <div class="tab active">bubble-sort.js</div>
+    <div class="tab">index.html</div>
+    <div class="tab">d3.js</div>
+  </div>
+
+  <!-- content -->
+  <div class="content">
+    <div class="code-header">
+      <div class="code-title">
+        <span class="hl">bubbleSort</span>
+        <span style="color:#2a2c4a"> · </span>
+        <span>d3.js visualization</span>
+      </div>
+      <div>
+        <span class="badge running" id="badgeRunning">● sorting...</span>
+        <span class="badge done"    id="badgeDone">✓ sorted!</span>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="chart">
+      <svg id="chart"></svg>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-label">comparisons</span>
+        <span class="stat-value blue" id="statComp">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">swaps</span>
+        <span class="stat-value orange" id="statSwap">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">complexity</span>
+        <span class="stat-value" style="color:#bb9af7">O(n²)</span>
+      </div>
+      <div class="stat-item" style="margin-left: auto; text-align: right;">
+        <span class="stat-label">step</span>
+        <span class="stat-value green" id="statStep">0 / 0</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const N = 16;
+const C_DEFAULT = '#7dcfff';
+const C_COMPARE = '#ff9e64';
+const C_SORTED  = '#9ece6a';
+const SPEED     = 60; // ms per step
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildSteps(arr) {
+  const a = [...arr];
+  const steps = [{ array: [...a], hi: [], sortedFrom: a.length }];
+  for (let i = 0; i < a.length - 1; i++) {
+    for (let j = 0; j < a.length - i - 1; j++) {
+      const sf = a.length - i;
+      if (a[j] > a[j + 1]) {
+        steps.push({ array: [...a], hi: [j, j + 1], sortedFrom: sf });
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        steps.push({ array: [...a], hi: [j, j + 1], sortedFrom: sf });
+      } else {
+        steps.push({ array: [...a], hi: [j, j + 1], sortedFrom: sf });
+      }
+    }
+  }
+  steps.push({ array: [...a], hi: [], sortedFrom: 0 });
+  return steps;
+}
+
+const initArr = shuffle(Array.from({ length: N }, (_, i) => i + 1));
+const steps   = buildSteps(initArr);
+
+let comp = 0, swaps = 0;
+
+const svgEl = document.getElementById('chart');
+const W = () => svgEl.clientWidth || 614;
+const H = () => svgEl.clientHeight || 200;
+
+function drawStep(idx) {
+  const { array, hi, sortedFrom } = steps[idx];
+  const w = W(), h = H();
+  const PAD = 4;
+  const barW = (w - PAD * (N - 1)) / N;
+
+  svgEl.innerHTML = '';
+
+  const maxVal = N;
+  const yScale = v => (v / maxVal) * (h - 24);
+
+  array.forEach((val, i) => {
+    const x  = i * (barW + PAD);
+    const bh = yScale(val);
+    const y  = h - bh - 20;
+
+    const fill =
+      i >= sortedFrom    ? C_SORTED  :
+      hi.includes(i)     ? C_COMPARE : C_DEFAULT;
+
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', barW);
+    rect.setAttribute('height', bh);
+    rect.setAttribute('rx', 3);
+    rect.setAttribute('fill', fill);
+    rect.setAttribute('opacity', '0.92');
+    svgEl.appendChild(rect);
+
+    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txt.setAttribute('x', x + barW / 2);
+    txt.setAttribute('y', h - 5);
+    txt.setAttribute('text-anchor', 'middle');
+    txt.setAttribute('font-size', Math.max(8, Math.min(11, barW - 2)));
+    txt.setAttribute('font-family', 'JetBrains Mono, monospace');
+    txt.setAttribute('fill', '#565f89');
+    txt.textContent = val;
+    svgEl.appendChild(txt);
+  });
+}
+
+let stepIdx = 0;
+
+function countSwap(idx) {
+  if (idx < 1) return;
+  const prev = steps[idx - 1];
+  const curr = steps[idx];
+  if (prev.hi.length === 2 && curr.hi.length === 2) {
+    const [a, b] = prev.hi;
+    if (prev.array[a] !== curr.array[a]) swaps++;
+  }
+  if (prev.hi.length === 2) comp++;
+}
+
+function tick() {
+  if (stepIdx >= steps.length) {
+    document.getElementById('badgeRunning').style.display = 'none';
+    document.getElementById('badgeDone').style.display    = 'inline-block';
+    document.getElementById('progressBar').style.width    = '100%';
+    drawStep(steps.length - 1);
+    // restart after pause
+    setTimeout(restart, 2200);
+    return;
+  }
+
+  countSwap(stepIdx);
+  drawStep(stepIdx);
+
+  document.getElementById('statComp').textContent = comp;
+  document.getElementById('statSwap').textContent = swaps;
+  document.getElementById('statStep').textContent = stepIdx + ' / ' + (steps.length - 1);
+  document.getElementById('progressBar').style.width = ((stepIdx / (steps.length - 1)) * 100).toFixed(1) + '%';
+
+  stepIdx++;
+  setTimeout(tick, SPEED);
+}
+
+function restart() {
+  stepIdx = 0; comp = 0; swaps = 0;
+  document.getElementById('badgeRunning').style.display = 'inline-block';
+  document.getElementById('badgeDone').style.display    = 'none';
+  document.getElementById('statComp').textContent = '0';
+  document.getElementById('statSwap').textContent = '0';
+  document.getElementById('statStep').textContent = '0 / 0';
+  document.getElementById('progressBar').style.width = '0%';
+
+  // reshuffle
+  const newArr = shuffle(Array.from({ length: N }, (_, i) => i + 1));
+  steps.length = 0;
+  buildSteps(newArr).forEach(s => steps.push(s));
+
+  tick();
+}
+
+window.addEventListener('load', () => {
+  setTimeout(tick, 600);
+});
+</script>
+</body>
+</html>
