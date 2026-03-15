@@ -5,8 +5,10 @@ Source code for [@nby.frontend](https://instagram.com/nby.frontend) Instagram po
 Each folder = one post, named by topic.
 
 [BarChart/ # D3.js bar chart](https://github.com/nazarenko-by/Posts/tree/main/BarChart)\
-[BubbleSort/ # D3.js bar chart animation](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
-[BinarySearch/ # D3.js bar chart animation](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
+[BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
+[BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
+[LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
+[StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
 
 ## Stack
 
