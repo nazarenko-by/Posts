@@ -9,7 +9,8 @@ Each folder = one post, named by topic.
 [BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
-[StackQueue/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)
+[BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
+[MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)
 
 ## Stack
 
