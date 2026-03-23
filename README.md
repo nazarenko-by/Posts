@@ -13,6 +13,7 @@ Each folder = one post, named by topic.
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
+[ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)
 
 ## Stack
