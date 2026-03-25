@@ -4,6 +4,7 @@ Source code for @nby.frontend: [instagram](https://www.instagram.com/nby.fronten
 
 Each folder = one post, named by topic.
 
+[AnimatePresence/ # Visualization of AnimatePresence usage](https://github.com/nazarenko-by/Posts/tree/main/AnimatePresence)\
 [ArrayVSList/ # Visualization of an array and a list ](https://github.com/nazarenko-by/Posts/tree/main/ArrayVSList)\
 [BarChart/ # D3.js bar chart](https://github.com/nazarenko-by/Posts/tree/main/BarChart)\
 [BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
