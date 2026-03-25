@@ -10,6 +10,7 @@ Each folder = one post, named by topic.
 [BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
 [BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
 [BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
+[CssGrid/ # Visualization of CSS Grid usage](https://github.com/nazarenko-by/Posts/tree/main/CssGrid)\
 [CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
