@@ -6,6 +6,7 @@ Each folder = one post, named by topic.
 
 [AnimatePresence/ # Visualization of AnimatePresence usage](https://github.com/nazarenko-by/Posts/tree/main/AnimatePresence)\
 [ArrayVSList/ # Visualization of an array and a list ](https://github.com/nazarenko-by/Posts/tree/main/ArrayVSList)\
+[BackdropFilter/ # Visualization of CSS backdrop-filter usage](https://github.com/nazarenko-by/Posts/tree/main/BackdropFilter)\
 [BarChart/ # D3.js bar chart](https://github.com/nazarenko-by/Posts/tree/main/BarChart)\
 [BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
 [BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
