@@ -12,6 +12,7 @@ Each folder = one post, named by topic.
 [BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
 [ClipPath/ # Visualization of CSS clip-path usage](https://github.com/nazarenko-by/Posts/tree/main/ClipPath)\
 [CssGrid/ # Visualization of CSS Grid usage](https://github.com/nazarenko-by/Posts/tree/main/CssGrid)\
+[CssThemes/ # Visualization of CSS custom properties usage](https://github.com/nazarenko-by/Posts/tree/main/CssThemes)\
 [CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
