@@ -17,6 +17,7 @@ Each folder = one post, named by topic.
 [CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
+[Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
