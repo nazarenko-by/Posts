@@ -22,7 +22,8 @@ Each folder = one post, named by topic.
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
 [ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
-[StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)
+[StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
+[SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)
 
 ## Stack
 
