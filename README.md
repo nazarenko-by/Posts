@@ -25,6 +25,7 @@ Each folder = one post, named by topic.
 [ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)
+[SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)
 
 ## Stack
 
