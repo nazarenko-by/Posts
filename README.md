@@ -17,6 +17,7 @@ Each folder = one post, named by topic.
 [CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FlexboxVsGrid/ # Visual comparison of Flexbox and Grig](https://github.com/nazarenko-by/Posts/tree/main/FlexboxVsGrid)\
+[ForceGraph/ # Visualization of ForceGraph usage](https://github.com/nazarenko-by/Posts/tree/main/ForceGraph)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
 [Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
