@@ -20,6 +20,7 @@ Each folder = one post, named by topic.
 [ForceGraph/ # Visualization of ForceGraph usage](https://github.com/nazarenko-by/Posts/tree/main/ForceGraph)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
 [Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
+[LineChar/ # D3.js Line chart expamples](https://github.com/nazarenko-by/Posts/tree/main/LineChar)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
