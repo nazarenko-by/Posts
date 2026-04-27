@@ -11,6 +11,7 @@ Each folder = one post, named by topic.
 [BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
 [BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
 [BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
+[CanvasFromScratch/ # A series of posts on learning Canvas from scratch](https://github.com/nazarenko-by/Posts/tree/main/CanvasFromScratch)\
 [ClipPath/ # Visualization of CSS clip-path usage](https://github.com/nazarenko-by/Posts/tree/main/ClipPath)\
 [CssGrid/ # Visualization of CSS Grid usage](https://github.com/nazarenko-by/Posts/tree/main/CssGrid)\
 [CssThemes/ # Visualization of CSS custom properties usage](https://github.com/nazarenko-by/Posts/tree/main/CssThemes)\
