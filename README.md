@@ -34,6 +34,7 @@ Each folder = one post, named by topic.
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
 [SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)
+[Zod/ # A visual demonstration of how to use the Zod library](https://github.com/nazarenko-by/Posts/tree/main/Zod)
 
 ## Stack
 
