@@ -9,7 +9,8 @@ Each folder = one post, named by topic.
 [BackdropFilter/ # Visualization of CSS backdrop-filter usage](https://github.com/nazarenko-by/Posts/tree/main/BackdropFilter)\
 [BarChart/ # D3.js bar chart](https://github.com/nazarenko-by/Posts/tree/main/BarChart)\
 [BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
-[BinarySearch/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch)\
+[BinarySearch with D3/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_26)\
+[BinarySearch with TS/ # TS implementation of the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_93)\
 [BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
 [CanvasFromScratch/ # A series of posts on learning Canvas from scratch](https://github.com/nazarenko-by/Posts/tree/main/CanvasFromScratch)\
 [ClipPath/ # Visualization of CSS clip-path usage](https://github.com/nazarenko-by/Posts/tree/main/ClipPath)\
