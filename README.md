@@ -32,6 +32,7 @@ Each folder = one post, named by topic.
 [ReactPerformance/ # Visualization of the difference in the number of re-renders in React before and after optimization](https://github.com/nazarenko-by/Posts/tree/main/ReactPerformance)\
 [ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
 [RequestAnimationFrame/ # Visualization of requestAnimationFrame usage](https://github.com/nazarenko-by/Posts/tree/main/RequestAnimationFrame)\
+[ShadcnUI/ # Shadcn UI demo](https://github.com/nazarenko-by/Posts/tree/main/ShadcnUI)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
 [SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)
