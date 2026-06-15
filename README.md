@@ -17,6 +17,7 @@ Each folder = one post, named by topic.
 [CssGrid/ # Visualization of CSS Grid usage](https://github.com/nazarenko-by/Posts/tree/main/CssGrid)\
 [CssThemes/ # Visualization of CSS custom properties usage](https://github.com/nazarenko-by/Posts/tree/main/CssThemes)\
 [CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
+[CVATailwind/ # Visualization of CVA usage with Tailwind ](https://github.com/nazarenko-by/Posts/tree/main/CVATailwind)\
 [D3FromScratch/ # A series of posts on learning D3 from scratch](https://github.com/nazarenko-by/Posts/tree/main/D3FromScratch)\
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FlexboxVsGrid/ # Visual comparison of Flexbox and Grig](https://github.com/nazarenko-by/Posts/tree/main/FlexboxVsGrid)\
