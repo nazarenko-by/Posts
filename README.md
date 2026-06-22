@@ -22,6 +22,7 @@ Each folder = one post, named by topic.
 [DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
 [FlexboxVsGrid/ # Visual comparison of Flexbox and Grig](https://github.com/nazarenko-by/Posts/tree/main/FlexboxVsGrid)\
 [ForceGraph/ # Visualization of ForceGraph usage](https://github.com/nazarenko-by/Posts/tree/main/ForceGraph)\
+[FormDialogToast/ # Form-Dialog-Toast demo](https://github.com/nazarenko-by/Posts/tree/main/FormDialogToast)\
 [FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
 [Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
 [LineChar/ # D3.js Line chart expamples](https://github.com/nazarenko-by/Posts/tree/main/LineChar)\
