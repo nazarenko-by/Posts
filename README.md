@@ -37,6 +37,7 @@ Each folder = one post, named by topic.
 [RequestAnimationFrame/ # Visualization of requestAnimationFrame usage](https://github.com/nazarenko-by/Posts/tree/main/RequestAnimationFrame)\
 [ShadcnUI/ # Shadcn UI demo](https://github.com/nazarenko-by/Posts/tree/main/ShadcnUI)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
+[Storybook/ # Visualization of Storybook for ModernUI](https://github.com/nazarenko-by/Posts/tree/main/Storybook)\
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
 [SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)
 [Zod/ # A visual demonstration of how to use the Zod library](https://github.com/nazarenko-by/Posts/tree/main/Zod)
