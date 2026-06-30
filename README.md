@@ -32,6 +32,7 @@ Each folder = one post, named by topic.
 [ParticleSystem/ # Visualization of particle system animation](https://github.com/nazarenko-by/Posts/tree/main/ParticleSystem)\
 [RadixUI/ # Radix UI demo](https://github.com/nazarenko-by/Posts/tree/main/RadixUI)\
 [ReactD3Integration/ # Visualization of integration of D3 to React](https://github.com/nazarenko-by/Posts/tree/main/ReactD3Integration)\
+[ReactPatterns/ # A series of posts on learning React Patterns](https://github.com/nazarenko-by/Posts/tree/main/ReactPatterns)\
 [ReactPerformance/ # Visualization of the difference in the number of re-renders in React before and after optimization](https://github.com/nazarenko-by/Posts/tree/main/ReactPerformance)\
 [ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
 [RequestAnimationFrame/ # Visualization of requestAnimationFrame usage](https://github.com/nazarenko-by/Posts/tree/main/RequestAnimationFrame)\
