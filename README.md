@@ -36,6 +36,7 @@ Each folder = one post, named by topic.
 [ReactPatterns/ # A series of posts on learning React Patterns](https://github.com/nazarenko-by/Posts/tree/main/ReactPatterns)\
 [ReactPerformance/ # Visualization of the difference in the number of re-renders in React before and after optimization](https://github.com/nazarenko-by/Posts/tree/main/ReactPerformance)\
 [ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
+[RefactorSeries/ # A series about refactoring live code](https://github.com/nazarenko-by/Posts/tree/main/RefactorSeries)\
 [RequestAnimationFrame/ # Visualization of requestAnimationFrame usage](https://github.com/nazarenko-by/Posts/tree/main/RequestAnimationFrame)\
 [ShadcnUI/ # Shadcn UI demo](https://github.com/nazarenko-by/Posts/tree/main/ShadcnUI)\
 [StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
