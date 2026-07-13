@@ -1,4 +1,4 @@
-// demo/Demo.tsx — Рефакторинг живого коду #1
+// index.tsx — Рефакторинг живого коду #1
 // Звичайне preview-демо (не Remotion): "До" (монолітний код, для порівняння)
 // і "Після" (жива композиція з useProducts + ProductFilters + ProductTable +
 // Pagination + ProductModal).

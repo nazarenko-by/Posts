@@ -1,4 +1,4 @@
-// demo/ProductModal.tsx — Рефакторинг живого коду #1
+// ProductModal.tsx — Рефакторинг живого коду #1
 // Одна відповідальність: показати деталі обраного товару.
 
 import React from "react";

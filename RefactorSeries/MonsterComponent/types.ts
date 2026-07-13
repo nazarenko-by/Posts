@@ -1,4 +1,4 @@
-// demo/types.ts — Рефакторинг живого коду #1
+// types.ts — Рефакторинг живого коду #1
 
 export interface Product {
   id: number;

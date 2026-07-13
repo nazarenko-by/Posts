@@ -1,4 +1,4 @@
-// demo/ProductFilters.tsx — Рефакторинг живого коду #1
+// ProductFilters.tsx — Рефакторинг живого коду #1
 // Один компонент, одна відповідальність: рядок пошуку.
 
 import React from "react";
