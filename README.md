@@ -30,6 +30,7 @@ Each folder = one post, named by topic.
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
 [ParticleSystem/ # Visualization of particle system animation](https://github.com/nazarenko-by/Posts/tree/main/ParticleSystem)\
+[PRReview/ # Visualization of PR features](https://github.com/nazarenko-by/Posts/tree/main/PRReview)\
 [RadixUI/ # Radix UI demo](https://github.com/nazarenko-by/Posts/tree/main/RadixUI)\
 [ReactD3Integration/ # Visualization of integration of D3 to React](https://github.com/nazarenko-by/Posts/tree/main/ReactD3Integration)\
 [ReactHookForm/ # ReactHookForm demo](https://github.com/nazarenko-by/Posts/tree/main/ReactHookForm)\
