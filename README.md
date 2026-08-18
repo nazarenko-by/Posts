@@ -12,6 +12,7 @@ Each folder = one post, named by topic.
 [BinarySearch with D3/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_26)\
 [BinarySearch with TS/ # TS implementation of the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_93)\
 [BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
+[ButtonHover/ # Demonstration of the :hover selector for a button](https://github.com/nazarenko-by/Posts/tree/main/ButtonHover)\
 [CanvasFromScratch/ # A series of posts on learning Canvas from scratch](https://github.com/nazarenko-by/Posts/tree/main/CanvasFromScratch)\
 [ClipPath/ # Visualization of CSS clip-path usage](https://github.com/nazarenko-by/Posts/tree/main/ClipPath)\
 [CodeReview/ # A series of posts about code review](https://github.com/nazarenko-by/Posts/tree/main/CodeReview)\
