@@ -49,7 +49,8 @@ Each folder = one post, named by topic.
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
 [SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)\
 [useDebounce/ # A visual demonstration of useDebounce hook](https://github.com/nazarenko-by/Posts/tree/main/useDebounce)\
-[useMediaQuery/ # A visual demonstration of MediaQuery hook](https://github.com/nazarenko-by/Posts/tree/main/useMediaQuery)\
+[useMediaQuery/ # A visual demonstration of useMediaQuery hook](https://github.com/nazarenko-by/Posts/tree/main/useMediaQuery)\
+[useWindowWidth/ # A visual demonstration of useWindowWidth hook](https://github.com/nazarenko-by/Posts/tree/main/useWindowWidth)\
 [Zod/ # A visual demonstration of how to use the Zod library](https://github.com/nazarenko-by/Posts/tree/main/Zod)
 
 ## Stack
