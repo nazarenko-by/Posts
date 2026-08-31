@@ -30,7 +30,6 @@ Each folder = one post, named by topic.
 [Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
 [LineChar/ # D3.js Line chart expamples](https://github.com/nazarenko-by/Posts/tree/main/LineChar)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
-[MediaQuery/ # A visual demonstration of MediaQuery hook](https://github.com/nazarenko-by/Posts/tree/main/MediaQuery)\
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
 [NodeBackend/ # A series of articles providing a general overview of the backend for frontend developers](https://github.com/nazarenko-by/Posts/tree/main/NodeBackend)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
@@ -50,6 +49,7 @@ Each folder = one post, named by topic.
 [SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
 [SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)\
 [useDebounce/ # A visual demonstration of useDebounce hook](https://github.com/nazarenko-by/Posts/tree/main/useDebounce)\
+[useMediaQuery/ # A visual demonstration of MediaQuery hook](https://github.com/nazarenko-by/Posts/tree/main/useMediaQuery)\
 [Zod/ # A visual demonstration of how to use the Zod library](https://github.com/nazarenko-by/Posts/tree/main/Zod)
 
 ## Stack
