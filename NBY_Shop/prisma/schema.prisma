@@ -1,0 +1,36 @@
+// Епізод 1 — мінімальна схема під каталог. Розширюємо по ходу серії:
+// Review/Image/Category моделі приходять у епізодах 10/4/6, коли вони стають потрібні,
+// а не всі одразу — так само, як реальний проєкт росте разом з фічами.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Product {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  title     String
+  category  String
+  // Гроші — завжди Int у копійках, ніколи Float. priceUAH 199000 = 1 990,00 ₴.
+  priceUAH  Int
+  compareAt Int?
+  rating    Float         @default(0)
+  badge     String?
+  image     String
+  stock     Int           @default(0)
+  status    ProductStatus @default(PUBLISHED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
