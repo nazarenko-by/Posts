@@ -31,6 +31,7 @@ Each folder = one post, named by topic.
 [LineChar/ # D3.js Line chart expamples](https://github.com/nazarenko-by/Posts/tree/main/LineChar)\
 [LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
 [MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
+[NBY_Shop/ # Educational Project from the “Store from Scratch” Series](https://github.com/nazarenko-by/Posts/tree/main/NBY_Shop)\
 [NodeBackend/ # A series of articles providing a general overview of the backend for frontend developers](https://github.com/nazarenko-by/Posts/tree/main/NodeBackend)\
 [PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
 [ParticleSystem/ # Visualization of particle system animation](https://github.com/nazarenko-by/Posts/tree/main/ParticleSystem)\

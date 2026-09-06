@@ -5,15 +5,15 @@ import { PrismaClient } from "@prisma/client";
 // Тримаємо один інстанс у global, щоб hot-reload його перевикористовував.
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
+	prisma: PrismaClient | undefined;
 };
 
 export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
-  });
+	globalForPrisma.prisma ??
+	new PrismaClient({
+		log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
+	});
 
 if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+	globalForPrisma.prisma = prisma;
 }
