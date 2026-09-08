@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Переклад ShopHeader.dc.html (NBY Shop (Design)/ShopHeader.dc.html) з inline-стилів
 // на Tailwind-класи наших токенів. Структура 1:1 з кітом: announcement strip →
@@ -78,6 +79,8 @@ export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: numbe
 				</div>
 
 				<div className="ml-auto flex flex-none items-center gap-[6px]">
+					<ThemeToggle />
+
 					<button
 						type="button"
 						aria-label="Пошук"

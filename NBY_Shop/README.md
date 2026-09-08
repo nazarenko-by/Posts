@@ -1,6 +1,6 @@
 # NBY Shop
 
-Навчальний проєкт серії «Магазин з нуля» (@nby.frontend, Instagram/Threads)
+Навчальний проєкт серії «Магазин з нуля» (@nby.frontend).
 
 ## Стек
 
@@ -15,3 +15,11 @@ npx prisma db push
 npm run db:seed
 npm run dev
 ```
+
+## Епізоди
+
+| # | Тема |
+|---|------|
+| 1 | Каталог товарів — Server Components + Prisma |
+| 2 | UI-фундамент — navbar/footer, shadcn |
+| 3 | Dark mode — next-themes |
