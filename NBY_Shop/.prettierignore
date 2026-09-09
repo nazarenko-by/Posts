@@ -5,3 +5,4 @@ coverage
 *.md
 design-kit-source.html
 design-mockup.html
+*.prisma

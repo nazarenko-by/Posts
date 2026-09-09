@@ -1,6 +1,12 @@
 // Епізод 1 — мінімальна схема під каталог. Розширюємо по ходу серії:
 // Review/Image/Category моделі приходять у епізодах 10/4/6, коли вони стають потрібні,
 // а не всі одразу — так само, як реальний проєкт росте разом з фічами.
+//
+// Епізод 4 (сторінка товару): план був окрема Image-модель, спрощено до
+// imageCount — зображення все одно плейсхолдери (діагональна штриховка, як
+// у ProductCard), реальних файлів нема, тож relational-модель під них додала б
+// шум без навчальної цінності на цьому етапі. description/specs — прості
+// скалярні поля, той самий підхід.
 
 generator client {
   provider = "prisma-client-js"
@@ -27,6 +33,9 @@ model Product {
   rating    Float         @default(0)
   badge     String?
   image     String
+  imageCount Int          @default(4)
+  description String?
+  specs     Json?
   stock     Int           @default(0)
   status    ProductStatus @default(PUBLISHED)
   createdAt DateTime      @default(now())

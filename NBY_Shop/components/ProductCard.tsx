@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Product } from "@prisma/client";
 import { formatUAH } from "@/lib/format";
 
@@ -5,21 +6,30 @@ import { formatUAH } from "@/lib/format";
 // перекладена з inline-стилів на Tailwind-класи, що читають наші токени
 // (bg-muted, border, text-fg-muted, rounded-card...) з app/globals.css.
 // Wishlist-кнопка поки без onClick — інтерактивність приходить у епізоді 9.
+//
+// Картка веде на /product/[slug] — епізод 4 (динамічний route + галерея).
+// Link — абсолютний оверлей на всю картку, а не обгортка навколо wishlist-
+// кнопки: <button> усередині <a> — невалідна вкладеність (interactive-in-
+// interactive), тож кнопка лишається сусідом з вищим z-index і перехоплює клік.
 
 export function ProductCard({ product }: { product: Product }) {
 	return (
-		<div className="group flex cursor-pointer flex-col gap-3">
+		<div className="group relative flex flex-col gap-3">
+			<Link href={`/product/${product.slug}`} className="absolute inset-0 z-10" aria-label={product.title} />
+
 			<div
-				className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-card border border-border bg-bg-muted transition-colors group-hover:border-border-strong"
+				className="relative z-20 flex aspect-[4/5] items-center justify-center overflow-hidden rounded-card border border-border bg-bg-muted transition-colors group-hover:border-border-strong"
 				style={{
 					backgroundImage:
 						"repeating-linear-gradient(135deg, transparent 0 11px, rgba(127,127,127,.055) 11px 22px)",
 				}}
 			>
-				<span className="font-mono text-[10.5px] font-medium tracking-[0.08em] text-fg-subtle">IMG 4:5</span>
+				<span className="pointer-events-none font-mono text-[10.5px] font-medium tracking-[0.08em] text-fg-subtle">
+					IMG 4:5
+				</span>
 
 				{product.badge && (
-					<span className="absolute left-2.5 top-2.5 rounded-badge bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.04em] text-accent-fg">
+					<span className="pointer-events-none absolute left-2.5 top-2.5 rounded-badge bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.04em] text-accent-fg">
 						{product.badge}
 					</span>
 				)}
@@ -27,7 +37,7 @@ export function ProductCard({ product }: { product: Product }) {
 				<button
 					type="button"
 					aria-label="Додати в обране"
-					className="absolute right-2 top-2 grid h-[30px] w-[30px] place-items-center rounded-control border border-border bg-bg text-fg-muted transition-colors hover:border-accent hover:text-accent"
+					className="relative z-30 absolute right-2 top-2 grid h-[30px] w-[30px] place-items-center rounded-control border border-border bg-bg text-fg-muted transition-colors hover:border-accent hover:text-accent"
 				>
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 						<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z" />
@@ -35,7 +45,7 @@ export function ProductCard({ product }: { product: Product }) {
 				</button>
 			</div>
 
-			<div className="flex flex-col gap-[5px]">
+			<div className="pointer-events-none flex flex-col gap-[5px]">
 				<span className="font-mono text-[10px] font-medium uppercase tracking-[0.09em] text-fg-subtle">
 					{product.category}
 				</span>

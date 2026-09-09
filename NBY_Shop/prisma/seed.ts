@@ -15,6 +15,9 @@ const products = [
 		rating: 4.9,
 		badge: "new",
 		image: "/products/hoodie-it-works.jpg",
+		imageCount: 5,
+		description: "Важке худі для тих, хто вирішує баги силою переконання. Щільний фліс, не тягнеться після прання.",
+		specs: { Розмір: "S–XL", Матеріал: "60% бавовна / 40% поліестер", Догляд: "машинне прання 30°" },
 		stock: 24,
 	},
 	{
@@ -26,6 +29,9 @@ const products = [
 		rating: 4.6,
 		badge: null,
 		image: "/products/tshirt-sudo.jpg",
+		imageCount: 4,
+		description: "100% бавовна, щільність 180 г/м² — не просвічує і не сідає після першого прання.",
+		specs: { Розмір: "S–XXL", Матеріал: "100% бавовна", Щільність: "180 г/м²" },
 		stock: 41,
 	},
 	{
@@ -37,6 +43,9 @@ const products = [
 		rating: 4.7,
 		badge: "-35%",
 		image: "/products/mug-console-log.jpg",
+		imageCount: 3,
+		description: "Керамічна кружка на 350 мл. Друк не стирається навіть після посудомийки.",
+		specs: { "Об'єм": "350 мл", Матеріал: "кераміка", Посудомийка: "так" },
 		stock: 33,
 	},
 	{
@@ -48,6 +57,9 @@ const products = [
 		rating: 4.8,
 		badge: null,
 		image: "/products/thermo-mug-git-commit.jpg",
+		imageCount: 4,
+		description: "Тримає температуру до 6 годин — вистачить рівно на один затяжний code review.",
+		specs: { "Об'єм": "400 мл", Матеріал: "нержавіюча сталь", Утримання_тепла: "6 год" },
 		stock: 18,
 	},
 	{
@@ -59,6 +71,9 @@ const products = [
 		rating: 5.0,
 		badge: null,
 		image: "/products/keyboard-nby65.jpg",
+		imageCount: 6,
+		description: "65% розкладка, hot-swap PCB — свічі міняються без паяльника. Топ-продаж каталогу.",
+		specs: { Розкладка: "65%", Підключення: "USB-C / BT 5.1", "Hot-swap": "5-pin", Вага: "812 г" },
 		stock: 9,
 	},
 	{
@@ -70,6 +85,9 @@ const products = [
 		rating: 4.9,
 		badge: null,
 		image: "/products/keyboard-nby75.jpg",
+		imageCount: 6,
+		description: "Алюмінієвий корпус, gasket-mount — глухий, приємний звук без додаткової шумоізоляції.",
+		specs: { Розкладка: "75%", Корпус: "алюміній, gasket-mount", Підключення: "USB-C / BT 5.1", Вага: "1090 г" },
 		stock: 5,
 	},
 	{
@@ -81,6 +99,9 @@ const products = [
 		rating: 4.8,
 		badge: null,
 		image: "/products/nby65-barebone.jpg",
+		imageCount: 5,
+		description: "PCB + корпус + плата стабілізаторів, без свічів і кейкапів — збери клавіатуру під себе.",
+		specs: { Розкладка: "65%", Комплектація: "PCB + корпус + стабілізатори", Hotswap: "так" },
 		stock: 12,
 	},
 	{
@@ -92,6 +113,9 @@ const products = [
 		rating: 4.7,
 		badge: null,
 		image: "/products/keycaps-dracula.jpg",
+		imageCount: 4,
+		description: "Дабл-шот PBT — легенди не стираються роками. Повний набір під 65-100%.",
+		specs: { Профіль: "OEM", Матеріал: "PBT, дабл-шот", Кількість: "131 кейкап" },
 		stock: 27,
 	},
 	{
@@ -103,6 +127,9 @@ const products = [
 		rating: 4.6,
 		badge: null,
 		image: "/products/switches-gateron-brown.jpg",
+		imageCount: 3,
+		description: "Тактильні свічі середньої гучності — комфортно і в опенспейсі, і на дзвінках.",
+		specs: { Тип: "тактильні", Actuation_force: "55g", Кількість: "70 шт" },
 		stock: 60,
 	},
 	{
@@ -114,6 +141,9 @@ const products = [
 		rating: 4.5,
 		badge: null,
 		image: "/products/keyboard-case-65.jpg",
+		imageCount: 3,
+		description: "Твердий чохол з EVA-піни, тримає форму, коли клавіатура їде з тобою на конференцію.",
+		specs: { Сумісність: "65% клавіатури", Матеріал: "EVA-піна, зовні nylon" },
 		stock: 15,
 	},
 	{
@@ -125,6 +155,9 @@ const products = [
 		rating: 4.4,
 		badge: null,
 		image: "/products/lube-it.jpg",
+		imageCount: 3,
+		description: "Густа змазка для стрижнів і пружин — прибирає скретч і резонанс без переборки клавіатури.",
+		specs: { "Об'єм": "10 мл", Тип: "105g0, густа" },
 		stock: 50,
 	},
 	{
@@ -136,6 +169,9 @@ const products = [
 		rating: 4.8,
 		badge: null,
 		image: "/products/sticker-merge-conflict.jpg",
+		imageCount: 3,
+		description: "12 вінілових стікерів, водостійкі — переживають ноутбук, пляшку і дощ.",
+		specs: { Кількість: "12 шт", Розмір: "5×5 см", Матеріал: "вініл, водостійкий" },
 		stock: 120,
 	},
 	{
@@ -147,6 +183,9 @@ const products = [
 		rating: 4.9,
 		badge: "new",
 		image: "/products/pin-404.jpg",
+		imageCount: 3,
+		description: "Емальований пін, метал з посрібленням — не тьмяніє в кишені рюкзака.",
+		specs: { Матеріал: "емальований метал", Розмір: "3 см", Кріплення: "метелик" },
 		stock: 70,
 	},
 	{
@@ -158,6 +197,9 @@ const products = [
 		rating: 4.7,
 		badge: null,
 		image: "/products/mousepad-dark-mode.jpg",
+		imageCount: 4,
+		description: "На весь стіл — клавіатура, миша й трохи кави поміщаються без переїзду на дерево.",
+		specs: { Розмір: "900×400 мм", Товщина: "4 мм", Основа: "натуральний каучук" },
 		stock: 22,
 	},
 ] as const;
