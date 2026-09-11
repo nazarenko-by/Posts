@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useDebounce } from "@/hooks/useDebounce";
 
 // Переклад ShopHeader.dc.html (NBY Shop (Design)/ShopHeader.dc.html) з inline-стилів
 // на Tailwind-класи наших токенів. Структура 1:1 з кітом: announcement strip →
@@ -12,6 +14,13 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 //
 // cart/wishlist рахуються статично (3/5) — реальний стан кошика й обраного
 // приходить в епізодах 7 (кошик) і 9 (wishlist).
+//
+// Пошук (епізод 5) — раніше декоративний <span>, тепер реальний контрольований
+// input. useDebounce (300ms) — той самий hook, що вже був на слайдах постів
+// 169-170 — гасить проміжні onChange під час набору: на /search відправляється
+// лише "заспокоєне" значення, а не кожна натиснута клавіша. Мобільна кнопка-іконка
+// поки лише відкриває/закриває (реальний mobile search overlay — поза скоупом
+// епізоду).
 
 const NAV_LINKS = [
 	{ href: "/", label: "Каталог" },
@@ -21,6 +30,16 @@ const NAV_LINKS = [
 
 export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: number; wishCount?: number }) {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [query, setQuery] = useState("");
+	const debouncedQuery = useDebounce(query, 300);
+	const router = useRouter();
+
+	useEffect(() => {
+		const trimmed = debouncedQuery.trim();
+		if (trimmed.length > 0) {
+			router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+		}
+	}, [debouncedQuery, router]);
 
 	return (
 		<header className="relative z-10 border-b border-border bg-bg font-sans">
@@ -59,7 +78,17 @@ export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: numbe
 					</Link>
 				</nav>
 
-				<div className="hidden h-9 max-w-[340px] flex-1 items-center gap-2 rounded-control border border-border bg-bg-subtle px-[11px] md:flex">
+				<form
+					role="search"
+					onSubmit={(e) => {
+						e.preventDefault();
+						const trimmed = query.trim();
+						if (trimmed.length > 0) {
+							router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+						}
+					}}
+					className="hidden h-9 max-w-[340px] flex-1 items-center gap-2 rounded-control border border-border bg-bg-subtle px-[11px] md:flex"
+				>
 					<svg
 						width="14"
 						height="14"
@@ -67,16 +96,23 @@ export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: numbe
 						fill="none"
 						stroke="currentColor"
 						strokeWidth="2"
-						className="text-fg-subtle"
+						className="flex-none text-fg-subtle"
 					>
 						<circle cx="11" cy="11" r="7" />
 						<path d="M21 21l-4.5-4.5" />
 					</svg>
-					<span className="flex-1 text-[13px] text-fg-subtle">Пошук товарів...</span>
-					<span className="rounded-[4px] border border-border bg-bg px-[5px] py-[2px] font-mono text-[10px] font-medium text-fg-subtle">
+					<input
+						type="search"
+						value={query}
+						onChange={(e) => setQuery(e.target.value)}
+						placeholder="Пошук товарів..."
+						aria-label="Пошук товарів"
+						className="flex-1 bg-transparent text-[13px] text-fg outline-none placeholder:text-fg-subtle"
+					/>
+					<span className="flex-none rounded-[4px] border border-border bg-bg px-[5px] py-[2px] font-mono text-[10px] font-medium text-fg-subtle">
 						⌘K
 					</span>
-				</div>
+				</form>
 
 				<div className="ml-auto flex flex-none items-center gap-[6px]">
 					<ThemeToggle />
