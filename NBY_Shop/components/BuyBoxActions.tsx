@@ -3,17 +3,52 @@
 import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { formatUAH } from "@/lib/format";
+import { useCart } from "@/context/CartContext";
 
 // Qty-степер (46px, ширший за компактний 34px з Components) + CTA + wishlist.
-// Кнопка "Додати в кошик" поки без onClick — кошик реальний в епізоді 7,
-// wishlist — епізод 9 (той самий не-функціональний патерн, що й у ProductCard).
-export function BuyBoxActions({ priceUAH }: { priceUAH: number }) {
+// Епізод 7 — кнопка "Додати в кошик" тепер реальна: useCart().addItem.
+// wishlist лишається не-функціональним (епізод 9), той самий патерн,
+// що й у ProductCard.
+//
+// "Оптимістичне оновлення" тут — степер миттєво реагує на кожен клік без
+// жодного запиту на сервер; коли клік "+" впирається у stock, він одразу
+// відмовляє (не збільшує далі) і на 400ms підсвічує причину — а не мовчки
+// ігнорує клік чи чекає підтвердження звідкись іззовні.
+export function BuyBoxActions({
+	product,
+}: {
+	product: { slug: string; title: string; priceUAH: number; stock: number };
+}) {
 	const [qty, setQty] = useState(1);
+	const [limitFlash, setLimitFlash] = useState(false);
+	const [justAdded, setJustAdded] = useState(false);
+	const { addItem } = useCart();
+
+	function increment() {
+		setQty((q) => {
+			if (q >= product.stock) {
+				setLimitFlash(true);
+				setTimeout(() => setLimitFlash(false), 400);
+				return q;
+			}
+			return q + 1;
+		});
+	}
+
+	function handleAdd() {
+		addItem(product, qty);
+		setJustAdded(true);
+		setTimeout(() => setJustAdded(false), 1200);
+	}
 
 	return (
 		<div className="flex flex-col gap-3">
 			<div className="flex items-center gap-3">
-				<div className="flex h-[46px] items-center rounded-control border border-border">
+				<div
+					className={`flex h-[46px] items-center rounded-control border transition-colors ${
+						limitFlash ? "border-danger" : "border-border"
+					}`}
+				>
 					<button
 						type="button"
 						aria-label="Менше"
@@ -28,12 +63,18 @@ export function BuyBoxActions({ priceUAH }: { priceUAH: number }) {
 					<button
 						type="button"
 						aria-label="Більше"
-						onClick={() => setQty((q) => q + 1)}
+						onClick={increment}
 						className="grid h-full w-10 place-items-center text-fg-muted hover:text-fg"
 					>
 						+
 					</button>
 				</div>
+
+				{limitFlash && (
+					<span className="font-mono text-[11.5px] font-medium text-danger">
+						Максимум {product.stock} шт. в наявності
+					</span>
+				)}
 
 				<button
 					type="button"
@@ -46,8 +87,8 @@ export function BuyBoxActions({ priceUAH }: { priceUAH: number }) {
 				</button>
 			</div>
 
-			<button type="button" className={buttonVariants({ size: "lg", className: "w-full" })}>
-				Додати в кошик · {formatUAH(priceUAH * qty)}
+			<button type="button" onClick={handleAdd} className={buttonVariants({ size: "lg", className: "w-full" })}>
+				{justAdded ? "Додано ✓" : `Додати в кошик · ${formatUAH(product.priceUAH * qty)}`}
 			</button>
 		</div>
 	);

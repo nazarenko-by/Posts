@@ -4,6 +4,7 @@ import "./globals.css";
 import { ShopHeader } from "@/components/ShopHeader";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { CartProvider } from "@/context/CartContext";
 
 // Geist для інтерфейсу, Geist Mono для цін/SKU/лейблів — див. DESIGN_SYSTEM.md.
 const geistSans = Geist({
@@ -34,15 +35,20 @@ export default function RootLayout({
 	// без цього React лаявся б на "мисматч" атрибута, якого сам і очікує.
 	// defaultTheme="system" — стартуємо з ОС-теми, ThemeToggle (у ShopHeader)
 	// дозволяє перемкнути вручну, next-themes сам запам'ятовує вибір.
+	//
+	// Кошик — епізод 7: CartProvider над усім деревом, бо лічильник у шапці
+	// й кнопка "Додати в кошик" на сторінці товару мають бачити той самий стан.
 	return (
 		<html lang="uk" suppressHydrationWarning>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-bg-muted antialiased`}
 			>
 				<ThemeProvider>
-					<ShopHeader />
-					<main className="flex-1">{children}</main>
-					<Footer />
+					<CartProvider>
+						<ShopHeader />
+						<main className="flex-1">{children}</main>
+						<Footer />
+					</CartProvider>
 				</ThemeProvider>
 			</body>
 		</html>

@@ -91,7 +91,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 						)}
 					</div>
 
-					<BuyBoxActions priceUAH={product.priceUAH} />
+					<BuyBoxActions
+						product={{
+							slug: product.slug,
+							title: product.title,
+							priceUAH: product.priceUAH,
+							stock: product.stock,
+						}}
+					/>
 
 					<div className="flex flex-col gap-2 rounded-card bg-bg-subtle p-4 text-[12.5px] text-fg-muted">
 						<span>🚚 Доставка 1–2 дні по Україні</span>

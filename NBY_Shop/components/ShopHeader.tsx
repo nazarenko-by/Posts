@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useDebounce } from "@/hooks/useDebounce";
+import { useCart } from "@/context/CartContext";
 
 // Переклад ShopHeader.dc.html (NBY Shop (Design)/ShopHeader.dc.html) з inline-стилів
 // на Tailwind-класи наших токенів. Структура 1:1 з кітом: announcement strip →
@@ -12,8 +13,11 @@ import { useDebounce } from "@/hooks/useDebounce";
 // статичний макет): мобільне бургер-меню, бо "responsive layout" — це власне
 // тема епізоду 2, а не самого кіту.
 //
-// cart/wishlist рахуються статично (3/5) — реальний стан кошика й обраного
-// приходить в епізодах 7 (кошик) і 9 (wishlist).
+// wishlist рахується статично (5) — реальний стан приходить в епізоді 9.
+// cart — епізод 7: реальний лічильник з useCart(). suppressHydrationWarning
+// на самому числі — SSR завжди віддає 0 (localStorage нема на сервері),
+// клієнт одразу після гідратації показує справжнє значення; той самий
+// принцип, що next-themes у епізоді 3.
 //
 // Пошук (епізод 5) — раніше декоративний <span>, тепер реальний контрольований
 // input. useDebounce (300ms) — той самий hook, що вже був на слайдах постів
@@ -28,9 +32,10 @@ const NAV_LINKS = [
 	{ href: "#", label: "Блог" },
 ];
 
-export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: number; wishCount?: number }) {
+export function ShopHeader({ wishCount = 5 }: { wishCount?: number }) {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [query, setQuery] = useState("");
+	const { totalCount: cartCount } = useCart();
 	const debouncedQuery = useDebounce(query, 300);
 	const router = useRouter();
 
@@ -171,7 +176,9 @@ export function ShopHeader({ cartCount = 3, wishCount = 5 }: { cartCount?: numbe
 							<path d="M6 7h12l-1.2 12.5H7.2z" />
 							<path d="M9 7a3 3 0 0 1 6 0" />
 						</svg>
-						<span className="font-mono text-[12.5px] font-semibold">{cartCount}</span>
+						<span className="font-mono text-[12.5px] font-semibold" suppressHydrationWarning>
+							{cartCount}
+						</span>
 					</button>
 
 					<button
