@@ -5,6 +5,8 @@ import { ShopHeader } from "@/components/ShopHeader";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
+import { ToastProvider } from "@/context/ToastContext";
+import { ToastViewport } from "@/components/ToastViewport";
 
 // Geist для інтерфейсу, Geist Mono для цін/SKU/лейблів — див. DESIGN_SYSTEM.md.
 const geistSans = Geist({
@@ -38,17 +40,24 @@ export default function RootLayout({
 	//
 	// Кошик — епізод 7: CartProvider над усім деревом, бо лічильник у шапці
 	// й кнопка "Додати в кошик" на сторінці товару мають бачити той самий стан.
+	//
+	// Toast — епізод 8: ToastProvider над CartProvider (кошик і майбутні дії
+	// однаково можуть показувати сповіщення), ToastViewport — один на весь
+	// застосунок, рендериться поза <main>, щоб не залежати від конкретної сторінки.
 	return (
 		<html lang="uk" suppressHydrationWarning>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-bg-muted antialiased`}
 			>
 				<ThemeProvider>
-					<CartProvider>
-						<ShopHeader />
-						<main className="flex-1">{children}</main>
-						<Footer />
-					</CartProvider>
+					<ToastProvider>
+						<CartProvider>
+							<ShopHeader />
+							<main className="flex-1">{children}</main>
+							<Footer />
+							<ToastViewport />
+						</CartProvider>
+					</ToastProvider>
 				</ThemeProvider>
 			</body>
 		</html>

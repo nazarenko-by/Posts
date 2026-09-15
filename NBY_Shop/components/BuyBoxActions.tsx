@@ -4,16 +4,19 @@ import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { formatUAH } from "@/lib/format";
 import { useCart } from "@/context/CartContext";
+import { useToast } from "@/context/ToastContext";
 
 // Qty-степер (46px, ширший за компактний 34px з Components) + CTA + wishlist.
-// Епізод 7 — кнопка "Додати в кошик" тепер реальна: useCart().addItem.
+// Епізод 7 — кнопка "Додати в кошик" стала реальною (useCart().addItem).
+// Епізод 8 — фідбек про це тепер справжній toast (ToastContext), а не
+// тимчасовий напис "Додано ✓" на самій кнопці з епізоду 7: кнопка знову
+// завжди показує ціну, сповіщення живе своїм життям внизу праворуч і має
+// "Скасувати" — реальний rollback до кількості, що була в кошику до кліку.
 // wishlist лишається не-функціональним (епізод 9), той самий патерн,
 // що й у ProductCard.
 //
-// "Оптимістичне оновлення" тут — степер миттєво реагує на кожен клік без
-// жодного запиту на сервер; коли клік "+" впирається у stock, він одразу
-// відмовляє (не збільшує далі) і на 400ms підсвічує причину — а не мовчки
-// ігнорує клік чи чекає підтвердження звідкись іззовні.
+// "Оптимістичне оновлення" (епізод 7) нікуди не ділось — степер миттєво
+// реагує на кожен клік без запиту на сервер, впирається у stock з підсвіткою.
 export function BuyBoxActions({
 	product,
 }: {
@@ -21,8 +24,8 @@ export function BuyBoxActions({
 }) {
 	const [qty, setQty] = useState(1);
 	const [limitFlash, setLimitFlash] = useState(false);
-	const [justAdded, setJustAdded] = useState(false);
-	const { addItem } = useCart();
+	const { items, addItem, setQty: setCartQty, removeItem } = useCart();
+	const { showToast } = useToast();
 
 	function increment() {
 		setQty((q) => {
@@ -36,9 +39,24 @@ export function BuyBoxActions({
 	}
 
 	function handleAdd() {
+		const previousQty = items.find((i) => i.slug === product.slug)?.qty ?? 0;
 		addItem(product, qty);
-		setJustAdded(true);
-		setTimeout(() => setJustAdded(false), 1200);
+
+		showToast({
+			title: "Додано в кошик",
+			subtitle: product.title,
+			variant: "success",
+			action: {
+				label: "Скасувати",
+				onClick: () => {
+					if (previousQty > 0) {
+						setCartQty(product.slug, previousQty);
+					} else {
+						removeItem(product.slug);
+					}
+				},
+			},
+		});
 	}
 
 	return (
@@ -88,7 +106,7 @@ export function BuyBoxActions({
 			</div>
 
 			<button type="button" onClick={handleAdd} className={buttonVariants({ size: "lg", className: "w-full" })}>
-				{justAdded ? "Додано ✓" : `Додати в кошик · ${formatUAH(product.priceUAH * qty)}`}
+				Додати в кошик · {formatUAH(product.priceUAH * qty)}
 			</button>
 		</div>
 	);
