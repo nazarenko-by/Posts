@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import type { Product } from "@prisma/client";
 import { formatUAH } from "@/lib/format";
+import { useWishlist } from "@/context/WishlistContext";
 
 // Верстка 1:1 з дизайн-кіту (ShopProject/COMPONENTS.md → ProductCard.dc.html),
 // перекладена з inline-стилів на Tailwind-класи, що читають наші токени
 // (bg-muted, border, text-fg-muted, rounded-card...) з app/globals.css.
-// Wishlist-кнопка поки без onClick — інтерактивність приходить у епізоді 9.
+// Епізод 9 — wishlist-кнопка тепер реальна (useWishlist().toggle), заповнене
+// серце — товар в обраному. Компонент став "use client" саме через це:
+// раніше рендерився і на сервері (звичайний Server Component), контекст
+// обраного це змінює.
 //
 // Картка веде на /product/[slug] — епізод 4 (динамічний route + галерея).
 // Link — абсолютний оверлей на всю картку, а не обгортка навколо wishlist-
@@ -13,6 +19,9 @@ import { formatUAH } from "@/lib/format";
 // interactive), тож кнопка лишається сусідом з вищим z-index і перехоплює клік.
 
 export function ProductCard({ product }: { product: Product }) {
+	const { isWishlisted, toggle } = useWishlist();
+	const wishlisted = isWishlisted(product.slug);
+
 	return (
 		<div className="group relative flex flex-col gap-3">
 			<Link href={`/product/${product.slug}`} className="absolute inset-0 z-10" aria-label={product.title} />
@@ -36,10 +45,25 @@ export function ProductCard({ product }: { product: Product }) {
 
 				<button
 					type="button"
-					aria-label="Додати в обране"
-					className="relative z-30 absolute right-2 top-2 grid h-[30px] w-[30px] place-items-center rounded-control border border-border bg-bg text-fg-muted transition-colors hover:border-accent hover:text-accent"
+					aria-label={wishlisted ? "Прибрати з обраного" : "Додати в обране"}
+					aria-pressed={wishlisted}
+					onClick={() => toggle(product.slug)}
+					suppressHydrationWarning
+					className={`relative z-30 absolute right-2 top-2 grid h-[30px] w-[30px] place-items-center rounded-control border transition-colors ${
+						wishlisted
+							? "border-accent bg-accent-subtle text-accent"
+							: "border-border bg-bg text-fg-muted hover:border-accent hover:text-accent"
+					}`}
 				>
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+					<svg
+						width="14"
+						height="14"
+						viewBox="0 0 24 24"
+						fill={wishlisted ? "currentColor" : "none"}
+						stroke="currentColor"
+						strokeWidth="2"
+						suppressHydrationWarning
+					>
 						<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z" />
 					</svg>
 				</button>

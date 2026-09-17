@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { formatUAH } from "@/lib/format";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/context/ToastContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 // Qty-степер (46px, ширший за компактний 34px з Components) + CTA + wishlist.
 // Епізод 7 — кнопка "Додати в кошик" стала реальною (useCart().addItem).
@@ -12,8 +13,8 @@ import { useToast } from "@/context/ToastContext";
 // тимчасовий напис "Додано ✓" на самій кнопці з епізоду 7: кнопка знову
 // завжди показує ціну, сповіщення живе своїм життям внизу праворуч і має
 // "Скасувати" — реальний rollback до кількості, що була в кошику до кліку.
-// wishlist лишається не-функціональним (епізод 9), той самий патерн,
-// що й у ProductCard.
+// Епізод 9 — wishlist-кнопка тепер реальна (useWishlist().toggle), той
+// самий патерн заповненого серця, що в ProductCard.
 //
 // "Оптимістичне оновлення" (епізод 7) нікуди не ділось — степер миттєво
 // реагує на кожен клік без запиту на сервер, впирається у stock з підсвіткою.
@@ -26,6 +27,8 @@ export function BuyBoxActions({
 	const [limitFlash, setLimitFlash] = useState(false);
 	const { items, addItem, setQty: setCartQty, removeItem } = useCart();
 	const { showToast } = useToast();
+	const { isWishlisted, toggle: toggleWishlist } = useWishlist();
+	const wishlisted = isWishlisted(product.slug);
 
 	function increment() {
 		setQty((q) => {
@@ -96,10 +99,25 @@ export function BuyBoxActions({
 
 				<button
 					type="button"
-					aria-label="Додати в обране"
-					className="grid h-[46px] w-[46px] place-items-center rounded-control border border-border text-fg-muted hover:border-accent hover:text-accent"
+					aria-label={wishlisted ? "Прибрати з обраного" : "Додати в обране"}
+					aria-pressed={wishlisted}
+					onClick={() => toggleWishlist(product.slug)}
+					suppressHydrationWarning
+					className={`grid h-[46px] w-[46px] place-items-center rounded-control border transition-colors ${
+						wishlisted
+							? "border-accent bg-accent-subtle text-accent"
+							: "border-border text-fg-muted hover:border-accent hover:text-accent"
+					}`}
 				>
-					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+					<svg
+						width="17"
+						height="17"
+						viewBox="0 0 24 24"
+						fill={wishlisted ? "currentColor" : "none"}
+						stroke="currentColor"
+						strokeWidth="1.8"
+						suppressHydrationWarning
+					>
 						<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z" />
 					</svg>
 				</button>

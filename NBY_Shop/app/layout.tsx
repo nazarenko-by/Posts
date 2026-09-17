@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
 import { ToastProvider } from "@/context/ToastContext";
 import { ToastViewport } from "@/components/ToastViewport";
+import { WishlistProvider } from "@/context/WishlistContext";
 
 // Geist для інтерфейсу, Geist Mono для цін/SKU/лейблів — див. DESIGN_SYSTEM.md.
 const geistSans = Geist({
@@ -44,6 +45,9 @@ export default function RootLayout({
 	// Toast — епізод 8: ToastProvider над CartProvider (кошик і майбутні дії
 	// однаково можуть показувати сповіщення), ToastViewport — один на весь
 	// застосунок, рендериться поза <main>, щоб не залежати від конкретної сторінки.
+	//
+	// Обране — епізод 9: WishlistProvider поряд з CartProvider — той самий
+	// рівень дерева, той самий lazy-init-з-localStorage принцип, окремий стан.
 	return (
 		<html lang="uk" suppressHydrationWarning>
 			<body
@@ -52,10 +56,12 @@ export default function RootLayout({
 				<ThemeProvider>
 					<ToastProvider>
 						<CartProvider>
-							<ShopHeader />
-							<main className="flex-1">{children}</main>
-							<Footer />
-							<ToastViewport />
+							<WishlistProvider>
+								<ShopHeader />
+								<main className="flex-1">{children}</main>
+								<Footer />
+								<ToastViewport />
+							</WishlistProvider>
 						</CartProvider>
 					</ToastProvider>
 				</ThemeProvider>

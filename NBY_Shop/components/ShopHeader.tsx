@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 // Переклад ShopHeader.dc.html (NBY Shop (Design)/ShopHeader.dc.html) з inline-стилів
 // на Tailwind-класи наших токенів. Структура 1:1 з кітом: announcement strip →
@@ -13,11 +14,11 @@ import { useCart } from "@/context/CartContext";
 // статичний макет): мобільне бургер-меню, бо "responsive layout" — це власне
 // тема епізоду 2, а не самого кіту.
 //
-// wishlist рахується статично (5) — реальний стан приходить в епізоді 9.
-// cart — епізод 7: реальний лічильник з useCart(). suppressHydrationWarning
-// на самому числі — SSR завжди віддає 0 (localStorage нема на сервері),
-// клієнт одразу після гідратації показує справжнє значення; той самий
-// принцип, що next-themes у епізоді 3.
+// wishlist — епізод 9: реальний лічильник з useWishlist(), кнопка веде на
+// нову сторінку /wishlist. cart — епізод 7: реальний лічильник з useCart().
+// suppressHydrationWarning на обох числах — SSR завжди віддає 0 (localStorage
+// нема на сервері), клієнт одразу після гідратації показує справжнє
+// значення; той самий принцип, що next-themes у епізоді 3.
 //
 // Пошук (епізод 5) — раніше декоративний <span>, тепер реальний контрольований
 // input. useDebounce (300ms) — той самий hook, що вже був на слайдах постів
@@ -32,10 +33,11 @@ const NAV_LINKS = [
 	{ href: "#", label: "Блог" },
 ];
 
-export function ShopHeader({ wishCount = 5 }: { wishCount?: number }) {
+export function ShopHeader() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [query, setQuery] = useState("");
 	const { totalCount: cartCount } = useCart();
+	const { count: wishCount } = useWishlist();
 	const debouncedQuery = useDebounce(query, 300);
 	const router = useRouter();
 
@@ -140,10 +142,10 @@ export function ShopHeader({ wishCount = 5 }: { wishCount?: number }) {
 						</svg>
 					</button>
 
-					<button
-						type="button"
+					<Link
+						href="/wishlist"
 						aria-label="Обране"
-						className="relative hidden h-[34px] w-[34px] place-items-center rounded-control border border-transparent text-fg-muted hover:bg-bg-muted hover:text-fg md:grid"
+						className="relative hidden h-[34px] w-[34px] place-items-center rounded-control border border-transparent text-fg-muted no-underline hover:bg-bg-muted hover:text-fg md:grid"
 					>
 						<svg
 							width="16"
@@ -155,10 +157,13 @@ export function ShopHeader({ wishCount = 5 }: { wishCount?: number }) {
 						>
 							<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z" />
 						</svg>
-						<span className="absolute right-0 top-[1px] flex h-[15px] min-w-[15px] items-center justify-center rounded-[8px] bg-fg px-[3px] font-mono text-[9.5px] font-semibold text-bg">
+						<span
+							className="absolute right-0 top-[1px] flex h-[15px] min-w-[15px] items-center justify-center rounded-[8px] bg-fg px-[3px] font-mono text-[9.5px] font-semibold text-bg"
+							suppressHydrationWarning
+						>
 							{wishCount}
 						</span>
-					</button>
+					</Link>
 
 					<button
 						type="button"
