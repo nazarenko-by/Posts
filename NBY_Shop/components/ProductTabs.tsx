@@ -2,17 +2,22 @@
 
 import { useState } from "react";
 
-// "Опис"/"Характеристики" з COMPONENTS.md (третя вкладка "Відгуки · N" туди ж
-// у кіті, але Review-модель приходить у епізоді 10 — свідомо лишаємо тут
-// тільки 2 вкладки, які вже маємо чим наповнити).
+// "Опис"/"Характеристики" — внутрішній toggle цього компонента, як і раніше.
+// Епізод 10: "Відгуки · N" — реальна кількість, більше не заглушка з коментаря
+// нижче. На відміну від двох перших, вона не перемикає контент тут: справжня
+// секція відгуків (ReviewsSection) full-bleed нижче на сторінці товару, поза
+// цим блоком, тож третя вкладка — це якірне посилання (<a href="#reviews">),
+// не ще один пункт internal-стейту.
 const TABS = ["Опис", "Характеристики"] as const;
 
 export function ProductTabs({
 	description,
 	specs,
+	reviewCount,
 }: {
 	description: string | null;
 	specs: Record<string, string> | null;
+	reviewCount: number;
 }) {
 	const [active, setActive] = useState<(typeof TABS)[number]>("Опис");
 
@@ -31,6 +36,12 @@ export function ProductTabs({
 						{tab}
 					</button>
 				))}
+				<a
+					href="#reviews"
+					className="-mb-px border-b-[1.5px] border-transparent px-1 py-2.5 text-[13.5px] font-medium text-fg-muted transition-colors hover:text-fg"
+				>
+					Відгуки · {reviewCount}
+				</a>
 			</div>
 
 			{active === "Опис" && (

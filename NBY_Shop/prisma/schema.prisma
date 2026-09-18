@@ -7,6 +7,13 @@
 // у ProductCard), реальних файлів нема, тож relational-модель під них додала б
 // шум без навчальної цінності на цьому етапі. description/specs — прості
 // скалярні поля, той самий підхід.
+//
+// Епізод 10 (відгуки): Product.rating лишається як був — кешоване число, яким
+// далі сортує каталог (епізод 6, orderBy rating_desc; перерахунок aggregate на
+// кожен товар списку був би N+1). Review — окрема модель з власним рейтингом
+// 1-5 на відгук; сторінка товару рахує "живий" _avg через prisma.review.aggregate()
+// і показує саме його, з фолбеком на кешований Product.rating, поки в товару
+// ще нема жодного відгуку.
 
 generator client {
   provider = "prisma-client-js"
@@ -40,6 +47,21 @@ model Product {
   status    ProductStatus @default(PUBLISHED)
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
+  reviews   Review[]
 
   @@index([status, createdAt])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  author    String
+  // 1-5, ціле число — той самий принцип, що priceUAH: рахуємо на бекенді, не Float.
+  rating    Int
+  comment   String
+  verified  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
 }

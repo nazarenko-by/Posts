@@ -219,6 +219,86 @@ const draftProduct = {
 	status: "DRAFT" as const,
 };
 
+// Епізод 10 — реальні відгуки. rev1/rev2 для клавіатури NBY65 взяті буквально
+// з дизайн-кіту (NBY Shop (Design)/NBY Shop.dc.html, t.rev1/t.rev2, автори й
+// дати збережені 1:1). Решта — синтетичні, додані щоб розподіл по зірках
+// (rating-distribution bars) мав що показувати, а не тільки "всі 5★".
+const reviews: {
+	productSlug: string;
+	author: string;
+	rating: number;
+	comment: string;
+	verified: boolean;
+	createdAt: Date;
+}[] = [
+	{
+		productSlug: "keyboard-nby65-hotswap",
+		author: "Олена К.",
+		rating: 5,
+		comment:
+			"Друкую на ній цілий день — руки не втомлюються, а звук тихий і глибокий. Прийшла на другий день, у комплекті були запасні свічі.",
+		verified: true,
+		createdAt: new Date("2026-08-14"),
+	},
+	{
+		productSlug: "keyboard-nby65-hotswap",
+		author: "Максим Т.",
+		rating: 4,
+		comment:
+			"Все чудово, крім того, що тепер стара клавіатура на роботі дратує. Мінус зірка за нестачу підсвітки під кейкапами.",
+		verified: true,
+		createdAt: new Date("2026-08-02"),
+	},
+	{
+		productSlug: "keyboard-nby65-hotswap",
+		author: "Ігор П.",
+		rating: 5,
+		comment: "Другий hot-swap набір у мене, і знову без нарікань. Свічі міняються за хвилину, без паяльника.",
+		verified: true,
+		createdAt: new Date("2026-07-20"),
+	},
+	{
+		productSlug: "keyboard-nby65-hotswap",
+		author: "Дарина С.",
+		rating: 3,
+		comment: "Клавіатура хороша, але доставка забарилась на тиждень — думала, загубили посилку.",
+		verified: false,
+		createdAt: new Date("2026-07-05"),
+	},
+	{
+		productSlug: "hoodie-it-works-on-my-machine",
+		author: "Роман В.",
+		rating: 5,
+		comment: "Тепле, не сідає після прання, а фраза на грудях зчитується миттєво на кожному стендапі.",
+		verified: true,
+		createdAt: new Date("2026-08-20"),
+	},
+	{
+		productSlug: "hoodie-it-works-on-my-machine",
+		author: "Настя Л.",
+		rating: 4,
+		comment: "Розмір трохи більший, ніж очікувала — брала M, підійшов би S. Якість фліса топова.",
+		verified: true,
+		createdAt: new Date("2026-08-11"),
+	},
+	{
+		productSlug: "mug-console-log-coffee",
+		author: "Артем Ж.",
+		rating: 5,
+		comment: "Друк не стерся навіть після місяця в посудомийці щодня. Рекомендую колегам на кожен стендап.",
+		verified: true,
+		createdAt: new Date("2026-08-09"),
+	},
+	{
+		productSlug: "mug-console-log-coffee",
+		author: "Юлія М.",
+		rating: 2,
+		comment: "Прийшла з мікротріщиною на ручці. Написала в підтримку, чекаю на заміну.",
+		verified: true,
+		createdAt: new Date("2026-07-28"),
+	},
+];
+
 async function main() {
 	for (const product of products) {
 		await prisma.product.upsert({
@@ -234,7 +314,27 @@ async function main() {
 		create: draftProduct,
 	});
 
-	console.log(`Засіяно ${products.length + 1} товарів (${products.length} PUBLISHED + 1 DRAFT).`);
+	// Ідемпотентність: перед повторним seed прибираємо старі відгуки цих товарів,
+	// щоб повторний `npm run seed` не плодив дублікати (Review не має unique-поля
+	// під upsert, на відміну від Product.slug).
+	const reviewedSlugs = [...new Set(reviews.map((r) => r.productSlug))];
+	const reviewedProducts = await prisma.product.findMany({
+		where: { slug: { in: reviewedSlugs } },
+		select: { id: true, slug: true },
+	});
+	const productIdBySlug = new Map(reviewedProducts.map((p) => [p.slug, p.id]));
+
+	await prisma.review.deleteMany({ where: { productId: { in: [...productIdBySlug.values()] } } });
+	await prisma.review.createMany({
+		data: reviews.map(({ productSlug, ...review }) => ({
+			...review,
+			productId: productIdBySlug.get(productSlug)!,
+		})),
+	});
+
+	console.log(
+		`Засіяно ${products.length + 1} товарів (${products.length} PUBLISHED + 1 DRAFT) і ${reviews.length} відгуків.`
+	);
 }
 
 main()
