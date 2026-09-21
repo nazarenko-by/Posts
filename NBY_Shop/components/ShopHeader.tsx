@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CommandMenu } from "@/components/CommandMenu";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
@@ -15,7 +16,9 @@ import { useWishlist } from "@/context/WishlistContext";
 // тема епізоду 2, а не самого кіту.
 //
 // wishlist — епізод 9: реальний лічильник з useWishlist(), кнопка веде на
-// нову сторінку /wishlist. cart — епізод 7: реальний лічильник з useCart().
+// нову сторінку /wishlist. cart — епізод 7: реальний лічильник з useCart(),
+// кнопка веде на /checkout (епізод 11) — окремої сторінки /cart немає,
+// order summary в чекауті і є тим самим переглядом кошика перед оплатою.
 // suppressHydrationWarning на обох числах — SSR завжди віддає 0 (localStorage
 // нема на сервері), клієнт одразу після гідратації показує справжнє
 // значення; той самий принцип, що next-themes у епізоді 3.
@@ -26,6 +29,11 @@ import { useWishlist } from "@/context/WishlistContext";
 // лише "заспокоєне" значення, а не кожна натиснута клавіша. Мобільна кнопка-іконка
 // поки лише відкриває/закриває (реальний mobile search overlay — поза скоупом
 // епізоду).
+//
+// ⌘K (епізод 11, Інструменти) — бейдж поруч із пошуком висів з епізоду 2
+// суто декоративним <span>, жодна клавіша нічого не відкривала. Слухач
+// keydown живе тут (ShopHeader вже клієнтський і вже тримає local state),
+// сам палет — презентаційний CommandMenu.tsx.
 
 const NAV_LINKS = [
 	{ href: "/", label: "Каталог" },
@@ -36,6 +44,7 @@ const NAV_LINKS = [
 export function ShopHeader() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [query, setQuery] = useState("");
+	const [cmdkOpen, setCmdkOpen] = useState(false);
 	const { totalCount: cartCount } = useCart();
 	const { count: wishCount } = useWishlist();
 	const debouncedQuery = useDebounce(query, 300);
@@ -47,6 +56,20 @@ export function ShopHeader() {
 			router.push(`/search?q=${encodeURIComponent(trimmed)}`);
 		}
 	}, [debouncedQuery, router]);
+
+	// ⌘K / Ctrl+K з будь-якого місця сторінки — той самий приклад, що в
+	// документації cmdk. preventDefault обов'язковий: без нього браузер сам
+	// перехоплює ⌘K/Ctrl+K (пошук у адресному рядку в частині браузерів).
+	useEffect(() => {
+		function onKeyDown(e: KeyboardEvent) {
+			if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+				e.preventDefault();
+				setCmdkOpen((open) => !open);
+			}
+		}
+		document.addEventListener("keydown", onKeyDown);
+		return () => document.removeEventListener("keydown", onKeyDown);
+	}, []);
 
 	return (
 		<header className="relative z-10 border-b border-border bg-bg font-sans">
@@ -116,9 +139,14 @@ export function ShopHeader() {
 						aria-label="Пошук товарів"
 						className="flex-1 bg-transparent text-[13px] text-fg outline-none placeholder:text-fg-subtle"
 					/>
-					<span className="flex-none rounded-[4px] border border-border bg-bg px-[5px] py-[2px] font-mono text-[10px] font-medium text-fg-subtle">
+					<button
+						type="button"
+						onClick={() => setCmdkOpen(true)}
+						aria-label="Швидкі команди"
+						className="flex-none rounded-[4px] border border-border bg-bg px-[5px] py-[2px] font-mono text-[10px] font-medium text-fg-subtle hover:border-border-strong hover:text-fg"
+					>
 						⌘K
-					</span>
+					</button>
 				</form>
 
 				<div className="ml-auto flex flex-none items-center gap-[6px]">
@@ -165,10 +193,10 @@ export function ShopHeader() {
 						</span>
 					</Link>
 
-					<button
-						type="button"
+					<Link
+						href="/checkout"
 						aria-label="Кошик"
-						className="relative flex h-[34px] items-center gap-2 rounded-control border border-border bg-bg px-3 text-fg hover:bg-bg-muted"
+						className="relative flex h-[34px] items-center gap-2 rounded-control border border-border bg-bg px-3 text-fg no-underline hover:bg-bg-muted"
 					>
 						<svg
 							width="15"
@@ -184,7 +212,7 @@ export function ShopHeader() {
 						<span className="font-mono text-[12.5px] font-semibold" suppressHydrationWarning>
 							{cartCount}
 						</span>
-					</button>
+					</Link>
 
 					<button
 						type="button"
@@ -230,6 +258,8 @@ export function ShopHeader() {
 					</Link>
 				</div>
 			)}
+
+			<CommandMenu open={cmdkOpen} onOpenChange={setCmdkOpen} />
 		</header>
 	);
 }
