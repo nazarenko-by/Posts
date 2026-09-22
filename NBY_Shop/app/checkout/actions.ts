@@ -1,14 +1,19 @@
 "use server";
 
 import { checkoutSchema, type CheckoutState } from "@/lib/checkout-schema";
+import { digitsOnly } from "@/lib/card";
+import { mockStripeCharge } from "@/lib/mock-stripe";
 
 // Файл з "use server" — Next.js дозволяє експортувати з нього лише
 // async-функції (сама Zod-схема й тип стану — у lib/checkout-schema.ts).
 //
-// Це саме валідація, не запис замовлення: Prisma-запис + email-квитанція —
-// епізод 13. Тут `submitCheckout` лише підтверджує, що дані пройшли Zod,
-// і повертає або `errors` по полях (useActionState рендерить їх інлайн під
-// кожним інпутом), або `success` — без жодного side-effect на сервері.
+// Це саме валідація й мок-оплата, не запис замовлення: Prisma-запис +
+// email-квитанція — епізод 13. `submitCheckout` підтверджує, що дані
+// пройшли Zod, і — якщо спосіб оплати "картка" — прикидає, чи Stripe
+// (тестовий режим, мок) прийняв би платіж, повертаючи один з чотирьох
+// станів: `invalid` (помилки по полях), `declined` (валідна форма, але
+// мок-Stripe відхилив картку — для цього окрема модалка, не інлайн-помилка
+// під полем), `success`.
 export async function submitCheckout(_prevState: CheckoutState, formData: FormData): Promise<CheckoutState> {
 	const raw = {
 		firstName: formData.get("firstName"),
@@ -19,6 +24,9 @@ export async function submitCheckout(_prevState: CheckoutState, formData: FormDa
 		address: formData.get("address"),
 		shipping: formData.get("shipping"),
 		payment: formData.get("payment"),
+		cardNumber: formData.get("cardNumber"),
+		cardExpiry: formData.get("cardExpiry"),
+		cardCvc: formData.get("cardCvc"),
 	};
 
 	const parsed = checkoutSchema.safeParse(raw);
@@ -30,6 +38,13 @@ export async function submitCheckout(_prevState: CheckoutState, formData: FormDa
 			if (!errors[field]) errors[field] = issue.message;
 		}
 		return { status: "invalid", errors };
+	}
+
+	if (parsed.data.payment === "card") {
+		const result = await mockStripeCharge(digitsOnly(parsed.data.cardNumber ?? ""));
+		if (!result.ok) {
+			return { status: "declined", errors: {}, declineMessage: result.message };
+		}
 	}
 
 	return { status: "success", errors: {} };
