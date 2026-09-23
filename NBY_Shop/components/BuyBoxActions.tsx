@@ -4,7 +4,7 @@ import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { formatUAH } from "@/lib/format";
 import { useCart } from "@/context/CartContext";
-import { useToast } from "@/context/ToastContext";
+import { useToastStore } from "@/store/toastStore";
 import { useWishlist } from "@/context/WishlistContext";
 
 // Qty-степер (46px, ширший за компактний 34px з Components) + CTA + wishlist.
@@ -15,6 +15,9 @@ import { useWishlist } from "@/context/WishlistContext";
 // "Скасувати" — реальний rollback до кількості, що була в кошику до кліку.
 // Епізод 9 — wishlist-кнопка тепер реальна (useWishlist().toggle), той
 // самий патерн заповненого серця, що в ProductCard.
+// Епізод 12+ (Інструменти) — showToast тепер зі store/toastStore.ts
+// (Zustand), не з context/ToastContext. Публічний API не змінився —
+// компонент навіть не помітив різниці, окрім самого імпорту.
 //
 // "Оптимістичне оновлення" (епізод 7) нікуди не ділось — степер миттєво
 // реагує на кожен клік без запиту на сервер, впирається у stock з підсвіткою.
@@ -26,7 +29,7 @@ export function BuyBoxActions({
 	const [qty, setQty] = useState(1);
 	const [limitFlash, setLimitFlash] = useState(false);
 	const { items, addItem, setQty: setCartQty, removeItem } = useCart();
-	const { showToast } = useToast();
+	const showToast = useToastStore((state) => state.showToast);
 	const { isWishlisted, toggle: toggleWishlist } = useWishlist();
 	const wishlisted = isWishlisted(product.slug);
 

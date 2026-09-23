@@ -5,7 +5,6 @@ import { ShopHeader } from "@/components/ShopHeader";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
-import { ToastProvider } from "@/context/ToastContext";
 import { ToastViewport } from "@/components/ToastViewport";
 import { WishlistProvider } from "@/context/WishlistContext";
 
@@ -42,9 +41,10 @@ export default function RootLayout({
 	// Кошик — епізод 7: CartProvider над усім деревом, бо лічильник у шапці
 	// й кнопка "Додати в кошик" на сторінці товару мають бачити той самий стан.
 	//
-	// Toast — епізод 8: ToastProvider над CartProvider (кошик і майбутні дії
-	// однаково можуть показувати сповіщення), ToastViewport — один на весь
-	// застосунок, рендериться поза <main>, щоб не залежати від конкретної сторінки.
+	// Toast — епізод 8: спершу ToastProvider тут-таки, над CartProvider.
+	// Епізод 12+ (Інструменти) — toast-стан переїхав у Zustand
+	// (store/toastStore.ts): жодного Provider більше не треба, ToastViewport
+	// читає стор напряму, тож дерево тут стало на один рівень мілкішим.
 	//
 	// Обране — епізод 9: WishlistProvider поряд з CartProvider — той самий
 	// рівень дерева, той самий lazy-init-з-localStorage принцип, окремий стан.
@@ -54,16 +54,14 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-bg-muted antialiased`}
 			>
 				<ThemeProvider>
-					<ToastProvider>
-						<CartProvider>
-							<WishlistProvider>
-								<ShopHeader />
-								<main className="flex-1">{children}</main>
-								<Footer />
-								<ToastViewport />
-							</WishlistProvider>
-						</CartProvider>
-					</ToastProvider>
+					<CartProvider>
+						<WishlistProvider>
+							<ShopHeader />
+							<main className="flex-1">{children}</main>
+							<Footer />
+							<ToastViewport />
+						</WishlistProvider>
+					</CartProvider>
 				</ThemeProvider>
 			</body>
 		</html>

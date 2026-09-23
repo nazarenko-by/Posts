@@ -1,13 +1,18 @@
 "use client";
 
-import { useToast } from "@/context/ToastContext";
+import { useToastStore } from "@/store/toastStore";
 
 // Верстка 1:1 з дизайн-кіту (COMPONENTS.md → s_toast): position bottom-right
 // 24px, 352px завширшки, картка з мініатюрою + текстом + опційною дією.
 // pointer-events-none на контейнері й pointer-events-auto на кожній картці —
 // порожній простір навколо тостів не перехоплює кліки по сторінці під ними.
+//
+// Епізод 12+ (Інструменти) — раніше тут був useToast() з context/ToastContext
+// (Provider над деревом у layout.tsx). Zustand-стор (store/toastStore.ts) не
+// потребує Provider: компонент просто читає з useToastStore напряму.
 export function ToastViewport() {
-	const { toasts, dismissToast } = useToast();
+	const toasts = useToastStore((state) => state.toasts);
+	const dismissToast = useToastStore((state) => state.dismissToast);
 
 	return (
 		<div className="pointer-events-none fixed bottom-6 right-6 z-50 flex w-[352px] flex-col gap-2.5">
