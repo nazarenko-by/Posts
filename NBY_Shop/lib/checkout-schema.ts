@@ -53,10 +53,24 @@ export const checkoutSchema = z
 
 export type CheckoutFields = keyof z.infer<typeof checkoutSchema>;
 
+// Епізод 13 — заповнюється лише коли status === "success": дані для
+// s_success-екрана (COMPONENTS.md), зібрані з реального Order-запису
+// (номер рахується з orderSeq, решта — echo того, що фактично записалось
+// у БД, не того, що прийшло у формі).
+export type CheckoutOrderSummary = {
+	number: string;
+	city: string;
+	address: string;
+	shippingLabel: string;
+	paymentLabel: string;
+	totalUAH: number;
+};
+
 export type CheckoutState = {
 	status: "idle" | "invalid" | "success" | "declined";
 	errors: Partial<Record<CheckoutFields, string>>;
 	declineMessage?: string;
+	order?: CheckoutOrderSummary;
 };
 
 export const initialCheckoutState: CheckoutState = { status: "idle", errors: {} };

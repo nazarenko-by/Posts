@@ -9,6 +9,7 @@ import { submitCheckout } from "@/app/checkout/actions";
 import { initialCheckoutState, type CheckoutState } from "@/lib/checkout-schema";
 import { detectCardBrand, digitsOnly, formatCardNumber, formatExpiry } from "@/lib/card";
 import { PaymentDeclinedModal } from "@/components/PaymentDeclinedModal";
+import { SHIPPING_OPTIONS, PAYMENT_OPTIONS, COD_FEE_UAH } from "@/lib/pricing";
 
 // Епізод 11 — Server Action + Zod (schema/тип у lib/checkout-schema.ts, сама
 // дія — app/checkout/actions.ts). Одна сторінка на всіх екранах (рішення від
@@ -18,11 +19,13 @@ import { PaymentDeclinedModal } from "@/components/PaymentDeclinedModal";
 // Summary й підсумок доставки — клієнтські (useCart), бо кошик живе лише в
 // localStorage (епізод 7); сам submit іде через справжній Server Action.
 //
-// Замовлення НЕ пишеться в БД тут — лише валідується. Prisma-запис +
-// email-квитанція — епізод 13. На успіх кошик очищається і рендериться
-// проміжний банер (не справжній success-екран з кіту — той з номером
-// замовлення й таймлайном належить епізоду 13, коли замовлення реально
-// існує в БД).
+// Епізод 13 — замовлення тепер реально пишеться в Prisma (app/checkout/
+// actions.ts: `prisma.order.create` + вкладені OrderItem, мок-квитанція на
+// email) ще до того, як `submitCheckout` поверне status:"success". Тому
+// success-екран нижче — вже справжній s_success із кіту (COMPONENTS.md):
+// номер замовлення (рахується з Order.orderSeq, не з форми), таймлайн,
+// 2-колонковий інфо-грід — усе з `state.order`, який приходить від сервера,
+// а не з локального стану форми.
 //
 // Телефон (додано 22.09.2026) — магазин доставляє лише по Україні (Hero,
 // Нова Пошта), тож код країни не вибирається зі списку, а зафіксований
@@ -40,25 +43,6 @@ import { PaymentDeclinedModal } from "@/components/PaymentDeclinedModal";
 // Відхилення оплати (submitCheckout повертає status:"declined") показує
 // PaymentDeclinedModal — кіт явно вимагає модалку, не toast, для критичних
 // помилок оплати (борг з епізоду 8, ToastContext).
-
-const SHIPPING_OPTIONS = [
-	{
-		value: "nova_poshta",
-		label: "Нова Пошта — відділення",
-		meta: "1–2 дні · безкоштовно від 1 500 ₴",
-		priceUAH: 0,
-	},
-	{ value: "courier", label: "Курʼєр до дверей", meta: "У Києві — сьогодні до 20:00", priceUAH: 9_900 },
-	{ value: "pickup", label: "Самовивіз", meta: "вул. Ділова 5, пн–пт 10:00–19:00", priceUAH: 0 },
-] as const;
-
-const PAYMENT_OPTIONS = [
-	{ value: "card", label: "Картка онлайн", meta: "Visa · Mastercard" },
-	{ value: "apple_pay", label: "Apple Pay", meta: "Один дотик" },
-	{ value: "cod", label: "Оплата при отриманні", meta: "+20 ₴" },
-] as const;
-
-const COD_FEE_UAH = 2_000;
 
 function FieldError({ message }: { message?: string }) {
 	if (!message) return null;
@@ -90,36 +74,102 @@ export function CheckoutForm() {
 	// react-hooks/set-state-in-effect (урок з WishlistGrid, еп.9) тут не діє.
 	const [dismissedDecline, setDismissedDecline] = useState<CheckoutState | null>(null);
 	const showDeclineModal = state.status === "declined" && dismissedDecline !== state;
+	const [orderNumberCopied, setOrderNumberCopied] = useState(false);
+
+	function handleCopyOrderNumber(number: string) {
+		navigator.clipboard
+			?.writeText(number)
+			.then(() => {
+				setOrderNumberCopied(true);
+				setTimeout(() => setOrderNumberCopied(false), 1500);
+			})
+			.catch(() => {
+				// Clipboard API може бути недоступним (дозволи/http) — тихо ігноруємо,
+				// номер замовлення все одно лишається видимим на екрані.
+			});
+	}
 
 	useEffect(() => {
 		if (state.status === "success") clear();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [state.status]);
 
-	if (state.status === "success") {
+	if (state.status === "success" && state.order) {
+		const order = state.order;
 		return (
-			<div className="mx-auto max-w-[560px] px-6 py-24 text-center">
-				<div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-ok-subtle text-ok">
+			<div className="mx-auto max-w-[560px] px-6 py-16 text-center">
+				<div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-full bg-ok-subtle text-ok">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
 						<path d="M5 13l4 4L19 7" />
 					</svg>
 				</div>
-				<h1 className="text-[22px] font-semibold text-fg">
-					{payment === "card"
-						? "Оплата підтверджена — форма готова"
-						: "Дані валідні — форма готова до оплати"}
-				</h1>
-				<p className="mt-2 text-[13.5px] text-fg-muted">
-					{payment === "card"
-						? "Stripe test mode (мок): картка пройшла перевірку, гроші не списано. Сам запис замовлення в БД і квитанція на email — епізод 13."
-						: "Демо-стан епізоду 11: сам запис замовлення в БД і квитанція на email — епізод 13."}
+				<h1 className="text-[22px] font-semibold text-fg">Замовлення прийнято</h1>
+				<p className="mt-2 text-[13px] text-fg-muted">
+					Замовлення записано в БД, квитанція &quot;відправлена&quot; на email — лог у консолі сервера (мок,
+					реального провайдера нема).
 				</p>
-				<Link
-					href="/"
-					className="mt-6 inline-flex h-10 items-center rounded-control bg-fg px-5 font-mono text-[13px] font-medium text-bg no-underline"
-				>
-					Повернутись у каталог
-				</Link>
+
+				<div className="mx-auto mt-5 flex w-fit items-center gap-2.5 rounded-control border border-border bg-bg-subtle px-4 py-2.5">
+					<span className="font-mono text-[13.5px] font-semibold text-fg">#{order.number}</span>
+					<button
+						type="button"
+						onClick={() => handleCopyOrderNumber(order.number)}
+						className="font-mono text-[11.5px] font-medium text-accent hover:underline"
+					>
+						{orderNumberCopied ? "Скопійовано ✓" : "Копіювати"}
+					</button>
+				</div>
+
+				<div className="mx-auto mt-8 flex max-w-[300px] flex-col gap-3.5 text-left">
+					{["Оплата підтверджена", "Пакуємо замовлення", "Передано перевізнику"].map((step, i) => (
+						<div key={step} className="flex items-center gap-3">
+							<span
+								className={`grid h-6 w-6 flex-none place-items-center rounded-full font-mono text-[11px] font-semibold ${
+									i === 0 ? "bg-ok text-white" : "border border-border-strong text-fg-subtle"
+								}`}
+							>
+								{i + 1}
+							</span>
+							<span className={`text-[13px] ${i === 0 ? "font-medium text-fg" : "text-fg-muted"}`}>
+								{step}
+							</span>
+						</div>
+					))}
+				</div>
+
+				<div className="mx-auto mt-8 grid max-w-[440px] grid-cols-2 gap-5 rounded-card border border-border bg-bg-subtle p-5 text-left">
+					<div className="flex flex-col gap-1">
+						<span className="text-[11px] text-fg-subtle">Доставка</span>
+						<span className="text-[13px] text-fg">
+							{order.city}, {order.address}
+						</span>
+						<span className="text-[11.5px] text-fg-muted">{order.shippingLabel}</span>
+					</div>
+					<div className="flex flex-col gap-1">
+						<span className="text-[11px] text-fg-subtle">Оплата</span>
+						<span className="text-[13px] text-fg">{order.paymentLabel}</span>
+						<span className="font-mono text-[13px] font-semibold text-fg">{formatUAH(order.totalUAH)}</span>
+					</div>
+				</div>
+
+				<div className="mx-auto mt-8 flex max-w-[420px] gap-3">
+					<span
+						aria-disabled
+						className="flex-1 cursor-not-allowed rounded-control border border-border px-5 py-2.5 text-center font-mono text-[12px] font-medium text-fg-subtle"
+					>
+						Відстежити (епізод 15)
+					</span>
+					<Link
+						href="/"
+						className="flex-1 rounded-control bg-fg px-5 py-2.5 text-center font-mono text-[12px] font-medium text-bg no-underline"
+					>
+						Продовжити покупки
+					</Link>
+				</div>
+
+				<p className="mt-8 font-mono text-[10.5px] text-fg-subtle">
+					{"// TODO: розпакувати посилку до наступного стендапу"}
+				</p>
 			</div>
 		);
 	}
@@ -447,6 +497,14 @@ export function CheckoutForm() {
 								<span className="font-mono">{formatUAH(total)}</span>
 							</div>
 						</div>
+
+						{/* Кошик живе лише в localStorage (епізод 7) — сервер не вірить цінам
+						    звідси, лише slug+qty (actions.ts перечитує title/priceUAH з Prisma). */}
+						<input
+							type="hidden"
+							name="cartItems"
+							value={JSON.stringify(items.map((item) => ({ slug: item.slug, qty: item.qty })))}
+						/>
 
 						<button
 							type="submit"

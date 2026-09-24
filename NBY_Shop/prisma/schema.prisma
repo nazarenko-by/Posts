@@ -48,6 +48,7 @@ model Product {
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
   reviews   Review[]
+  orderItems OrderItem[]
 
   @@index([status, createdAt])
 }
@@ -64,4 +65,52 @@ model Review {
   createdAt DateTime @default(now())
 
   @@index([productId])
+}
+
+// Епізод 13 — замовлення. orderSeq (не orderNumber-рядок!) — autoincrement
+// Int, номер замовлення ("NBY-2026-04871", кіт: COMPONENTS.md → s_success)
+// рахується на льоту з orderSeq + рік створення (lib/order-number.ts), а не
+// зберігається окремим стовпцем: значення autoincrement відоме лише ПІСЛЯ
+// insert, тож зберігати готовий рядок довелося б другим запитом-апдейтом.
+//
+// Ціни/назви товарів у OrderItem — знімок на момент покупки (productSlug/
+// title/priceUAH скопійовані, а не читаються через relation щоразу): каталог
+// живе своїм життям (ціни міняються, товари знімають з продажу), замовлення
+// має лишатись тим, що клієнт реально купив і за скільки. productId —
+// опційний FK, лише для довідки, `onDelete: SetNull` — видалення товару з
+// каталогу не повинно ронять історичні замовлення.
+model Order {
+  id              String      @id @default(cuid())
+  orderSeq        Int         @unique @default(autoincrement())
+  firstName       String
+  lastName        String
+  email           String
+  phone           String
+  city            String
+  address         String
+  // "nova_poshta" | "courier" | "pickup" — ті самі значення, що z.enum у checkoutSchema.
+  shipping        String
+  shippingCostUAH Int
+  // "card" | "apple_pay" | "cod"
+  payment         String
+  codFeeUAH       Int         @default(0)
+  totalUAH        Int
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+
+  @@index([email])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String?
+  product     Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productSlug String
+  title       String
+  priceUAH    Int
+  qty         Int
+
+  @@index([orderId])
 }
