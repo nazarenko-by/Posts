@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -299,6 +300,57 @@ const reviews: {
 	},
 ];
 
+// Епізод 14 — демо-юзер + декілька замовлень, щоб /account було чим показати
+// без ручного проходження чекауту щоразу. Пароль — лише для сідингу
+// (реальна реєстрація йде через app/auth/actions.ts, той самий bcrypt.hash).
+const demoUser = {
+	email: "demo@nby.shop",
+	name: "Олена Коваль",
+	password: "demo12345",
+};
+
+// 3 замовлення — по одному на кожен статус-бейдж з кіту (COMPONENTS.md →
+// s_account): пакуємо / доставлено / скасовано.
+const demoOrders = [
+	{
+		status: "DELIVERED" as const,
+		createdAt: new Date("2026-08-15"),
+		city: "Київ",
+		address: "вул. Хрещатик 1, кв. 5",
+		shipping: "nova_poshta" as const,
+		payment: "card" as const,
+		items: [{ productSlug: "hoodie-it-works-on-my-machine", qty: 1 }],
+	},
+	{
+		status: "PACKING" as const,
+		createdAt: new Date("2026-09-20"),
+		city: "Київ",
+		address: "вул. Хрещатик 1, кв. 5",
+		shipping: "courier" as const,
+		payment: "cod" as const,
+		items: [
+			{ productSlug: "tshirt-sudo-sandwich", qty: 2 },
+			{ productSlug: "mug-console-log-coffee", qty: 1 },
+		],
+	},
+	{
+		status: "CANCELLED" as const,
+		createdAt: new Date("2026-09-10"),
+		city: "Львів",
+		address: "вул. Личаківська 20",
+		shipping: "pickup" as const,
+		payment: "apple_pay" as const,
+		items: [{ productSlug: "mug-console-log-coffee", qty: 1 }],
+	},
+];
+
+const SHIPPING_COST_UAH: Record<(typeof demoOrders)[number]["shipping"], number> = {
+	nova_poshta: 0,
+	courier: 9_900,
+	pickup: 0,
+};
+const COD_FEE_UAH = 2_000;
+
 async function main() {
 	for (const product of products) {
 		await prisma.product.upsert({
@@ -316,13 +368,21 @@ async function main() {
 
 	// Ідемпотентність: перед повторним seed прибираємо старі відгуки цих товарів,
 	// щоб повторний `npm run seed` не плодив дублікати (Review не має unique-поля
-	// під upsert, на відміну від Product.slug).
-	const reviewedSlugs = [...new Set(reviews.map((r) => r.productSlug))];
-	const reviewedProducts = await prisma.product.findMany({
-		where: { slug: { in: reviewedSlugs } },
-		select: { id: true, slug: true },
+	// під upsert, на відміну від Product.slug). Одна мапа slug→id на відгуки й
+	// замовлення — обидва посилаються на ті самі товари.
+	const orderSlugs = demoOrders.flatMap((o) => o.items.map((i) => i.productSlug));
+	const neededSlugs = [...new Set([...reviews.map((r) => r.productSlug), ...orderSlugs])];
+	// Явний тип замість покладатись на висновок з generated-клієнта: у цій
+	// пісочниці `prisma generate` не може дотягнутись до мережі (немає доступу
+	// до binaries.prisma.sh), тож типи клієнта застарілі/неповні — той самий
+	// корінь, що й решта baseline tsc-помилок нижче.
+	type ProductForSeed = { id: string; slug: string; title: string; priceUAH: number };
+	const neededProducts = await prisma.product.findMany({
+		where: { slug: { in: neededSlugs } },
+		select: { id: true, slug: true, title: true, priceUAH: true },
 	});
-	const productIdBySlug = new Map(reviewedProducts.map((p) => [p.slug, p.id]));
+	const productBySlug = new Map<string, ProductForSeed>(neededProducts.map((p) => [p.slug, p]));
+	const productIdBySlug = new Map(neededProducts.map((p) => [p.slug, p.id]));
 
 	await prisma.review.deleteMany({ where: { productId: { in: [...productIdBySlug.values()] } } });
 	await prisma.review.createMany({
@@ -332,8 +392,57 @@ async function main() {
 		})),
 	});
 
+	// Епізод 14 — демо-юзер (bcrypt-хеш, той самий алгоритм, що реальна
+	// реєстрація) + 3 замовлення, по одному на кожен статус-бейдж з кіту.
+	const demoPasswordHash = await bcrypt.hash(demoUser.password, 10);
+	const user = await prisma.user.upsert({
+		where: { email: demoUser.email },
+		update: { name: demoUser.name, passwordHash: demoPasswordHash },
+		create: { email: demoUser.email, name: demoUser.name, passwordHash: demoPasswordHash },
+	});
+
+	// Ідемпотентність — той самий підхід, що відгуки: прибрати старі
+	// демо-замовлення цього юзера перед повторним створенням.
+	await prisma.order.deleteMany({ where: { userId: user.id } });
+
+	for (const demoOrder of demoOrders) {
+		const items = demoOrder.items.map((i) => {
+			const product = productBySlug.get(i.productSlug)!;
+			return {
+				productId: product.id,
+				productSlug: product.slug,
+				title: product.title,
+				priceUAH: product.priceUAH,
+				qty: i.qty,
+			};
+		});
+		const itemsTotalUAH = items.reduce((sum, i) => sum + i.priceUAH * i.qty, 0);
+		const shippingCostUAH = SHIPPING_COST_UAH[demoOrder.shipping];
+		const codFeeUAH = demoOrder.payment === "cod" ? COD_FEE_UAH : 0;
+
+		await prisma.order.create({
+			data: {
+				userId: user.id,
+				status: demoOrder.status,
+				createdAt: demoOrder.createdAt,
+				firstName: demoUser.name.split(" ")[0],
+				lastName: demoUser.name.split(" ")[1] ?? "",
+				email: demoUser.email,
+				phone: "+380671234567",
+				city: demoOrder.city,
+				address: demoOrder.address,
+				shipping: demoOrder.shipping,
+				shippingCostUAH,
+				payment: demoOrder.payment,
+				codFeeUAH,
+				totalUAH: itemsTotalUAH + shippingCostUAH + codFeeUAH,
+				items: { create: items },
+			},
+		});
+	}
+
 	console.log(
-		`Засіяно ${products.length + 1} товарів (${products.length} PUBLISHED + 1 DRAFT) і ${reviews.length} відгуків.`
+		`Засіяно ${products.length + 1} товарів (${products.length} PUBLISHED + 1 DRAFT), ${reviews.length} відгуків, 1 демо-юзера (${demoUser.email} / ${demoUser.password}) і ${demoOrders.length} замовлень.`
 	);
 }
 

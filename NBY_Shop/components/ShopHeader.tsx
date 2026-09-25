@@ -34,6 +34,11 @@ import { useWishlist } from "@/context/WishlistContext";
 // суто декоративним <span>, жодна клавіша нічого не відкривала. Слухач
 // keydown живе тут (ShopHeader вже клієнтський і вже тримає local state),
 // сам палет — презентаційний CommandMenu.tsx.
+//
+// Акаунт (епізод 14) — іконка завжди веде на /account: сторінка сама
+// серверна й сама редіректить на /auth, якщо немає сесії. ShopHeader —
+// клієнтський компонент і навмисно не тримає власного auth-стану (не хочемо
+// зайвого запиту сесії з клієнта заради самої лише іконки в шапці).
 
 const NAV_LINKS = [
 	{ href: "/", label: "Каталог" },
@@ -169,6 +174,24 @@ export function ShopHeader() {
 							<path d="M21 21l-4.5-4.5" />
 						</svg>
 					</button>
+
+					<Link
+						href="/account"
+						aria-label="Акаунт"
+						className="hidden h-[34px] w-[34px] place-items-center rounded-control border border-transparent text-fg-muted no-underline hover:bg-bg-muted hover:text-fg md:grid"
+					>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="1.8"
+						>
+							<circle cx="12" cy="8" r="4" />
+							<path d="M4 20c0-4 3.5-7 8-7s8 3 8 7" />
+						</svg>
+					</Link>
 
 					<Link
 						href="/wishlist"

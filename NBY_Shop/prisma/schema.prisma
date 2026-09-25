@@ -67,6 +67,20 @@ model Review {
   @@index([productId])
 }
 
+// Епізод 14 — авторизація власним JWT (не NextAuth — підхоплює урок з посту
+// #155 про явний algorithms allowlist у verify(), lib/jwt.ts). passwordHash —
+// bcrypt, ніколи сирий пароль. orders — опційний зв'язок: гостьовий чекаут
+// (епізоди 11-13) і далі працює без акаунту, Order.userId просто лишається
+// null для таких замовлень.
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  orders       Order[]
+  createdAt    DateTime @default(now())
+}
+
 // Епізод 13 — замовлення. orderSeq (не orderNumber-рядок!) — autoincrement
 // Int, номер замовлення ("NBY-2026-04871", кіт: COMPONENTS.md → s_success)
 // рахується на льоту з orderSeq + рік створення (lib/order-number.ts), а не
@@ -79,9 +93,22 @@ model Review {
 // має лишатись тим, що клієнт реально купив і за скільки. productId —
 // опційний FK, лише для довідки, `onDelete: SetNull` — видалення товару з
 // каталогу не повинно ронять історичні замовлення.
+// Епізод 14 — status/userId. Гостьові замовлення (userId null) і далі
+// валідні: авторизація не стала обов'язковою для покупки, лише для перегляду
+// історії. Значення статусів і кольори — буквально з кіту (COMPONENTS.md →
+// s_account, "Order history rows"): пакуємо/доставлено/скасовано.
+enum OrderStatus {
+  PACKING
+  DELIVERED
+  CANCELLED
+}
+
 model Order {
   id              String      @id @default(cuid())
   orderSeq        Int         @unique @default(autoincrement())
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status          OrderStatus @default(PACKING)
   firstName       String
   lastName        String
   email           String
@@ -99,6 +126,7 @@ model Order {
   createdAt       DateTime    @default(now())
 
   @@index([email])
+  @@index([userId])
 }
 
 model OrderItem {

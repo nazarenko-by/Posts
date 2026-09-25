@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { SHIPPING_OPTIONS, PAYMENT_OPTIONS, COD_FEE_UAH } from "@/lib/pricing";
 import { formatOrderNumber } from "@/lib/order-number";
 import { sendOrderReceiptEmail } from "@/lib/mock-email";
+import { getCurrentUser } from "@/lib/auth";
 
 // Файл з "use server" — Next.js дозволяє експортувати з нього лише
 // async-функції (сама Zod-схема й тип стану — у lib/checkout-schema.ts).
@@ -106,8 +107,14 @@ export async function submitCheckout(_prevState: CheckoutState, formData: FormDa
 	const itemsTotalUAH = orderItemsData.reduce((sum, i) => sum + i.priceUAH * i.qty, 0);
 	const totalUAH = itemsTotalUAH + shippingOption.priceUAH + codFeeUAH;
 
+	// Епізод 14 — якщо оформлює залогінений юзер, замовлення одразу зʼявиться
+	// в його /account. Гостьовий чекаут (userId undefined → Prisma пише null)
+	// і далі валідний — авторизація не стала обов'язковою для покупки.
+	const currentUser = await getCurrentUser();
+
 	const order = await prisma.order.create({
 		data: {
+			userId: currentUser?.id,
 			firstName: parsed.data.firstName,
 			lastName: parsed.data.lastName,
 			email: parsed.data.email,
