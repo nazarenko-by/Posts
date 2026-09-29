@@ -72,11 +72,19 @@ model Review {
 // bcrypt, ніколи сирий пароль. orders — опційний зв'язок: гостьовий чекаут
 // (епізоди 11-13) і далі працює без акаунту, Order.userId просто лишається
 // null для таких замовлень.
+//
+// Епізод 15 — isAdmin: найпростіший робочий гейт для /admin (не окрема
+// Role-модель з правами — це були б декоративні шари складності без жодного
+// другого рівня доступу, який реально комусь потрібен зараз). Перевіряється
+// і в app/admin/layout.tsx (UX-редірект), і в кожній Server Action окремо
+// (lib/require-admin.ts) — той самий принцип defense-in-depth, що verify()
+// в lib/jwt.ts не довіряє клієнту.
 model User {
   id           String   @id @default(cuid())
   email        String   @unique
   passwordHash String
   name         String
+  isAdmin      Boolean  @default(false)
   orders       Order[]
   createdAt    DateTime @default(now())
 }

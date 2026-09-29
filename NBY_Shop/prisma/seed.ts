@@ -303,10 +303,13 @@ const reviews: {
 // Епізод 14 — демо-юзер + декілька замовлень, щоб /account було чим показати
 // без ручного проходження чекауту щоразу. Пароль — лише для сідингу
 // (реальна реєстрація йде через app/auth/actions.ts, той самий bcrypt.hash).
+// Епізод 15 — той самий демо-юзер тепер isAdmin: true, щоб /admin теж було
+// чим показати без окремого другого акаунту.
 const demoUser = {
 	email: "demo@nby.shop",
 	name: "Олена Коваль",
 	password: "demo12345",
+	isAdmin: true,
 };
 
 // 3 замовлення — по одному на кожен статус-бейдж з кіту (COMPONENTS.md →
@@ -397,8 +400,13 @@ async function main() {
 	const demoPasswordHash = await bcrypt.hash(demoUser.password, 10);
 	const user = await prisma.user.upsert({
 		where: { email: demoUser.email },
-		update: { name: demoUser.name, passwordHash: demoPasswordHash },
-		create: { email: demoUser.email, name: demoUser.name, passwordHash: demoPasswordHash },
+		update: { name: demoUser.name, passwordHash: demoPasswordHash, isAdmin: demoUser.isAdmin },
+		create: {
+			email: demoUser.email,
+			name: demoUser.name,
+			passwordHash: demoPasswordHash,
+			isAdmin: demoUser.isAdmin,
+		},
 	});
 
 	// Ідемпотентність — той самий підхід, що відгуки: прибрати старі
