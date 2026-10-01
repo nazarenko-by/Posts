@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import type { Product } from "@prisma/client";
+import Link from "next/link";
 import { useWishlist } from "@/context/WishlistContext";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGridSkeleton } from "@/components/ProductGridSkeleton";
+import { EmptyState, HeartOffIcon } from "@/components/EmptyState";
 
 // Клієнтський компонент навмисно: WishlistContext (localStorage) читається
 // лише на клієнті, тож і похід по товари за цими slug'ами — теж клієнтський
@@ -38,12 +41,31 @@ export function WishlistGrid() {
 
 	const displayProducts = slugs.length === 0 ? [] : products;
 
+	// Епізод 16 — реальний skeleton замість тексту "Завантажуємо обране…":
+	// той самий компонент, що app/loading.tsx (ProductGridSkeleton), клієнтський
+	// виклик тут не потребує loading.tsx-файлу (це не Suspense-межа роута), тож
+	// skeleton рендериться прямо в гілці стану.
 	if (displayProducts === null) {
-		return <p className="text-fg-muted">Завантажуємо обране…</p>;
+		return <ProductGridSkeleton count={4} />;
 	}
 
 	if (displayProducts.length === 0) {
-		return <p className="text-fg-muted">Обране порожнє — постав ♡ на товарі, щоб він з&apos;явився тут.</p>;
+		return (
+			<EmptyState
+				icon={<HeartOffIcon />}
+				title="Обране порожнє"
+				description="Постав ♡ на товарі в каталозі, щоб він з'явився тут."
+				actions={
+					<Link
+						href="/"
+						className="inline-flex h-9 items-center rounded-control bg-fg px-4 font-mono text-[12.5px] font-medium text-bg no-underline"
+					>
+						До каталогу
+					</Link>
+				}
+				caption="/wishlist · empty"
+			/>
+		);
 	}
 
 	return (

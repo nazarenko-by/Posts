@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
+import { EmptyState, SearchOffIcon } from "@/components/EmptyState";
 
 // Епізод 5 — сторінка результатів пошуку. Наступний крок у search params-конвенції,
 // вже знайомій з episode 4 (params: Promise<{ slug }>): у Next 16 searchParams теж
@@ -36,6 +37,14 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
 			? await searchProducts(query)
 			: { products: [] as Awaited<ReturnType<typeof prisma.product.findMany>>, latencyMs: 0 };
 
+	// Категорії для чипсів під порожнім результатом пошуку — та сама ідея, що
+	// кіт (COMPONENTS.md → s_states, "Empty search"): не просто "нічого не
+	// знайдено", а конкретна підказка куди піти далі.
+	const categoryGroups =
+		query.length > 0 && products.length === 0
+			? await prisma.product.groupBy({ by: ["category"], where: { status: "PUBLISHED" } })
+			: [];
+
 	return (
 		<div className="mx-auto max-w-6xl px-6 py-10">
 			<nav className="mb-6 flex items-center gap-2 font-mono text-[12px] text-fg-subtle">
@@ -60,9 +69,21 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
 					</div>
 
 					{products.length === 0 ? (
-						<p className="text-fg-muted">
-							Нічого не знайдено за запитом «{query}». Спробуй іншу назву чи категорію.
-						</p>
+						<EmptyState
+							icon={<SearchOffIcon />}
+							title="Нічого не знайдено"
+							description={`За запитом «${query}» нічого нема. Спробуй іншу назву або обери категорію нижче.`}
+							actions={categoryGroups.map((g) => (
+								<Link
+									key={g.category}
+									href={`/?category=${encodeURIComponent(g.category)}`}
+									className="rounded-badge border border-border px-3 py-1.5 font-mono text-[12px] text-fg-muted no-underline hover:border-accent hover:text-accent"
+								>
+									{g.category}
+								</Link>
+							))}
+							caption="app/search/page.tsx · empty"
+						/>
 					) : (
 						<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
 							{products.map((product) => (

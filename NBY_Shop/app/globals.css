@@ -102,3 +102,16 @@ body {
 		transform: none;
 	}
 }
+
+/* Епізод 16 — skeleton shimmer, 1:1 з дизайн-кіту (COMPONENTS.md → s_states,
+   "Skeleton grid"): лише зображення-блок анімується, текстові смуги статичні
+   (bg-muted без градієнта) — той самий підхід кіту, "органічний" вигляд без
+   зайвого руху. */
+@keyframes shimmer {
+	from {
+		background-position: 160px 0;
+	}
+	to {
+		background-position: -160px 0;
+	}
+}

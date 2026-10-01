@@ -1,8 +1,10 @@
 import type { Prisma } from "@prisma/client";
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { Hero } from "@/components/Hero";
 import { CatalogFilters } from "@/components/CatalogFilters";
+import { EmptyState, BoxIcon } from "@/components/EmptyState";
 
 // Епізод 6 — категорії, ціновий діапазон, сортування. searchParams — той самий
 // Promise-патерн, що вже в app/search/page.tsx (епізод 5): у Next 16 і params,
@@ -83,15 +85,29 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 				/>
 
 				{products.length === 0 ? (
-					<p className="text-fg-muted">
-						{totalCount === 0 ? (
-							<>
-								Товарів поки немає — запусти <code className="font-mono">npm run db:seed</code>.
-							</>
-						) : (
-							"Товарів за цими фільтрами немає — спробуй скинути фільтри."
-						)}
-					</p>
+					totalCount === 0 ? (
+						<EmptyState
+							icon={<BoxIcon />}
+							title="Товарів поки немає"
+							description="Каталог порожній — запусти npm run db:seed, щоб засіяти демо-товари."
+							caption="app/page.tsx · totalCount === 0"
+						/>
+					) : (
+						<EmptyState
+							icon={<BoxIcon />}
+							title="За цими фільтрами нічого нема"
+							description="Спробуй скинути ціновий діапазон або обрати іншу категорію."
+							actions={
+								<Link
+									href="/"
+									className="inline-flex h-9 items-center rounded-control bg-fg px-4 font-mono text-[12.5px] font-medium text-bg no-underline"
+								>
+									Скинути фільтри
+								</Link>
+							}
+							caption="app/page.tsx · empty"
+						/>
+					)
 				) : (
 					<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
 						{products.map((product) => (
