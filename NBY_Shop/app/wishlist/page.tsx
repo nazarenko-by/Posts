@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { WishlistGrid } from "@/components/WishlistGrid";
 
 // Тонка серверна оболонка — та сама структура breadcrumb, що на /search і
 // /product/[slug]. Сам вміст (WishlistGrid) — клієнтський, бо обране живе
 // в localStorage, а не в Prisma.
+//
+// Епізод 17 — robots: noindex. Обране персональне (localStorage конкретного
+// браузера), індексація чужого порожнього/випадкового стану не має сенсу.
+export const metadata: Metadata = {
+	title: "Обране",
+	robots: { index: false, follow: false },
+};
+
 export default function WishlistPage() {
 	return (
 		<div className="mx-auto max-w-6xl px-6 py-10">

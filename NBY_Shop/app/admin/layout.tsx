@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
+
+// Епізод 17 — robots: noindex на весь /admin/* піддерево (metadata у
+// layout.tsx успадковується всіма вкладеними сторінками, включно з
+// майбутніми /admin/orders тощо) — гейтована адмінка не повинна навіть
+// теоретично з'являтись у пошуковій видачі.
+export const metadata: Metadata = {
+	robots: { index: false, follow: false },
+};
 
 // Епізод 15 — s_admin з кіту (COMPONENTS.md → "12. Admin screen"): власна
 // оболонка з 216px sidebar, НЕ обгорнута в ShopHeader/Footer (окремий layout,

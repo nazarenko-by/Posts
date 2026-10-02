@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { EmptyState, SearchOffIcon } from "@/components/EmptyState";
+
+// Епізод 17 — robots: noindex. Результати пошуку — тонкий/дубльований
+// контент, що вже є в каталозі з фільтрами (app/page.tsx); індексувати
+// кожен можливий `?q=` немає сенсу.
+export const metadata: Metadata = {
+	title: "Пошук",
+	robots: { index: false, follow: false },
+};
 
 // Епізод 5 — сторінка результатів пошуку. Наступний крок у search params-конвенції,
 // вже знайомій з episode 4 (params: Promise<{ slug }>): у Next 16 searchParams теж

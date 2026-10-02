@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
@@ -5,6 +6,13 @@ import { prisma } from "@/lib/prisma";
 import { formatOrderNumber } from "@/lib/order-number";
 import { formatUAH } from "@/lib/format";
 import { signOutAction } from "@/app/auth/actions";
+
+// Епізод 17 — robots: noindex. Персональний кабінет, нема сенсу й не
+// повинен з'являтись у пошуковій видачі.
+export const metadata: Metadata = {
+	title: "Акаунт",
+	robots: { index: false, follow: false },
+};
 
 // Епізод 14 — s_account з кіту (COMPONENTS.md → "11. Account screen"):
 // 232px 1fr грід, sidebar з аватаром-ініціалами й nav-списком, бонус-картка

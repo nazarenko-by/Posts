@@ -19,9 +19,30 @@ const geistMono = Geist_Mono({
 	subsets: ["latin", "cyrillic"],
 });
 
+// Епізод 17 — metadataBase потрібен, щоб відносні openGraph.images (напр.
+// /product/[slug]/opengraph-image, нижче) розрізались у абсолютні URL —
+// без нього Next.js попереджає в консолі й OG-картинки можуть не
+// підхопитись соцмережами. Домен демо — nby.shop (той самий, що
+// demo@nby.shop у prisma/seed.ts), реального деплою нема.
+//
+// title.template — дочірні сторінки (generateMetadata у
+// app/product/[slug]/page.tsx) задають лише title: product.title, Next.js
+// сам підставляє " · NBY Shop" — один раз описано тут, а не в кожному файлі.
 export const metadata: Metadata = {
-	title: "NBY Shop",
+	metadataBase: new URL("https://nby.shop"),
+	title: {
+		default: "NBY Shop",
+		template: "%s · NBY Shop",
+	},
 	description: "Мерч для тих, хто читає стектрейси на дозвіллі.",
+	openGraph: {
+		siteName: "NBY Shop",
+		locale: "uk_UA",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+	},
 };
 
 export default function RootLayout({

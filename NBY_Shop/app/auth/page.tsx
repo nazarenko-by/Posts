@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { AuthForm } from "@/components/AuthForm";
+
+// Епізод 17 — robots: noindex. Сторінка входу не несе SEO-цінності й не
+// повинна з'являтись у видачі поряд з товарами.
+export const metadata: Metadata = {
+	title: "Увійти",
+	robots: { index: false, follow: false },
+};
 
 // Епізод 14 — тонка серверна обгортка (той самий патерн, що app/checkout/
 // page.tsx з епізоду 11): вся клієнтська логіка в AuthForm.tsx, тут лише

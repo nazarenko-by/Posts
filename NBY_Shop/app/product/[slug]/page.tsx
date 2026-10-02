@@ -1,13 +1,36 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { formatUAH } from "@/lib/format";
 import { getProductReviewStats } from "@/lib/reviews";
+import { getProductBySlug } from "@/lib/products";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductTabs } from "@/components/ProductTabs";
 import { BuyBoxActions } from "@/components/BuyBoxActions";
 import { RatingStars } from "@/components/RatingStars";
 import { ReviewsSection } from "@/components/ReviewsSection";
+
+// Епізод 17 — generateMetadata(): title/description беруться з реального
+// товару (lib/products.ts, той самий React cache() запит, що компонент
+// сторінки нижче переюзає). openGraph.images НЕ задаємо вручну — Next.js
+// сам підхоплює сусідній opengraph-image.tsx (файлова конвенція) і
+// підставляє його як og:image/twitter:image для цього конкретного /slug.
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+	const { slug } = await params;
+	const product = await getProductBySlug(slug);
+	if (!product || product.status !== "PUBLISHED") return {};
+
+	return {
+		title: product.title,
+		description: buildMetaDescription(product.title, product.description, product.priceUAH),
+	};
+}
+
+function buildMetaDescription(title: string, description: string | null, priceUAH: number): string {
+	if (!description) return `${title} — ${formatUAH(priceUAH)} в NBY Shop.`;
+	return description.length > 157 ? `${description.slice(0, 157).trim()}…` : description;
+}
 
 // ISR: сторінка генерується статично на build (generateStaticParams нижче),
 // і Next.js ревалідовує її раз на 60с — товар оновиться (ціна/stock) без
@@ -27,7 +50,9 @@ export async function generateStaticParams() {
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
-	const product = await prisma.product.findUnique({ where: { slug } });
+	// Той самий React cache()-запит, що generateMetadata() вище — для цього
+	// рендеру Next.js фактично виконує prisma.product.findUnique лише раз.
+	const product = await getProductBySlug(slug);
 
 	// DRAFT-товари й неіснуючі slug'и — 404, а не "тиха" порожня сторінка.
 	if (!product || product.status !== "PUBLISHED") {
@@ -49,8 +74,41 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 	]);
 	const displayRating = stats.count > 0 ? stats.average! : product.rating;
 
+	// Епізод 17 — JSON-LD (schema.org Product): той самий opengraph-image.tsx
+	// (нижче, файлова конвенція) слугує і за "image" для структурованих даних —
+	// у проєкту нема реальних фото товарів (CSS-плейсхолдери, епізод 1), тож
+	// чесніше послатись на реально згенеровану картинку, ніж на вигаданий URL
+	// неіснуючого файлу. aggregateRating додається лише коли є хоч 1 відгук —
+	// Google Rich Results явно вимагає не публікувати рейтинг без reviewCount.
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Product",
+		name: product.title,
+		description: product.description ?? undefined,
+		category: product.category,
+		image: `/product/${product.slug}/opengraph-image`,
+		offers: {
+			"@type": "Offer",
+			priceCurrency: "UAH",
+			price: (product.priceUAH / 100).toFixed(2),
+			availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+		},
+		...(stats.count > 0
+			? {
+					aggregateRating: {
+						"@type": "AggregateRating",
+						ratingValue: displayRating.toFixed(1),
+						reviewCount: stats.count,
+					},
+				}
+			: {}),
+	};
+
 	return (
 		<>
+			{/* JSON-LD вимагає raw <script> — безпечно: JSON.stringify власних Prisma-даних, не user input напряму */}
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
 			<div className="mx-auto max-w-6xl px-6 py-10">
 				<nav className="mb-6 flex items-center gap-2 font-mono text-[12px] text-fg-subtle">
 					<Link href="/" className="hover:text-fg">

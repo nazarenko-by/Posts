@@ -6,6 +6,13 @@ import { Hero } from "@/components/Hero";
 import { CatalogFilters } from "@/components/CatalogFilters";
 import { EmptyState, BoxIcon } from "@/components/EmptyState";
 
+// Епізод 17 — головна лишається на дефолтах з app/layout.tsx (title.default
+// "NBY Shop", description — вони вже описують магазин), явний override тут
+// не додає нічого нового. Catalog-фільтри (?category=, ?sort=) теж свідомо
+// без canonical/noindex-логіки: Google сам розбирається з query-параметрами
+// через rel=canonical за замовчуванням на базовий шлях, окремого канонічного
+// тега не додавали — поза мінімальним скоупом епізоду.
+
 // Епізод 6 — категорії, ціновий діапазон, сортування. searchParams — той самий
 // Promise-патерн, що вже в app/search/page.tsx (епізод 5): у Next 16 і params,
 // і searchParams приходять асинхронно.
