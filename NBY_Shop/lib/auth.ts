@@ -11,9 +11,13 @@ const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
 function getSecret(): string {
 	const secret = process.env.AUTH_SECRET;
 	if (secret) return secret;
-	// Демо-фолбек — у реальному проєкті відсутність AUTH_SECRET мала б валити
-	// старт застосунку, а не тихо підставляти дефолт. Явний коментар, щоб не
-	// пропустити це при перенесенні за межі навчальної пісочниці.
+	// Епізод 18 (деплой) — борг з епізоду 14 закрито: у production відсутність
+	// AUTH_SECRET валить запит одразу, а не тихо підставляє публічний у репо
+	// дефолт (хто знає цей рядок — підробить будь-яку сесію). Демо-фолбек
+	// лишається тільки для локальної розробки й `next build` без env.
+	if (process.env.NODE_ENV === "production") {
+		throw new Error("AUTH_SECRET не задано — додай його в змінні середовища (openssl rand -base64 32).");
+	}
 	return "nby-shop-dev-secret-change-me";
 }
 

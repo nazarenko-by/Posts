@@ -56,7 +56,9 @@ model Product {
 model Review {
   id        String   @id @default(cuid())
   productId String
-  product   Product  @relation(fields: [productId], references: [id])
+  // Епізод 18 — onDelete: Cascade: без нього видалення товару з відгуками в
+  // admin (епізод 15) падало б на FK-обмеженні (за замовчуванням RESTRICT).
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   author    String
   // 1-5, ціле число — той самий принцип, що priceUAH: рахуємо на бекенді, не Float.
   rating    Int

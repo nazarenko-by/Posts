@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
+import { SITE_URL } from "@/lib/site";
 
 // Епізод 17 — sitemap.ts, файлова конвенція Next.js: автоматично віддається
 // на /sitemap.xml, типізовано через MetadataRoute.Sitemap. Статичні роути —
@@ -8,7 +9,7 @@ import { prisma } from "@/lib/prisma";
 // власних metadata, їм тут не місце. lastModified товару — product.updatedAt
 // (реальна дата останньої зміни, не Date.now() — інакше Google бачив би
 // "оновлено щойно" на кожному crawl, що знецінює сам сигнал).
-const BASE_URL = "https://nby.shop";
+const BASE_URL = SITE_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const products = await prisma.product.findMany({

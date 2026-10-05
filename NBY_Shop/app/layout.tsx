@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
 import { ToastViewport } from "@/components/ToastViewport";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { SITE_URL } from "@/lib/site";
 
 // Geist для інтерфейсу, Geist Mono для цін/SKU/лейблів — див. DESIGN_SYSTEM.md.
 const geistSans = Geist({
@@ -22,14 +23,14 @@ const geistMono = Geist_Mono({
 // Епізод 17 — metadataBase потрібен, щоб відносні openGraph.images (напр.
 // /product/[slug]/opengraph-image, нижче) розрізались у абсолютні URL —
 // без нього Next.js попереджає в консолі й OG-картинки можуть не
-// підхопитись соцмережами. Домен демо — nby.shop (той самий, що
-// demo@nby.shop у prisma/seed.ts), реального деплою нема.
+// підхопитись соцмережами. Адреса береться з lib/site.ts
+// (env-змінна або системна VERCEL_PROJECT_PRODUCTION_URL).
 //
 // title.template — дочірні сторінки (generateMetadata у
 // app/product/[slug]/page.tsx) задають лише title: product.title, Next.js
 // сам підставляє " · NBY Shop" — один раз описано тут, а не в кожному файлі.
 export const metadata: Metadata = {
-	metadataBase: new URL("https://nby.shop"),
+	metadataBase: new URL(SITE_URL),
 	title: {
 		default: "NBY Shop",
 		template: "%s · NBY Shop",
