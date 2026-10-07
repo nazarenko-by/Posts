@@ -1,61 +1,106 @@
 # NBY Frontend — Posts
 
-Source code for @nby.frontend: [instagram](https://www.instagram.com/nby.frontend/) and [threads](https://www.threads.com/@nby.frontend) posts.
+Код до постів [@nby.frontend](https://www.instagram.com/nby.frontend/) ([Instagram](https://www.instagram.com/nby.frontend/) · [Threads](https://www.threads.com/@nby.frontend)).
 
-Each folder = one post, named by topic.
+**Як користуватись:** у коментарях до візуальних постів є ключове слово (наприклад `Treemap`) — це назва папки в цьому репозиторії. Відкрий папку, запусти `npm install && npm run dev`.
 
-[AnimatePresence/ # Visualization of AnimatePresence usage](https://github.com/nazarenko-by/Posts/tree/main/AnimatePresence)\
-[ArrayVSList/ # Visualization of an array and a list ](https://github.com/nazarenko-by/Posts/tree/main/ArrayVSList)\
-[BackdropFilter/ # Visualization of CSS backdrop-filter usage](https://github.com/nazarenko-by/Posts/tree/main/BackdropFilter)\
-[BarChart/ # D3.js bar chart](https://github.com/nazarenko-by/Posts/tree/main/BarChart)\
-[BigO/ # Visualization of the Big O](https://github.com/nazarenko-by/Posts/tree/main/BigO)\
-[BinarySearch with D3/ # D3.js histogram animation for the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_26)\
-[BinarySearch with TS/ # TS implementation of the binary search algorithm](https://github.com/nazarenko-by/Posts/tree/main/BinarySearch/post_93)\
-[BubbleSort/ # D3.js histogram animation for the bubble sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/BubbleSort)\
-[ButtonHover/ # Demonstration of the :hover selector for a button](https://github.com/nazarenko-by/Posts/tree/main/ButtonHover)\
-[CanvasFromScratch/ # A series of posts on learning Canvas from scratch](https://github.com/nazarenko-by/Posts/tree/main/CanvasFromScratch)\
-[ClipPath/ # Visualization of CSS clip-path usage](https://github.com/nazarenko-by/Posts/tree/main/ClipPath)\
-[CodeReview/ # A series of posts about code review](https://github.com/nazarenko-by/Posts/tree/main/CodeReview)\
-[CssGrid/ # Visualization of CSS Grid usage](https://github.com/nazarenko-by/Posts/tree/main/CssGrid)\
-[CssThemes/ # Visualization of CSS custom properties usage](https://github.com/nazarenko-by/Posts/tree/main/CssThemes)\
-[CssVsJsAnimation/ # Visual comparison of CSS and JavaScript animations](https://github.com/nazarenko-by/Posts/tree/main/CssVsJsAnimation)\
-[CVATailwind/ # Visualization of CVA usage with Tailwind ](https://github.com/nazarenko-by/Posts/tree/main/CVATailwind)\
-[D3FromScratch/ # A series of posts on learning D3 from scratch](https://github.com/nazarenko-by/Posts/tree/main/D3FromScratch)\
-[DateCompare/ # A comparison of different ways to work with Dates](https://github.com/nazarenko-by/Posts/tree/main/DateCompare)\
-[DragDrop/ # Visualization Drag & Drop in Framer Motion](https://github.com/nazarenko-by/Posts/tree/main/DragDrop)\
-[FlexboxVsGrid/ # Visual comparison of Flexbox and Grig](https://github.com/nazarenko-by/Posts/tree/main/FlexboxVsGrid)\
-[ForceGraph/ # Visualization of ForceGraph usage](https://github.com/nazarenko-by/Posts/tree/main/ForceGraph)\
-[FormDialogToast/ # Form-Dialog-Toast demo](https://github.com/nazarenko-by/Posts/tree/main/FormDialogToast)\
-[FramerMotion/ # Visualization of FramerMotion usage](https://github.com/nazarenko-by/Posts/tree/main/FramerMotion)\
-[Keyframes/ # Visualization of CSS keyframes usage](https://github.com/nazarenko-by/Posts/tree/main/Keyframes)\
-[LineChar/ # D3.js Line chart expamples](https://github.com/nazarenko-by/Posts/tree/main/LineChar)\
-[LinkedList/ # Visualization of a linked list](https://github.com/nazarenko-by/Posts/tree/main/LinkedList)\
-[MergeSort/ # Visualization of the merge sort algorithm](https://github.com/nazarenko-by/Posts/tree/main/MergeSort)\
-[NBY_Shop/ # Educational Project from the “Store from Scratch” Series](https://github.com/nazarenko-by/Posts/tree/main/NBY_Shop)\
-[NodeBackend/ # A series of articles providing a general overview of the backend for frontend developers](https://github.com/nazarenko-by/Posts/tree/main/NodeBackend)\
-[PageTransitions/ # Visualization of page transitions](https://github.com/nazarenko-by/Posts/tree/main/PageTransitions)\
-[ParticleSystem/ # Visualization of particle system animation](https://github.com/nazarenko-by/Posts/tree/main/ParticleSystem)\
-[PRReview/ # Visualization of PR features](https://github.com/nazarenko-by/Posts/tree/main/PRReview)\
-[RadixUI/ # Radix UI demo](https://github.com/nazarenko-by/Posts/tree/main/RadixUI)\
-[ReactD3Integration/ # Visualization of integration of D3 to React](https://github.com/nazarenko-by/Posts/tree/main/ReactD3Integration)\
-[ReactHookForm/ # ReactHookForm demo](https://github.com/nazarenko-by/Posts/tree/main/ReactHookForm)\
-[ReactPatterns/ # A series of posts on learning React Patterns](https://github.com/nazarenko-by/Posts/tree/main/ReactPatterns)\
-[ReactPerformance/ # Visualization of the difference in the number of re-renders in React before and after optimization](https://github.com/nazarenko-by/Posts/tree/main/ReactPerformance)\
-[ReactSpring/ # Visualization of react-spring animation](https://github.com/nazarenko-by/Posts/tree/main/ReactSpring)\
-[RefactorSeries/ # A series about refactoring live code](https://github.com/nazarenko-by/Posts/tree/main/RefactorSeries)\
-[RequestAnimationFrame/ # Visualization of requestAnimationFrame usage](https://github.com/nazarenko-by/Posts/tree/main/RequestAnimationFrame)\
-[ShadcnUI/ # Shadcn UI demo](https://github.com/nazarenko-by/Posts/tree/main/ShadcnUI)\
-[StackQueue/ # Visualization of the stack queue](https://github.com/nazarenko-by/Posts/tree/main/StackQueue)\
-[Storybook/ # Visualization of Storybook for ModernUI](https://github.com/nazarenko-by/Posts/tree/main/Storybook)\
-[SvgCanvasWebgl/ # Visual comparison of SVG, Canvas and WebGL](https://github.com/nazarenko-by/Posts/tree/main/SvgCanvasWebgl)\
-[SvgVsCanvas/ # Visual comparison of SVG and Canvas](https://github.com/nazarenko-by/Posts/tree/main/SvgVsCanvas)\
-[useDebounce/ # A visual demonstration of useDebounce hook](https://github.com/nazarenko-by/Posts/tree/main/useDebounce)\
-[useDeviceType/ # A visual demonstration of useDeviceType hook](https://github.com/nazarenko-by/Posts/tree/main/useDeviceType)\
-[useMediaQuery/ # A visual demonstration of useMediaQuery hook](https://github.com/nazarenko-by/Posts/tree/main/useMediaQuery)\
-[useWindowWidth/ # A visual demonstration of useWindowWidth hook](https://github.com/nazarenko-by/Posts/tree/main/useWindowWidth)\
-[Zod/ # A visual demonstration of how to use the Zod library](https://github.com/nazarenko-by/Posts/tree/main/Zod)
+```bash
+cd Treemap
+npm install
+npm run dev
+```
 
-## Stack
+Коміти позначені номером поста: `post_NNN: Ключ — опис`.
+
+## 🆕 Візуальний каталог (D3 / Canvas)
+
+Кожна папка — один візуальний результат + код. З поста 206.
+
+| Ключ | Що це |
+|------|-------|
+| [Treemap](Treemap) | Treemap на D3 |
+
+## Візуалізації та алгоритми
+
+| Папка | Опис |
+|-------|------|
+| [ArrayVSList](ArrayVSList) | Масив vs зв'язний список |
+| [BarChart](BarChart) | Стовпчаста діаграма на D3 |
+| [BigO](BigO) | Складність алгоритмів (Big O) |
+| [BinarySearch/D3](BinarySearch/D3) | Бінарний пошук: анімація на D3 |
+| [BinarySearch/TS](BinarySearch/TS) | Бінарний пошук: реалізація на TypeScript |
+| [BubbleSort](BubbleSort) | Сортування бульбашкою на D3 |
+| [ForceGraph](ForceGraph) | Force-directed граф |
+| [LineChart](LineChart) | Лінійні графіки на D3 |
+| [LinkedList](LinkedList) | Зв'язний список |
+| [MergeSort](MergeSort) | Сортування злиттям |
+| [ParticleSystem](ParticleSystem) | Система частинок на Canvas |
+| [StackQueue](StackQueue) | Стек і черга |
+| [SvgCanvasWebgl](SvgCanvasWebgl) | SVG vs Canvas vs WebGL |
+| [SvgVsCanvas](SvgVsCanvas) | SVG vs Canvas |
+
+## Анімації
+
+| Папка | Опис |
+|-------|------|
+| [AnimatePresence](AnimatePresence) | Поява/зникнення елементів |
+| [ButtonHover](ButtonHover) | Ефекти `:hover` для кнопки |
+| [CssVsJsAnimation](CssVsJsAnimation) | CSS vs JavaScript анімації |
+| [DragDrop](DragDrop) | Drag & Drop у Framer Motion |
+| [FramerMotion](FramerMotion) | Framer Motion |
+| [Keyframes](Keyframes) | CSS `@keyframes` |
+| [PageTransitions](PageTransitions) | Переходи між сторінками |
+| [ReactSpring](ReactSpring) | react-spring |
+| [RequestAnimationFrame](RequestAnimationFrame) | `requestAnimationFrame` |
+
+## CSS
+
+| Папка | Опис |
+|-------|------|
+| [BackdropFilter](BackdropFilter) | `backdrop-filter` |
+| [ClipPath](ClipPath) | `clip-path` |
+| [CssGrid](CssGrid) | CSS Grid |
+| [CssThemes](CssThemes) | Теми через custom properties |
+| [FlexboxVsGrid](FlexboxVsGrid) | Flexbox vs Grid |
+
+## React та хуки
+
+| Папка | Опис |
+|-------|------|
+| [FormDialogToast](FormDialogToast) | Форма + діалог + toast |
+| [ReactD3Integration](ReactD3Integration) | Інтеграція D3 у React |
+| [ReactHookForm](ReactHookForm) | React Hook Form |
+| [ReactPerformance](ReactPerformance) | Ре-рендери до і після оптимізації |
+| [useDebounce](useDebounce) | Хук `useDebounce` |
+| [useDeviceType](useDeviceType) | Хук `useDeviceType` |
+| [useMediaQuery](useMediaQuery) | Хук `useMediaQuery` |
+| [useWindowWidth](useWindowWidth) | Хук `useWindowWidth` |
+
+## Бібліотеки та інструменти
+
+| Папка | Опис |
+|-------|------|
+| [CVATailwind](CVATailwind) | class-variance-authority + Tailwind |
+| [DateCompare](DateCompare) | Способи порівняння дат |
+| [RadixUI](RadixUI) | Radix UI |
+| [ShadcnUI](ShadcnUI) | shadcn/ui |
+| [Storybook](Storybook) | Storybook для UI-кіту |
+| [Zod](Zod) | Валідація з Zod |
+
+## Серії
+
+| Папка | Опис |
+|-------|------|
+| [NBY_Shop](NBY_Shop) | «Магазин з нуля»: Next.js + Prisma, 18 епізодів |
+| [CanvasFromScratch](CanvasFromScratch) | Canvas з нуля |
+| [D3FromScratch](D3FromScratch) | D3 з нуля |
+| [CodeReview](CodeReview) | Code review |
+| [PRReview](PRReview) | PR review |
+| [ReactPatterns](ReactPatterns) | Патерни React |
+| [RefactorSeries](RefactorSeries) | Рефакторинг живого коду |
+| [NodeBackend](NodeBackend) | Бекенд на Node для фронтендерів |
+
+## Стек
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
