@@ -19,6 +19,7 @@ npm run dev
 | Ключ | Що це |
 |------|-------|
 | [Treemap](Treemap) | Treemap на D3 |
+| [Sunburst](Sunburst) | Sunburst на D3 |
 
 ## Візуалізації та алгоритми
 
