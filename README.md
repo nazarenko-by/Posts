@@ -18,8 +18,9 @@ npm run dev
 
 | Ключ | Що це |
 |------|-------|
-| [Treemap](Treemap) | Treemap на D3 |
+| [ç](Sankey) | Sankey на D3 |
 | [Sunburst](Sunburst) | Sunburst на D3 |
+| [Treemap](Treemap) | Treemap на D3 |
 
 ## Візуалізації та алгоритми
 
