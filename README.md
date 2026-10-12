@@ -18,7 +18,8 @@ npm run dev
 
 | Ключ | Що це |
 |------|-------|
-| [ç](Sankey) | Sankey на D3 |
+| [HeatmapCalendar](HeatmapCalendar) | Heatmap Calendar на D3 |
+| [Sankey](Sankey) | Sankey на D3 |
 | [Sunburst](Sunburst) | Sunburst на D3 |
 | [Treemap](Treemap) | Treemap на D3 |
 
