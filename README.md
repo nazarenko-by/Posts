@@ -55,6 +55,7 @@ npm run dev
 | [PageTransitions](PageTransitions) | Переходи між сторінками |
 | [ReactSpring](ReactSpring) | react-spring |
 | [RequestAnimationFrame](RequestAnimationFrame) | `requestAnimationFrame` |
+| [Shaders](Shaders) | Hero-секція з живим WebGPU-фоном |
 
 ## CSS
 
