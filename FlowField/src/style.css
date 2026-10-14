@@ -1,0 +1,11 @@
+* { margin: 0; box-sizing: border-box; }
+html, body { height: 100%; background: #0a0d14; overflow: hidden; }
+canvas { display: block; cursor: pointer; }
+.hint {
+  position: fixed;
+  left: 16px;
+  bottom: 14px;
+  color: #8a93c7;
+  font: 14px "JetBrains Mono", monospace;
+  pointer-events: none;
+}

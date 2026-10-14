@@ -50,6 +50,7 @@ npm run dev
 | [ButtonHover](ButtonHover) | Ефекти `:hover` для кнопки |
 | [CssVsJsAnimation](CssVsJsAnimation) | CSS vs JavaScript анімації |
 | [DragDrop](DragDrop) | Drag & Drop у Framer Motion |
+| [FlowField](FlowField) | Flow Field - практичне використання |
 | [FramerMotion](FramerMotion) | Framer Motion |
 | [Keyframes](Keyframes) | CSS `@keyframes` |
 | [PageTransitions](PageTransitions) | Переходи між сторінками |
