@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карта України — @nby.frontend</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Карта України</h1>
+      <div class="modes" role="group" aria-label="Шар карти">
+        <button data-mode="density" aria-pressed="true">Щільність населення</button>
+        <button data-mode="alerts" aria-pressed="false">Тривоги зараз</button>
+      </div>
+      <p id="status" class="hint" aria-live="polite"></p>
+      <div id="chart"></div>
+      <div id="tooltip" class="tooltip" hidden></div>
+      <p class="credits">
+        Щільність: оцінка Держстату на 01.01.2022 ·
+        Тривоги: <a href="https://neptun.in.ua/" target="_blank" rel="noopener">Карта повітряних тривог — NEPTUN</a>
+        (неофіційний агрегатор, для безпеки слухай офіційні сигнали) ·
+        Геометрія © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>
+      </p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
