@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KPI Gauge — @nby.frontend</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>KPI Gauge <span>· дашборд на D3</span></h1>
+      <p class="hint">Дані оновлюються кожні 3 с. Кнопка — оновити зараз.</p>
+      <div class="grid">
+        <section class="card"><h2>План місяця</h2><div id="gauge"></div></section>
+        <section class="card"><h2>Спринт</h2><div id="donut"></div></section>
+      </div>
+      <button id="refresh">Оновити дані</button>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
