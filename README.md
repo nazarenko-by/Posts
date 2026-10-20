@@ -21,6 +21,7 @@ npm run dev
 | [GaugeKpi](GaugeKpi) | напівкруглий **gauge** (спідометр зі стрілкою, зонами й міткою цілі) і **donut** (з чого складається ціле) на D3 |
 | [HeatmapCalendar](HeatmapCalendar) | Heatmap Calendar на D3 |
 | [Sankey](Sankey) | Sankey на D3 |
+| [Streamgraph](Streamgraph) | Streamgraph на D3 |
 | [Sunburst](Sunburst) | Sunburst на D3 |
 | [Treemap](Treemap) | Treemap на D3 |
 | [UkraineMap](UkraineMap) | Choropleth-карта України на D3 |

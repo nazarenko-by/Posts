@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Streamgraph — @nby.frontend</title>
+  </head>
+  <body>
+    <main>
+      <h1>Streamgraph <span>· збирачі фронтенду на npm</span></h1>
+      <p class="hint">Завантаження на тиждень, млн. Наведи курсор на графік.</p>
+      <div class="offsets" role="group" aria-label="Офсет">
+        <button data-offset="silhouette" aria-pressed="true">silhouette</button>
+        <button data-offset="wiggle" aria-pressed="false">wiggle</button>
+        <button data-offset="expand" aria-pressed="false">expand (%)</button>
+        <button data-offset="none" aria-pressed="false">none</button>
+      </div>
+      <div class="chart">
+        <svg id="chart"></svg>
+        <div id="tip" class="tip" hidden></div>
+      </div>
+      <p class="source">Дані: <a href="https://github.com/npm/registry/blob/main/docs/download-counts.md" target="_blank" rel="noopener">api.npmjs.org</a></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
