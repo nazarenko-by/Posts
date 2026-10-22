@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bump Chart — @nby.frontend</title>
+  </head>
+  <body>
+    <main>
+      <h1>Bump Chart <span>· тест-раннери на npm</span></h1>
+      <p class="hint">Місце за завантаженнями по кварталах. Наведи на лінію або точку.</p>
+      <div class="chart">
+        <svg id="chart"></svg>
+        <div id="tip" class="tip" hidden></div>
+      </div>
+      <p class="source">Дані: <a href="https://github.com/npm/registry/blob/main/docs/download-counts.md" target="_blank" rel="noopener">api.npmjs.org</a></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

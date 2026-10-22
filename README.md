@@ -18,6 +18,7 @@ npm run dev
 
 | Ключ | Що це |
 |------|-------|
+| [BumpChart](BumpChart) | Bump chart на D3 |
 | [GaugeKpi](GaugeKpi) | напівкруглий **gauge** (спідометр зі стрілкою, зонами й міткою цілі) і **donut** (з чого складається ціле) на D3 |
 | [HeatmapCalendar](HeatmapCalendar) | Heatmap Calendar на D3 |
 | [Sankey](Sankey) | Sankey на D3 |
