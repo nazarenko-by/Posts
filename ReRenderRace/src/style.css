@@ -1,0 +1,39 @@
+:root {
+  --bg: #0a0d14;
+  --panel: #16213e;
+  --line: #2a2c4a;
+  --text: #e8ecfb;
+  --muted: #8a93c7;
+  --accent: #ff9e64;
+  --flash: #ff9e64;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Montserrat, system-ui, sans-serif; }
+main { padding: 24px 16px; max-width: 1100px; margin: 0 auto; }
+h1 { margin: 0 0 4px; font-size: 30px; font-weight: 800; }
+h1 span { color: var(--muted); font-size: 18px; font-weight: 500; }
+.hint { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.controls button {
+  padding: 10px 18px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--accent); color: var(--bg); font: 700 15px Montserrat, system-ui, sans-serif;
+}
+.controls .ghost { background: var(--panel); color: var(--muted); border: 1px solid var(--line); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.col { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
+.col header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.col h2 { margin: 0; font-size: 20px; }
+.col output { font: 800 34px "JetBrains Mono", monospace; color: var(--accent); }
+.col.context output { color: #f7768e; }
+.node { border-left: 2px solid var(--line); padding: 3px 0 3px 10px; border-radius: 4px; }
+.row { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 3px 6px; border-radius: 6px; }
+.name { font-family: "JetBrains Mono", monospace; color: var(--muted); }
+.val { color: var(--text); }
+.val.acc { color: var(--accent); font-weight: 700; }
+.kids { margin-left: 8px; }
+.row button {
+  padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line);
+  background: transparent; color: var(--text); font: 600 13px Montserrat, system-ui, sans-serif; cursor: pointer;
+}
+.node.flash > .row { animation: flash 0.7s ease-out; }
+@keyframes flash { from { background: var(--flash); } to { background: transparent; } }

@@ -60,6 +60,7 @@ npm run dev
 | [PageTransitions](PageTransitions) | Переходи між сторінками |
 | [ReactSpring](ReactSpring) | react-spring |
 | [RequestAnimationFrame](RequestAnimationFrame) | `requestAnimationFrame` |
+| [ReRenderRace](ReRenderRace) | Одне й те саме дерево магазину з 13 компонентів, зібране тричі: на **Zustand**, **Redux Toolkit** і **React Context** |
 | [Shaders](Shaders) | Hero-секція з живим WebGPU-фоном |
 
 ## CSS
