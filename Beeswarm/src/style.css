@@ -1,0 +1,32 @@
+:root {
+  --bg: #0a0d14;
+  --panel: #16213e;
+  --line: #2a2c4a;
+  --text: #e8ecfb;
+  --muted: #8a93c7;
+  --accent: #e0af68;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--text); font-family: Montserrat, system-ui, sans-serif; }
+main { padding: 24px 16px; width: min(1000px, 100%); }
+h1 { margin: 0 0 4px; font-size: 32px; font-weight: 800; }
+h1 span { color: var(--muted); font-size: 18px; font-weight: 500; }
+.hint { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 12px; font-size: 14px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.chart { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+svg { width: 100%; height: auto; display: block; }
+.axis text { fill: var(--muted); font: 13px "JetBrains Mono", monospace; }
+.axis line { stroke: var(--line); }
+.axis path { stroke: var(--line); }
+.dot { stroke: var(--panel); stroke-width: 2; cursor: pointer; transition: opacity 0.2s; }
+.label { font-weight: 700; font-size: 13px; pointer-events: none; paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+.dim { opacity: 0.25; }
+.tip {
+  position: absolute; padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+  font-size: 13px; white-space: nowrap; pointer-events: none; transform: translate(-50%, calc(-100% - 14px));
+}
+.tip b { font-family: "JetBrains Mono", monospace; }
+.tip span { color: var(--muted); }
+.source { color: var(--muted); font-size: 13px; }
+.source a { color: var(--accent); }

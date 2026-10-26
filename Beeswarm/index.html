@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beeswarm — @nby.frontend</title>
+  </head>
+  <body>
+    <main>
+      <h1>Beeswarm <span>· скільки важить імпорт</span></h1>
+      <p class="hint">Повний імпорт, min + gzip, логарифмічна шкала. Наведи на точку - версія й розмір.</p>
+      <div class="legend" id="legend"></div>
+      <div class="chart">
+        <svg id="chart"></svg>
+        <div id="tip" class="tip" hidden></div>
+      </div>
+      <p class="source">Дані: <a href="https://bundlephobia.com" target="_blank" rel="noopener">bundlephobia.com</a></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
