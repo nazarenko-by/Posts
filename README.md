@@ -83,6 +83,7 @@ npm run dev
 | [ReactPerformance](ReactPerformance) | Ре-рендери до і після оптимізації |
 | [useDebounce](useDebounce) | Хук `useDebounce` |
 | [useDeviceType](useDeviceType) | Хук `useDeviceType` |
+| [UseEffectWaterfall](UseEffectWaterfall) | Один і той самий пошук по 72 frontend-пакетах, зроблений двічі ... |
 | [useMediaQuery](useMediaQuery) | Хук `useMediaQuery` |
 | [useWindowWidth](useWindowWidth) | Хук `useWindowWidth` |
 
