@@ -46,6 +46,7 @@ npm run dev
 | [StackQueue](StackQueue) | Стек і черга |
 | [SvgCanvasWebgl](SvgCanvasWebgl) | SVG vs Canvas vs WebGL |
 | [SvgVsCanvas](SvgVsCanvas) | SVG vs Canvas |
+| [Virtualized](Virtualized) | Список із 100 000 рядків логів, відрендерений двічі |
 
 ## Анімації
 
