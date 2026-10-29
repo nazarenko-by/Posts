@@ -96,6 +96,7 @@ npm run dev
 |-------|------|
 | [CVATailwind](CVATailwind) | class-variance-authority + Tailwind |
 | [DateCompare](DateCompare) | Способи порівняння дат |
+| [LoadingWaterfall](LoadingWaterfall) | Один і той самий лендінг (шапка з мобільним меню, hero, три картки, FAQ-акордеон), зібраний трьома способами |
 | [RadixUI](RadixUI) | Radix UI |
 | [ShadcnUI](ShadcnUI) | shadcn/ui |
 | [Storybook](Storybook) | Storybook для UI-кіту |

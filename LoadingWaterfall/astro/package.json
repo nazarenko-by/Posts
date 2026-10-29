@@ -1,0 +1,7 @@
+{
+  "name": "landing-astro",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "astro build" },
+  "dependencies": { "@astrojs/react": "7.1.2", "astro": "7.4.4", "react": "19.3.1", "react-dom": "19.3.1" }
+}

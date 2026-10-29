@@ -1,0 +1,37 @@
+---
+// Astro: уся сторінка - статичний HTML, JS отримують лише острови з client:*
+import { FEATURES } from "../components/content.js";
+import { Faq } from "../components/Faq.jsx";
+import { Menu } from "../components/Menu.jsx";
+import "../components/styles.css";
+---
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launchpad - Astro</title>
+  </head>
+  <body>
+    <header class="top">
+      <strong class="logo">Launchpad</strong>
+      <Menu client:load />
+    </header>
+    <main>
+      <section class="hero" id="start">
+        <h1>Лендінг за вечір, а не за спринт</h1>
+        <p>Шаблони, аналітика й команда - усе для запуску продукту в одному місці.</p>
+        <a class="cta big" href="#features">Спробувати безкоштовно</a>
+      </section>
+      <section class="features" id="features">
+        {FEATURES.map((f) => (
+          <article><h2>{f.title}</h2><p>{f.text}</p></article>
+        ))}
+      </section>
+      <section id="faq">
+        <h2>Часті питання</h2>
+        <Faq client:visible />
+      </section>
+    </main>
+    <footer>© 2026 Launchpad · демо для @nby.frontend</footer>
+  </body>
+</html>

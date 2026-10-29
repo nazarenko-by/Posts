@@ -1,0 +1,515 @@
+{
+  "next": [
+    {
+      "score": 98,
+      "fcp": 1288,
+      "lcp": 1288,
+      "tbt": 145,
+      "si": 1298,
+      "tti": 2164,
+      "jsKb": 134.3,
+      "requests": 9,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 3,
+          "end": 588,
+          "kb": 3.1
+        },
+        {
+          "url": "/_next/static/chunks/1_1sz7c0l0end.css",
+          "type": "Stylesheet",
+          "start": 623,
+          "end": 1193,
+          "kb": 0.9
+        },
+        {
+          "url": "/_next/static/chunks/3cfn99dbrcvvp.js",
+          "type": "Script",
+          "start": 626,
+          "end": 1343,
+          "kb": 6
+        },
+        {
+          "url": "/_next/static/chunks/24oq267qibdq3.js",
+          "type": "Script",
+          "start": 634,
+          "end": 1819,
+          "kb": 49
+        },
+        {
+          "url": "/_next/static/chunks/3wbm-994r45kr.js",
+          "type": "Script",
+          "start": 635,
+          "end": 1947,
+          "kb": 70.5
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "type": "Script",
+          "start": 636,
+          "end": 1304,
+          "kb": 4.1
+        },
+        {
+          "url": "/_next/static/chunks/0umf92h1sb77c.js",
+          "type": "Script",
+          "start": 636,
+          "end": 1312,
+          "kb": 3.6
+        },
+        {
+          "url": "/_next/static/chunks/017m48b897oqq.js",
+          "type": "Script",
+          "start": 1193,
+          "end": 1784,
+          "kb": 1.1
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 2195,
+          "end": 2781,
+          "kb": 3.1
+        }
+      ]
+    },
+    {
+      "score": 99,
+      "fcp": 1250,
+      "lcp": 1250,
+      "tbt": 125,
+      "si": 1262,
+      "tti": 2120,
+      "jsKb": 134.3,
+      "requests": 9,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 4,
+          "end": 592,
+          "kb": 3.1
+        },
+        {
+          "url": "/_next/static/chunks/1_1sz7c0l0end.css",
+          "type": "Stylesheet",
+          "start": 608,
+          "end": 1184,
+          "kb": 0.9
+        },
+        {
+          "url": "/_next/static/chunks/3cfn99dbrcvvp.js",
+          "type": "Script",
+          "start": 609,
+          "end": 1332,
+          "kb": 6
+        },
+        {
+          "url": "/_next/static/chunks/24oq267qibdq3.js",
+          "type": "Script",
+          "start": 619,
+          "end": 1809,
+          "kb": 49
+        },
+        {
+          "url": "/_next/static/chunks/3wbm-994r45kr.js",
+          "type": "Script",
+          "start": 619,
+          "end": 1936,
+          "kb": 70.5
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "type": "Script",
+          "start": 619,
+          "end": 1284,
+          "kb": 4.1
+        },
+        {
+          "url": "/_next/static/chunks/0umf92h1sb77c.js",
+          "type": "Script",
+          "start": 620,
+          "end": 1300,
+          "kb": 3.6
+        },
+        {
+          "url": "/_next/static/chunks/017m48b897oqq.js",
+          "type": "Script",
+          "start": 1184,
+          "end": 1770,
+          "kb": 1.1
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 2158,
+          "end": 2747,
+          "kb": 3.1
+        }
+      ]
+    },
+    {
+      "score": 99,
+      "fcp": 1265,
+      "lcp": 1265,
+      "tbt": 131,
+      "si": 1276,
+      "tti": 2137,
+      "jsKb": 134.3,
+      "requests": 9,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 2,
+          "end": 588,
+          "kb": 3.1
+        },
+        {
+          "url": "/_next/static/chunks/1_1sz7c0l0end.css",
+          "type": "Stylesheet",
+          "start": 616,
+          "end": 1184,
+          "kb": 0.9
+        },
+        {
+          "url": "/_next/static/chunks/3cfn99dbrcvvp.js",
+          "type": "Script",
+          "start": 624,
+          "end": 1271,
+          "kb": 6
+        },
+        {
+          "url": "/_next/static/chunks/24oq267qibdq3.js",
+          "type": "Script",
+          "start": 647,
+          "end": 1819,
+          "kb": 49
+        },
+        {
+          "url": "/_next/static/chunks/3wbm-994r45kr.js",
+          "type": "Script",
+          "start": 648,
+          "end": 1947,
+          "kb": 70.5
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "type": "Script",
+          "start": 649,
+          "end": 1311,
+          "kb": 4.1
+        },
+        {
+          "url": "/_next/static/chunks/0umf92h1sb77c.js",
+          "type": "Script",
+          "start": 649,
+          "end": 1327,
+          "kb": 3.6
+        },
+        {
+          "url": "/_next/static/chunks/017m48b897oqq.js",
+          "type": "Script",
+          "start": 1185,
+          "end": 1773,
+          "kb": 1.1
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 2181,
+          "end": 2766,
+          "kb": 3.1
+        }
+      ]
+    }
+  ],
+  "vite-rr": [
+    {
+      "score": 98,
+      "fcp": 1920,
+      "lcp": 1920,
+      "tbt": 0,
+      "si": 1693,
+      "tti": 1920,
+      "jsKb": 96.9,
+      "requests": 4,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 3,
+          "end": 583,
+          "kb": 0.6
+        },
+        {
+          "url": "/assets/index-DJR_fsJD.js",
+          "type": "Script",
+          "start": 629,
+          "end": 1732,
+          "kb": 96.9
+        },
+        {
+          "url": "/assets/index-oZGDUgQ5.css",
+          "type": "Stylesheet",
+          "start": 630,
+          "end": 1212,
+          "kb": 0.9
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 1911,
+          "end": 2480,
+          "kb": 0.6
+        }
+      ]
+    },
+    {
+      "score": 98,
+      "fcp": 1913,
+      "lcp": 1913,
+      "tbt": 0,
+      "si": 1681,
+      "tti": 1913,
+      "jsKb": 96.9,
+      "requests": 4,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 4,
+          "end": 575,
+          "kb": 0.6
+        },
+        {
+          "url": "/assets/index-DJR_fsJD.js",
+          "type": "Script",
+          "start": 619,
+          "end": 1718,
+          "kb": 96.9
+        },
+        {
+          "url": "/assets/index-oZGDUgQ5.css",
+          "type": "Stylesheet",
+          "start": 619,
+          "end": 1196,
+          "kb": 0.9
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 1903,
+          "end": 2475,
+          "kb": 0.6
+        }
+      ]
+    },
+    {
+      "score": 98,
+      "fcp": 1883,
+      "lcp": 1883,
+      "tbt": 0,
+      "si": 1660,
+      "tti": 1883,
+      "jsKb": 96.9,
+      "requests": 4,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 3,
+          "end": 571,
+          "kb": 0.6
+        },
+        {
+          "url": "/assets/index-DJR_fsJD.js",
+          "type": "Script",
+          "start": 620,
+          "end": 1723,
+          "kb": 96.9
+        },
+        {
+          "url": "/assets/index-oZGDUgQ5.css",
+          "type": "Stylesheet",
+          "start": 621,
+          "end": 1201,
+          "kb": 0.9
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 1876,
+          "end": 2450,
+          "kb": 0.6
+        }
+      ]
+    }
+  ],
+  "astro": [
+    {
+      "score": 100,
+      "fcp": 671,
+      "lcp": 671,
+      "tbt": 0,
+      "si": 730,
+      "tti": 751,
+      "jsKb": 68.8,
+      "requests": 6,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 2,
+          "end": 588,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/Menu.D2mD_BVC.js",
+          "type": "Script",
+          "start": 681,
+          "end": 1248,
+          "kb": 0.6
+        },
+        {
+          "url": "/_astro/client.Cd-EeyjT.js",
+          "type": "Script",
+          "start": 682,
+          "end": 1629,
+          "kb": 64.5
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 789,
+          "end": 1398,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/react.CvnImTBr.js",
+          "type": "Script",
+          "start": 1259,
+          "end": 1852,
+          "kb": 3.2
+        },
+        {
+          "url": "/_astro/jsx-runtime.DjlYrHq-.js",
+          "type": "Script",
+          "start": 1259,
+          "end": 1838,
+          "kb": 0.5
+        }
+      ]
+    },
+    {
+      "score": 100,
+      "fcp": 670,
+      "lcp": 670,
+      "tbt": 0,
+      "si": 725,
+      "tti": 724,
+      "jsKb": 68.8,
+      "requests": 6,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 2,
+          "end": 589,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/Menu.D2mD_BVC.js",
+          "type": "Script",
+          "start": 664,
+          "end": 1242,
+          "kb": 0.6
+        },
+        {
+          "url": "/_astro/client.Cd-EeyjT.js",
+          "type": "Script",
+          "start": 668,
+          "end": 1622,
+          "kb": 64.5
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 732,
+          "end": 1336,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/react.CvnImTBr.js",
+          "type": "Script",
+          "start": 1248,
+          "end": 1845,
+          "kb": 3.2
+        },
+        {
+          "url": "/_astro/jsx-runtime.DjlYrHq-.js",
+          "type": "Script",
+          "start": 1248,
+          "end": 1833,
+          "kb": 0.5
+        }
+      ]
+    },
+    {
+      "score": 100,
+      "fcp": 670,
+      "lcp": 670,
+      "tbt": 0,
+      "si": 720,
+      "tti": 716,
+      "jsKb": 68.8,
+      "requests": 6,
+      "reqs": [
+        {
+          "url": "/",
+          "type": "Document",
+          "start": 3,
+          "end": 592,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/Menu.D2mD_BVC.js",
+          "type": "Script",
+          "start": 665,
+          "end": 1239,
+          "kb": 0.6
+        },
+        {
+          "url": "/_astro/client.Cd-EeyjT.js",
+          "type": "Script",
+          "start": 668,
+          "end": 1616,
+          "kb": 64.5
+        },
+        {
+          "url": "/favicon.ico",
+          "type": "Other",
+          "start": 728,
+          "end": 1338,
+          "kb": 4.2
+        },
+        {
+          "url": "/_astro/react.CvnImTBr.js",
+          "type": "Script",
+          "start": 1247,
+          "end": 1839,
+          "kb": 3.2
+        },
+        {
+          "url": "/_astro/jsx-runtime.DjlYrHq-.js",
+          "type": "Script",
+          "start": 1248,
+          "end": 1824,
+          "kb": 0.5
+        }
+      ]
+    }
+  ]
+}
