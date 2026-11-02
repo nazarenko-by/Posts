@@ -98,6 +98,7 @@ npm run dev
 | [DateCompare](DateCompare) | Способи порівняння дат |
 | [Knip](Knip) | Knip знаходить мертвий код |
 | [LoadingWaterfall](LoadingWaterfall) | Один і той самий лендінг (шапка з мобільним меню, hero, три картки, FAQ-акордеон), зібраний трьома способами |
+| [PromiseTimeline](PromiseTimeline) | Один дашборд, три запити, один із них падає |
 | [RadixUI](RadixUI) | Radix UI |
 | [ShadcnUI](ShadcnUI) | shadcn/ui |
 | [Storybook](Storybook) | Storybook для UI-кіту |

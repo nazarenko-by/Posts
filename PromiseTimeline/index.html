@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromiseTimeline — @nby.frontend</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>PromiseTimeline <span>· Promise.all чи allSettled</span></h1>
+      <p class="hint">Три запити дашборда: /user 300 ms, /orders 600 ms, /recs 1100 ms. Обери, чи падає /orders, і завантаж обидва дашборди.</p>
+      <div class="controls">
+        <label><input type="checkbox" id="fail" checked /> /orders повертає 500</label>
+        <button id="load">завантажити</button>
+      </div>
+      <div class="cols">
+        <section class="col" id="all"><h2>Promise.all</h2><div class="log"></div><div class="screen"></div></section>
+        <section class="col" id="settled"><h2>Promise.allSettled</h2><div class="log"></div><div class="screen"></div></section>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
