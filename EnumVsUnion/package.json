@@ -1,0 +1,15 @@
+{
+  "name": "enum-vs-union",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p . && node scripts/sizes.mjs",
+    "check:erasable": "tsc -p tsconfig.erasable.json",
+    "run:union": "node src/union.ts",
+    "run:enum": "node src/enum.ts"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}

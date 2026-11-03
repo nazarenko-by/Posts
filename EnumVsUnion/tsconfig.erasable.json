@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target": "ES2022", "module": "ESNext", "noEmit": true, "strict": true, "erasableSyntaxOnly": true },
+  "include": ["src"]
+}

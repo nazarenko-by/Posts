@@ -117,6 +117,12 @@ npm run dev
 | [RefactorSeries](RefactorSeries) | Рефакторинг живого коду |
 | [NodeBackend](NodeBackend) | Бекенд на Node для фронтендерів |
 
+## TS
+
+| Папка | Опис |
+|-------|------|
+| [EnumVsUnion](EnumVsUnion) | Один і той самий статус замовлення трьома способами — **enum**, **union-тип** і **об'єкт `as const`** |
+
 ## Стек
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
