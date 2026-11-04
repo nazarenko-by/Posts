@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FluidType - px, rem чи clamp()</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <header>
+    <h1>px, rem чи clamp()?</h1>
+    <p>Зразок <code>sample.html</code> в iframe. Зум імітується як у браузері: CSS-ширина ділиться на зум, картинка множиться на нього.
+      Шрифт браузера - через <code>font-size</code> кореня (так і працює налаштування «Розмір шрифту»). Справжні заміри - <code>npm run measure</code>.</p>
+  </header>
+
+  <section class="controls">
+    <label>ширина вікна <output id="wOut"></output>
+      <input id="w" type="range" min="320" max="1600" step="1" value="1440" />
+    </label>
+    <label>шрифт браузера
+      <select id="base">
+        <option value="12">дрібний (12px)</option>
+        <option value="16" selected>середній (16px)</option>
+        <option value="20">великий (20px)</option>
+        <option value="24">дуже великий (24px)</option>
+      </select>
+    </label>
+    <label>зум
+      <select id="zoom">
+        <option value="1" selected>100%</option>
+        <option value="1.5">150%</option>
+        <option value="2">200%</option>
+        <option value="3">300%</option>
+      </select>
+    </label>
+  </section>
+
+  <table id="readout">
+    <thead><tr><th>спосіб</th><th>CSS px</th><th>бачить користувач</th><th>× від 1440 / 16px / 100%</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="stage"><div class="frame" id="frame"><iframe id="sample" src="/sample.html" title="зразок"></iframe></div></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

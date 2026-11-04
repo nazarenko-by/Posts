@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-04",
+  "chromium": "141.0.7390.37",
+  "results": [
+    {
+      "key": "phone",
+      "label": "телефон 375px",
+      "width": 375,
+      "zoom": 1,
+      "base": 16,
+      "cssViewport": 375,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 28,
+        "fluid2": 32.875,
+        "vw": 28
+      },
+      "seen": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 28,
+        "fluid2": 32.9,
+        "vw": 28
+      }
+    },
+    {
+      "key": "tablet",
+      "label": "планшет 768px",
+      "width": 768,
+      "zoom": 1,
+      "base": 16,
+      "cssViewport": 768,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 39.04,
+        "fluid2": 48,
+        "vw": 30.72
+      },
+      "seen": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 39,
+        "fluid2": 48,
+        "vw": 30.7
+      }
+    },
+    {
+      "key": "desktop",
+      "label": "десктоп 1440px",
+      "width": 1440,
+      "zoom": 1,
+      "base": 16,
+      "cssViewport": 1440,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 48,
+        "fluid2": 48,
+        "vw": 48
+      },
+      "seen": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 48,
+        "fluid2": 48,
+        "vw": 48
+      }
+    },
+    {
+      "key": "bigfont",
+      "label": "1440px, шрифт браузера «дуже великий» (24px)",
+      "width": 1440,
+      "zoom": 1,
+      "base": 24,
+      "cssViewport": 1440,
+      "rootPx": 24,
+      "css": {
+        "px": 40,
+        "rem": 60,
+        "fluid": 67.2,
+        "fluid2": 72,
+        "vw": 48
+      },
+      "seen": {
+        "px": 40,
+        "rem": 60,
+        "fluid": 67.2,
+        "fluid2": 72,
+        "vw": 48
+      }
+    },
+    {
+      "key": "zoom200",
+      "label": "1440px, зум 200%",
+      "width": 1440,
+      "zoom": 2,
+      "base": 16,
+      "cssViewport": 720,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 37.6,
+        "fluid2": 48,
+        "vw": 28.8
+      },
+      "seen": {
+        "px": 80,
+        "rem": 80,
+        "fluid": 75.2,
+        "fluid2": 96,
+        "vw": 57.6
+      }
+    },
+    {
+      "key": "zoom300",
+      "label": "1440px, зум 300%",
+      "width": 1440,
+      "zoom": 3,
+      "base": 16,
+      "cssViewport": 480,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 30.4,
+        "fluid2": 37.6,
+        "vw": 28
+      },
+      "seen": {
+        "px": 120,
+        "rem": 120,
+        "fluid": 91.2,
+        "fluid2": 112.8,
+        "vw": 84
+      }
+    },
+    {
+      "key": "zoom400",
+      "label": "1440px, зум 400%",
+      "width": 1440,
+      "zoom": 4,
+      "base": 16,
+      "cssViewport": 360,
+      "rootPx": 16,
+      "css": {
+        "px": 40,
+        "rem": 40,
+        "fluid": 28,
+        "fluid2": 32.2,
+        "vw": 28
+      },
+      "seen": {
+        "px": 160,
+        "rem": 160,
+        "fluid": 112,
+        "fluid2": 128.8,
+        "vw": 112
+      }
+    }
+  ]
+}

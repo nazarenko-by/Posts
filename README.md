@@ -75,6 +75,7 @@ npm run dev
 | [CssGrid](CssGrid) | CSS Grid |
 | [CssThemes](CssThemes) | Теми через custom properties |
 | [FlexboxVsGrid](FlexboxVsGrid) | Flexbox vs Grid |
+| [FluidType](FluidType) | Один заголовок трьома способами: **`40px`**, **`2.5rem`** і **`clamp()`**. |
 
 ## React та хуки
 

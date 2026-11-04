@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FluidType - зразок</title>
+  <!-- Сторінка, яку міряє scripts/measure.mjs і яку демо показує в iframe.
+       Ніяких скриптів - лише заголовки з різними способами задати розмір (px, rem, два clamp, clamp лише з vw). -->
+  <style>
+    body { margin: 0; padding: 16px; font-family: system-ui, sans-serif; background: #0f1729; color: #e8ecfb; }
+    h1 { margin: 0 0 12px; line-height: 1.1; font-weight: 800; }
+    .px    { font-size: 40px; }
+    .rem   { font-size: 2.5rem; }
+    .fluid { font-size: clamp(1.75rem, 1rem + 3vw, 3rem); }
+    /* виправлений clamp: максимум уже на ~710px CSS-ширини → на зумі 200% десктоп росте рівно ×2 */
+    .fluid2 { font-size: clamp(1.75rem, 1rem + 4.5vw, 3rem); }
+    /* для порівняння в демо: clamp лише з vw - не росте від налаштувань шрифту */
+    .vw    { font-size: clamp(28px, 4vw, 48px); }
+    small { display: block; color: #8a93c7; font: 13px/1.4 ui-monospace, monospace; margin-bottom: 18px; }
+  </style>
+</head>
+<body>
+  <small>font-size: 40px</small>
+  <h1 class="px" id="px">Привіт, фронтенд</h1>
+  <small>font-size: 2.5rem</small>
+  <h1 class="rem" id="rem">Привіт, фронтенд</h1>
+  <small>font-size: clamp(1.75rem, 1rem + 3vw, 3rem)</small>
+  <h1 class="fluid" id="fluid">Привіт, фронтенд</h1>
+  <small>font-size: clamp(1.75rem, 1rem + 4.5vw, 3rem) - максимум раніше</small>
+  <h1 class="fluid2" id="fluid2">Привіт, фронтенд</h1>
+  <small>font-size: clamp(28px, 4vw, 48px) - лише vw</small>
+  <h1 class="vw" id="vw">Привіт, фронтенд</h1>
+</body>
+</html>

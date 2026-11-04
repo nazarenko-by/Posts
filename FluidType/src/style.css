@@ -1,0 +1,22 @@
+:root { color-scheme: dark; --bg: #0a0d14; --panel: #16213e; --line: #2a2c4a; --text: #e8ecfb; --muted: #8a93c7; --accent: #ff9e64; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; }
+header h1 { margin: 0 0 4px; font-size: 1.75rem; }
+header p { margin: 0 0 20px; color: var(--muted); max-width: 70ch; }
+code { font-family: ui-monospace, monospace; font-size: 0.9em; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 16px; }
+.controls label { display: grid; gap: 6px; color: var(--muted); font-size: 0.875rem; }
+.controls output { color: var(--accent); font-weight: 700; margin-left: 6px; }
+.controls input[type="range"] { width: 320px; accent-color: var(--accent); }
+select { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font: inherit; }
+
+table { border-collapse: collapse; margin-bottom: 20px; background: var(--panel); border-radius: 12px; overflow: hidden; }
+th, td { padding: 8px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 0.8125rem; }
+td.ok { color: #9ece6a; font-weight: 700; }
+td.bad { color: var(--accent); font-weight: 700; }
+
+.stage { overflow-x: auto; padding-bottom: 8px; }
+.frame { height: 520px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+iframe { border: 0; display: block; transform-origin: 0 0; background: #0f1729; }
