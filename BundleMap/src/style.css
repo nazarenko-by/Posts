@@ -1,0 +1,14 @@
+:root { color-scheme: dark; --bg: #0a0d14; --panel: #16213e; --line: #2a2c4a; --text: #e8ecfb; --muted: #8a93c7; --accent: #e0af68; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, sans-serif; }
+header h1 { margin: 0 0 4px; font-size: 1.6rem; }
+header p { margin: 0 0 16px; color: var(--muted); max-width: 75ch; }
+code { font-family: ui-monospace, monospace; }
+.controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; margin-bottom: 10px; }
+.controls label { display: grid; gap: 4px; color: var(--muted); font-size: 0.85rem; }
+.controls output { font: 700 1rem ui-monospace, monospace; color: var(--accent); }
+select, button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font: inherit; cursor: pointer; }
+#crumbs { min-height: 34px; color: var(--muted); }
+svg { display: block; background: #0f1729; border-radius: 12px; }
+.label { font: 600 12px ui-monospace, monospace; fill: var(--text); pointer-events: none; }
+#tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font: 12px ui-monospace, monospace; }

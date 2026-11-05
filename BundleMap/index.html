@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BundleMap - що всередині бандла</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Що всередині бандла NBY Shop</h1>
+    <p>Клієнтський JS кожного маршруту <code>next build</code>, розкладений на пакети й файли за source maps. Клік по пакету - заглибитись, клік по шапці - назад.</p>
+  </header>
+  <section class="controls">
+    <label>маршрут <select id="route"></select></label>
+    <label>збірка
+      <select id="build">
+        <option value="before">як є</option>
+        <option value="after">після фіксу (form-state.ts без zod)</option>
+      </select>
+    </label>
+    <output id="total"></output>
+  </section>
+  <div id="crumbs"></div>
+  <svg id="map" role="img" aria-label="treemap бандла"></svg>
+  <div id="tip" hidden></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
