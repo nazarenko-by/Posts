@@ -20,6 +20,7 @@ npm run dev
 |------|-------|
 | [Beeswarm](Beeswarm) | Beeswarm на D3 |
 | [BumpChart](BumpChart) | Bump chart на D3 |
+| [BundleMap](BundleMap) | Що насправді вантажить браузер на кожній сторінці мого NBY Shop |
 | [GaugeKpi](GaugeKpi) | напівкруглий **gauge** (спідометр зі стрілкою, зонами й міткою цілі) і **donut** (з чого складається ціле) на D3 |
 | [HeatmapCalendar](HeatmapCalendar) | Heatmap Calendar на D3 |
 | [RadialCommits](RadialCommits) | Радіальний heatmap комітів на D3 |
@@ -81,7 +82,6 @@ npm run dev
 
 | Папка | Опис |
 |-------|------|
-| [BundleMap](BundleMap) | Що насправді вантажить браузер на кожній сторінці мого NBY Shop |
 | [FormDialogToast](FormDialogToast) | Форма + діалог + toast |
 | [ReactD3Integration](ReactD3Integration) | Інтеграція D3 у React |
 | [ReactHookForm](ReactHookForm) | React Hook Form |
