@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-05",
+  "runs": 3,
+  "clientFiles": [
+    "components/EmptyState.tsx",
+    "components/Footer.tsx",
+    "components/Hero.tsx",
+    "components/RatingStars.tsx",
+    "components/ReviewsSection.tsx",
+    "components/ProductGridSkeleton.tsx",
+    "components/ui/button.tsx",
+    "app/not-found.tsx",
+    "app/loading.tsx",
+    "app/search/loading.tsx"
+  ],
+  "asis": {
+    "spread": {
+      "js": 0,
+      "gzip": 8
+    },
+    "routes": {
+      "/account": {
+        "js": 531841,
+        "gzip": 160530
+      },
+      "/admin/products": {
+        "js": 572264,
+        "gzip": 173405
+      },
+      "/auth": {
+        "js": 960020,
+        "gzip": 263436
+      },
+      "/checkout": {
+        "js": 943916,
+        "gzip": 257062
+      },
+      "/": {
+        "js": 538308,
+        "gzip": 162901
+      },
+      "/product/[slug]": {
+        "js": 566948,
+        "gzip": 172175
+      },
+      "/search": {
+        "js": 534995,
+        "gzip": 161930
+      },
+      "/wishlist": {
+        "js": 538473,
+        "gzip": 163015
+      }
+    }
+  },
+  "allclient": {
+    "spread": {
+      "js": 0,
+      "gzip": 3
+    },
+    "routes": {
+      "/account": {
+        "js": 569417,
+        "gzip": 173371
+      },
+      "/admin/products": {
+        "js": 580520,
+        "gzip": 176882
+      },
+      "/auth": {
+        "js": 968276,
+        "gzip": 266919
+      },
+      "/checkout": {
+        "js": 981492,
+        "gzip": 269904
+      },
+      "/": {
+        "js": 580625,
+        "gzip": 176962
+      },
+      "/product/[slug]": {
+        "js": 578514,
+        "gzip": 176569
+      },
+      "/search": {
+        "js": 576045,
+        "gzip": 175934
+      },
+      "/wishlist": {
+        "js": 576671,
+        "gzip": 175951
+      }
+    }
+  }
+}

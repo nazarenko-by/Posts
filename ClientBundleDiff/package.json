@@ -1,0 +1,12 @@
+{
+  "name": "client-bundle-diff",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "node scripts/bench.mjs",
+    "analyze": "node scripts/analyze.mjs"
+  },
+  "devDependencies": {
+    "source-map-explorer": "^2.5.3"
+  }
+}
