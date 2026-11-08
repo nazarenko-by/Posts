@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>CompilerVsMemo</title></head>
+<body>
+  <h1>Варіант: <code id="variant"></code></h1>
+  <div id="root"></div>
+  <div id="stats"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script type="module">
+    // живий лічильник: скільки разів відрендерилась картка і скільки мс пішло на коміти з моменту «скинути»
+    const el = document.getElementById("stats");
+    setInterval(() => {
+      const s = window.__stats; if (!s) return;
+      el.textContent = `коміти: ${s.commits}\nрендери карток: ${s.cards}\nрендери списку: ${s.lists}\nчас React: ${s.actual.toFixed(1)} ms\n(клікни тут - скинути)`;
+    }, 200);
+    el.addEventListener("click", () => window.__reset());
+  </script>
+</body>
+</html>

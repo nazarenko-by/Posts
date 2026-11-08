@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-07",
+  "chromium": "153.0.8010.12",
+  "cpuThrottle": 4,
+  "runs": 3,
+  "variants": {
+    "plain": {
+      "bundle": {
+        "bytes": 239887,
+        "gzip": 74371
+      },
+      "note": {
+        "commits": 20,
+        "cards": 4000,
+        "lists": 20,
+        "ms": 626.9,
+        "msAll": [
+          689.5,
+          626.9,
+          625.8
+        ]
+      },
+      "query": {
+        "commits": 5,
+        "cards": 1000,
+        "lists": 5,
+        "ms": 37.3,
+        "msAll": [
+          36.4,
+          42.5,
+          37.3
+        ]
+      },
+      "add": {
+        "commits": 10,
+        "cards": 2000,
+        "lists": 10,
+        "ms": 74.7,
+        "msAll": [
+          78,
+          65.1,
+          74.7
+        ]
+      }
+    },
+    "manual": {
+      "bundle": {
+        "bytes": 239978,
+        "gzip": 74400
+      },
+      "note": {
+        "commits": 20,
+        "cards": 0,
+        "lists": 0,
+        "ms": 5,
+        "msAll": [
+          2,
+          6.7,
+          5
+        ]
+      },
+      "query": {
+        "commits": 5,
+        "cards": 175,
+        "lists": 5,
+        "ms": 35.1,
+        "msAll": [
+          44.4,
+          35.1,
+          28.4
+        ]
+      },
+      "add": {
+        "commits": 10,
+        "cards": 0,
+        "lists": 0,
+        "ms": 2.3,
+        "msAll": [
+          12,
+          2.3,
+          0.9
+        ]
+      }
+    },
+    "plain+compiler": {
+      "bundle": {
+        "bytes": 241854,
+        "gzip": 75307
+      },
+      "note": {
+        "commits": 20,
+        "cards": 0,
+        "lists": 0,
+        "ms": 4.5,
+        "msAll": [
+          8.4,
+          3,
+          4.5
+        ]
+      },
+      "query": {
+        "commits": 5,
+        "cards": 175,
+        "lists": 5,
+        "ms": 49.9,
+        "msAll": [
+          49.9,
+          58,
+          37.7
+        ]
+      },
+      "add": {
+        "commits": 10,
+        "cards": 0,
+        "lists": 0,
+        "ms": 1.5,
+        "msAll": [
+          0.8,
+          2.2,
+          1.5
+        ]
+      }
+    },
+    "manual+compiler": {
+      "bundle": {
+        "bytes": 241804,
+        "gzip": 75247
+      },
+      "note": {
+        "commits": 20,
+        "cards": 0,
+        "lists": 0,
+        "ms": 6,
+        "msAll": [
+          6,
+          5.5,
+          8.9
+        ]
+      },
+      "query": {
+        "commits": 5,
+        "cards": 175,
+        "lists": 5,
+        "ms": 40.5,
+        "msAll": [
+          40.8,
+          37.8,
+          40.5
+        ]
+      },
+      "add": {
+        "commits": 10,
+        "cards": 0,
+        "lists": 0,
+        "ms": 3.6,
+        "msAll": [
+          3.6,
+          0.9,
+          3.7
+        ]
+      }
+    }
+  }
+}

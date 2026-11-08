@@ -83,6 +83,7 @@ npm run dev
 | Папка | Опис |
 |-------|------|
 | [ClientBundleDiff](ClientBundleDiff) | Скільки JS тримають на сервері Server Components у NBY Shop. Той самий магазин збирається двічі |
+| [CompilerVsMemo](CompilerVsMemo) | Чи потрібен `useMemo`, коли є React Compiler? |
 | [FormDialogToast](FormDialogToast) | Форма + діалог + toast |
 | [ReactD3Integration](ReactD3Integration) | Інтеграція D3 у React |
 | [ReactHookForm](ReactHookForm) | React Hook Form |
