@@ -1,0 +1,1204 @@
+{
+ "width": 1200,
+ "height": 1600,
+ "sourcePngBytes": 2648176,
+ "targets": [
+  0.95,
+  0.97,
+  0.98
+ ],
+ "picks": {
+  "0.95": {
+   "jpeg": {
+    "format": "jpeg",
+    "quality": 72,
+    "bytes": 194188,
+    "encodeMs": 221,
+    "file": "jpeg-q72.jpg",
+    "ssim": 0.95263
+   },
+   "webp": {
+    "format": "webp",
+    "quality": 64,
+    "bytes": 156942,
+    "encodeMs": 359,
+    "file": "webp-q64.webp",
+    "ssim": 0.9509
+   },
+   "avif": {
+    "format": "avif",
+    "quality": 52,
+    "bytes": 122885,
+    "encodeMs": 2055,
+    "file": "avif-q52.avif",
+    "ssim": 0.95622
+   },
+   "jxl": {
+    "format": "jxl",
+    "quality": 66,
+    "bytes": 130541,
+    "encodeMs": 2831,
+    "file": "jxl-q66.jxl",
+    "ssim": 0.95082
+   }
+  },
+  "0.97": {
+   "jpeg": {
+    "format": "jpeg",
+    "quality": 86,
+    "bytes": 331230,
+    "encodeMs": 338,
+    "file": "jpeg-q86.jpg",
+    "ssim": 0.9718
+   },
+   "webp": {
+    "format": "webp",
+    "quality": 82,
+    "bytes": 241418,
+    "encodeMs": 353,
+    "file": "webp-q82.webp",
+    "ssim": 0.97018
+   },
+   "avif": {
+    "format": "avif",
+    "quality": 64,
+    "bytes": 180668,
+    "encodeMs": 2177,
+    "file": "avif-q64.avif",
+    "ssim": 0.97066
+   },
+   "jxl": {
+    "format": "jxl",
+    "quality": 82,
+    "bytes": 206020,
+    "encodeMs": 2784,
+    "file": "jxl-q82.jxl",
+    "ssim": 0.9722
+   }
+  },
+  "0.98": {
+   "jpeg": {
+    "format": "jpeg",
+    "quality": 92,
+    "bytes": 516309,
+    "encodeMs": 537,
+    "file": "jpeg-q92.jpg",
+    "ssim": 0.98163
+   },
+   "webp": {
+    "format": "webp",
+    "quality": 90,
+    "bytes": 364314,
+    "encodeMs": 400,
+    "file": "webp-q90.webp",
+    "ssim": 0.98202
+   },
+   "avif": {
+    "format": "avif",
+    "quality": 78,
+    "bytes": 265279,
+    "encodeMs": 1993,
+    "file": "avif-q78.avif",
+    "ssim": 0.98062
+   },
+   "jxl": {
+    "format": "jxl",
+    "quality": 88,
+    "bytes": 276681,
+    "encodeMs": 2840,
+    "file": "jxl-q88.jxl",
+    "ssim": 0.98079
+   }
+  }
+ },
+ "rows": [
+  {
+   "format": "jpeg",
+   "quality": 30,
+   "bytes": 85664,
+   "encodeMs": 212,
+   "file": "jpeg-q30.jpg",
+   "ssim": 0.89183
+  },
+  {
+   "format": "jpeg",
+   "quality": 32,
+   "bytes": 90599,
+   "encodeMs": 169,
+   "file": "jpeg-q32.jpg",
+   "ssim": 0.897
+  },
+  {
+   "format": "jpeg",
+   "quality": 34,
+   "bytes": 94699,
+   "encodeMs": 170,
+   "file": "jpeg-q34.jpg",
+   "ssim": 0.90137
+  },
+  {
+   "format": "jpeg",
+   "quality": 36,
+   "bytes": 100297,
+   "encodeMs": 177,
+   "file": "jpeg-q36.jpg",
+   "ssim": 0.90605
+  },
+  {
+   "format": "jpeg",
+   "quality": 38,
+   "bytes": 104475,
+   "encodeMs": 196,
+   "file": "jpeg-q38.jpg",
+   "ssim": 0.90962
+  },
+  {
+   "format": "jpeg",
+   "quality": 40,
+   "bytes": 108386,
+   "encodeMs": 176,
+   "file": "jpeg-q40.jpg",
+   "ssim": 0.91276
+  },
+  {
+   "format": "jpeg",
+   "quality": 42,
+   "bytes": 112886,
+   "encodeMs": 182,
+   "file": "jpeg-q42.jpg",
+   "ssim": 0.91606
+  },
+  {
+   "format": "jpeg",
+   "quality": 44,
+   "bytes": 117599,
+   "encodeMs": 180,
+   "file": "jpeg-q44.jpg",
+   "ssim": 0.91916
+  },
+  {
+   "format": "jpeg",
+   "quality": 46,
+   "bytes": 122304,
+   "encodeMs": 190,
+   "file": "jpeg-q46.jpg",
+   "ssim": 0.92236
+  },
+  {
+   "format": "jpeg",
+   "quality": 48,
+   "bytes": 124024,
+   "encodeMs": 188,
+   "file": "jpeg-q48.jpg",
+   "ssim": 0.92384
+  },
+  {
+   "format": "jpeg",
+   "quality": 50,
+   "bytes": 128771,
+   "encodeMs": 190,
+   "file": "jpeg-q50.jpg",
+   "ssim": 0.92639
+  },
+  {
+   "format": "jpeg",
+   "quality": 52,
+   "bytes": 133791,
+   "encodeMs": 195,
+   "file": "jpeg-q52.jpg",
+   "ssim": 0.92907
+  },
+  {
+   "format": "jpeg",
+   "quality": 54,
+   "bytes": 135974,
+   "encodeMs": 197,
+   "file": "jpeg-q54.jpg",
+   "ssim": 0.93064
+  },
+  {
+   "format": "jpeg",
+   "quality": 56,
+   "bytes": 141497,
+   "encodeMs": 198,
+   "file": "jpeg-q56.jpg",
+   "ssim": 0.93306
+  },
+  {
+   "format": "jpeg",
+   "quality": 58,
+   "bytes": 147753,
+   "encodeMs": 202,
+   "file": "jpeg-q58.jpg",
+   "ssim": 0.93578
+  },
+  {
+   "format": "jpeg",
+   "quality": 60,
+   "bytes": 151328,
+   "encodeMs": 204,
+   "file": "jpeg-q60.jpg",
+   "ssim": 0.93778
+  },
+  {
+   "format": "jpeg",
+   "quality": 62,
+   "bytes": 157151,
+   "encodeMs": 208,
+   "file": "jpeg-q62.jpg",
+   "ssim": 0.93998
+  },
+  {
+   "format": "jpeg",
+   "quality": 64,
+   "bytes": 162113,
+   "encodeMs": 217,
+   "file": "jpeg-q64.jpg",
+   "ssim": 0.94231
+  },
+  {
+   "format": "jpeg",
+   "quality": 66,
+   "bytes": 169580,
+   "encodeMs": 215,
+   "file": "jpeg-q66.jpg",
+   "ssim": 0.94487
+  },
+  {
+   "format": "jpeg",
+   "quality": 68,
+   "bytes": 177314,
+   "encodeMs": 210,
+   "file": "jpeg-q68.jpg",
+   "ssim": 0.94729
+  },
+  {
+   "format": "jpeg",
+   "quality": 70,
+   "bytes": 183558,
+   "encodeMs": 228,
+   "file": "jpeg-q70.jpg",
+   "ssim": 0.94976
+  },
+  {
+   "format": "jpeg",
+   "quality": 72,
+   "bytes": 194188,
+   "encodeMs": 221,
+   "file": "jpeg-q72.jpg",
+   "ssim": 0.95263
+  },
+  {
+   "format": "jpeg",
+   "quality": 74,
+   "bytes": 206812,
+   "encodeMs": 243,
+   "file": "jpeg-q74.jpg",
+   "ssim": 0.95557
+  },
+  {
+   "format": "jpeg",
+   "quality": 76,
+   "bytes": 212778,
+   "encodeMs": 234,
+   "file": "jpeg-q76.jpg",
+   "ssim": 0.95756
+  },
+  {
+   "format": "jpeg",
+   "quality": 78,
+   "bytes": 227929,
+   "encodeMs": 246,
+   "file": "jpeg-q78.jpg",
+   "ssim": 0.96035
+  },
+  {
+   "format": "jpeg",
+   "quality": 80,
+   "bytes": 263932,
+   "encodeMs": 298,
+   "file": "jpeg-q80.jpg",
+   "ssim": 0.96335
+  },
+  {
+   "format": "jpeg",
+   "quality": 82,
+   "bytes": 278687,
+   "encodeMs": 307,
+   "file": "jpeg-q82.jpg",
+   "ssim": 0.96617
+  },
+  {
+   "format": "jpeg",
+   "quality": 84,
+   "bytes": 301597,
+   "encodeMs": 321,
+   "file": "jpeg-q84.jpg",
+   "ssim": 0.96884
+  },
+  {
+   "format": "jpeg",
+   "quality": 86,
+   "bytes": 331230,
+   "encodeMs": 338,
+   "file": "jpeg-q86.jpg",
+   "ssim": 0.9718
+  },
+  {
+   "format": "jpeg",
+   "quality": 88,
+   "bytes": 359577,
+   "encodeMs": 356,
+   "file": "jpeg-q88.jpg",
+   "ssim": 0.97502
+  },
+  {
+   "format": "jpeg",
+   "quality": 90,
+   "bytes": 464630,
+   "encodeMs": 503,
+   "file": "jpeg-q90.jpg",
+   "ssim": 0.97823
+  },
+  {
+   "format": "jpeg",
+   "quality": 92,
+   "bytes": 516309,
+   "encodeMs": 537,
+   "file": "jpeg-q92.jpg",
+   "ssim": 0.98163
+  },
+  {
+   "format": "jpeg",
+   "quality": 94,
+   "bytes": 633087,
+   "encodeMs": 608,
+   "file": "jpeg-q94.jpg",
+   "ssim": 0.98539
+  },
+  {
+   "format": "jpeg",
+   "quality": 96,
+   "bytes": 830816,
+   "encodeMs": 709,
+   "file": "jpeg-q96.jpg",
+   "ssim": 0.98952
+  },
+  {
+   "format": "webp",
+   "quality": 30,
+   "bytes": 93068,
+   "encodeMs": 320,
+   "file": "webp-q30.webp",
+   "ssim": 0.91667
+  },
+  {
+   "format": "webp",
+   "quality": 32,
+   "bytes": 97124,
+   "encodeMs": 295,
+   "file": "webp-q32.webp",
+   "ssim": 0.92023
+  },
+  {
+   "format": "webp",
+   "quality": 34,
+   "bytes": 101008,
+   "encodeMs": 296,
+   "file": "webp-q34.webp",
+   "ssim": 0.92333
+  },
+  {
+   "format": "webp",
+   "quality": 36,
+   "bytes": 103594,
+   "encodeMs": 298,
+   "file": "webp-q36.webp",
+   "ssim": 0.92488
+  },
+  {
+   "format": "webp",
+   "quality": 38,
+   "bytes": 107386,
+   "encodeMs": 299,
+   "file": "webp-q38.webp",
+   "ssim": 0.9272
+  },
+  {
+   "format": "webp",
+   "quality": 40,
+   "bytes": 112506,
+   "encodeMs": 301,
+   "file": "webp-q40.webp",
+   "ssim": 0.93094
+  },
+  {
+   "format": "webp",
+   "quality": 42,
+   "bytes": 115990,
+   "encodeMs": 304,
+   "file": "webp-q42.webp",
+   "ssim": 0.93356
+  },
+  {
+   "format": "webp",
+   "quality": 44,
+   "bytes": 119854,
+   "encodeMs": 305,
+   "file": "webp-q44.webp",
+   "ssim": 0.93479
+  },
+  {
+   "format": "webp",
+   "quality": 46,
+   "bytes": 123596,
+   "encodeMs": 316,
+   "file": "webp-q46.webp",
+   "ssim": 0.93687
+  },
+  {
+   "format": "webp",
+   "quality": 48,
+   "bytes": 126010,
+   "encodeMs": 309,
+   "file": "webp-q48.webp",
+   "ssim": 0.93771
+  },
+  {
+   "format": "webp",
+   "quality": 50,
+   "bytes": 130094,
+   "encodeMs": 313,
+   "file": "webp-q50.webp",
+   "ssim": 0.93941
+  },
+  {
+   "format": "webp",
+   "quality": 52,
+   "bytes": 134662,
+   "encodeMs": 317,
+   "file": "webp-q52.webp",
+   "ssim": 0.94175
+  },
+  {
+   "format": "webp",
+   "quality": 54,
+   "bytes": 136338,
+   "encodeMs": 319,
+   "file": "webp-q54.webp",
+   "ssim": 0.94258
+  },
+  {
+   "format": "webp",
+   "quality": 56,
+   "bytes": 141944,
+   "encodeMs": 318,
+   "file": "webp-q56.webp",
+   "ssim": 0.94439
+  },
+  {
+   "format": "webp",
+   "quality": 58,
+   "bytes": 145410,
+   "encodeMs": 317,
+   "file": "webp-q58.webp",
+   "ssim": 0.94578
+  },
+  {
+   "format": "webp",
+   "quality": 60,
+   "bytes": 148714,
+   "encodeMs": 319,
+   "file": "webp-q60.webp",
+   "ssim": 0.94713
+  },
+  {
+   "format": "webp",
+   "quality": 62,
+   "bytes": 151198,
+   "encodeMs": 320,
+   "file": "webp-q62.webp",
+   "ssim": 0.94772
+  },
+  {
+   "format": "webp",
+   "quality": 64,
+   "bytes": 156942,
+   "encodeMs": 359,
+   "file": "webp-q64.webp",
+   "ssim": 0.9509
+  },
+  {
+   "format": "webp",
+   "quality": 66,
+   "bytes": 159582,
+   "encodeMs": 344,
+   "file": "webp-q66.webp",
+   "ssim": 0.95142
+  },
+  {
+   "format": "webp",
+   "quality": 68,
+   "bytes": 164734,
+   "encodeMs": 327,
+   "file": "webp-q68.webp",
+   "ssim": 0.95424
+  },
+  {
+   "format": "webp",
+   "quality": 70,
+   "bytes": 167980,
+   "encodeMs": 329,
+   "file": "webp-q70.webp",
+   "ssim": 0.95422
+  },
+  {
+   "format": "webp",
+   "quality": 72,
+   "bytes": 174344,
+   "encodeMs": 346,
+   "file": "webp-q72.webp",
+   "ssim": 0.95704
+  },
+  {
+   "format": "webp",
+   "quality": 74,
+   "bytes": 176796,
+   "encodeMs": 334,
+   "file": "webp-q74.webp",
+   "ssim": 0.95759
+  },
+  {
+   "format": "webp",
+   "quality": 76,
+   "bytes": 186652,
+   "encodeMs": 333,
+   "file": "webp-q76.webp",
+   "ssim": 0.95965
+  },
+  {
+   "format": "webp",
+   "quality": 78,
+   "bytes": 202506,
+   "encodeMs": 340,
+   "file": "webp-q78.webp",
+   "ssim": 0.96356
+  },
+  {
+   "format": "webp",
+   "quality": 80,
+   "bytes": 218406,
+   "encodeMs": 354,
+   "file": "webp-q80.webp",
+   "ssim": 0.9667
+  },
+  {
+   "format": "webp",
+   "quality": 82,
+   "bytes": 241418,
+   "encodeMs": 353,
+   "file": "webp-q82.webp",
+   "ssim": 0.97018
+  },
+  {
+   "format": "webp",
+   "quality": 84,
+   "bytes": 260734,
+   "encodeMs": 362,
+   "file": "webp-q84.webp",
+   "ssim": 0.97281
+  },
+  {
+   "format": "webp",
+   "quality": 86,
+   "bytes": 293304,
+   "encodeMs": 370,
+   "file": "webp-q86.webp",
+   "ssim": 0.97626
+  },
+  {
+   "format": "webp",
+   "quality": 88,
+   "bytes": 318922,
+   "encodeMs": 375,
+   "file": "webp-q88.webp",
+   "ssim": 0.97794
+  },
+  {
+   "format": "webp",
+   "quality": 90,
+   "bytes": 364314,
+   "encodeMs": 400,
+   "file": "webp-q90.webp",
+   "ssim": 0.98202
+  },
+  {
+   "format": "webp",
+   "quality": 92,
+   "bytes": 424668,
+   "encodeMs": 404,
+   "file": "webp-q92.webp",
+   "ssim": 0.98559
+  },
+  {
+   "format": "webp",
+   "quality": 94,
+   "bytes": 504732,
+   "encodeMs": 419,
+   "file": "webp-q94.webp",
+   "ssim": 0.98814
+  },
+  {
+   "format": "webp",
+   "quality": 96,
+   "bytes": 609418,
+   "encodeMs": 450,
+   "file": "webp-q96.webp",
+   "ssim": 0.99066
+  },
+  {
+   "format": "avif",
+   "quality": 30,
+   "bytes": 42651,
+   "encodeMs": 1870,
+   "file": "avif-q30.avif",
+   "ssim": 0.89312
+  },
+  {
+   "format": "avif",
+   "quality": 32,
+   "bytes": 46196,
+   "encodeMs": 1654,
+   "file": "avif-q32.avif",
+   "ssim": 0.89923
+  },
+  {
+   "format": "avif",
+   "quality": 34,
+   "bytes": 50749,
+   "encodeMs": 1677,
+   "file": "avif-q34.avif",
+   "ssim": 0.90575
+  },
+  {
+   "format": "avif",
+   "quality": 36,
+   "bytes": 59630,
+   "encodeMs": 1780,
+   "file": "avif-q36.avif",
+   "ssim": 0.91686
+  },
+  {
+   "format": "avif",
+   "quality": 38,
+   "bytes": 64404,
+   "encodeMs": 1825,
+   "file": "avif-q38.avif",
+   "ssim": 0.92155
+  },
+  {
+   "format": "avif",
+   "quality": 40,
+   "bytes": 69773,
+   "encodeMs": 1811,
+   "file": "avif-q40.avif",
+   "ssim": 0.92686
+  },
+  {
+   "format": "avif",
+   "quality": 42,
+   "bytes": 75305,
+   "encodeMs": 1872,
+   "file": "avif-q42.avif",
+   "ssim": 0.93136
+  },
+  {
+   "format": "avif",
+   "quality": 44,
+   "bytes": 87287,
+   "encodeMs": 1934,
+   "file": "avif-q44.avif",
+   "ssim": 0.93957
+  },
+  {
+   "format": "avif",
+   "quality": 46,
+   "bytes": 93942,
+   "encodeMs": 2075,
+   "file": "avif-q46.avif",
+   "ssim": 0.94364
+  },
+  {
+   "format": "avif",
+   "quality": 48,
+   "bytes": 99889,
+   "encodeMs": 1957,
+   "file": "avif-q48.avif",
+   "ssim": 0.94674
+  },
+  {
+   "format": "avif",
+   "quality": 50,
+   "bytes": 106483,
+   "encodeMs": 2061,
+   "file": "avif-q50.avif",
+   "ssim": 0.94982
+  },
+  {
+   "format": "avif",
+   "quality": 52,
+   "bytes": 122885,
+   "encodeMs": 2055,
+   "file": "avif-q52.avif",
+   "ssim": 0.95622
+  },
+  {
+   "format": "avif",
+   "quality": 54,
+   "bytes": 129083,
+   "encodeMs": 2075,
+   "file": "avif-q54.avif",
+   "ssim": 0.95842
+  },
+  {
+   "format": "avif",
+   "quality": 56,
+   "bytes": 136106,
+   "encodeMs": 2097,
+   "file": "avif-q56.avif",
+   "ssim": 0.96065
+  },
+  {
+   "format": "avif",
+   "quality": 58,
+   "bytes": 152739,
+   "encodeMs": 2071,
+   "file": "avif-q58.avif",
+   "ssim": 0.96492
+  },
+  {
+   "format": "avif",
+   "quality": 60,
+   "bytes": 162269,
+   "encodeMs": 2149,
+   "file": "avif-q60.avif",
+   "ssim": 0.96713
+  },
+  {
+   "format": "avif",
+   "quality": 62,
+   "bytes": 173014,
+   "encodeMs": 2162,
+   "file": "avif-q62.avif",
+   "ssim": 0.96928
+  },
+  {
+   "format": "avif",
+   "quality": 64,
+   "bytes": 180668,
+   "encodeMs": 2177,
+   "file": "avif-q64.avif",
+   "ssim": 0.97066
+  },
+  {
+   "format": "avif",
+   "quality": 66,
+   "bytes": 195154,
+   "encodeMs": 1808,
+   "file": "avif-q66.avif",
+   "ssim": 0.97252
+  },
+  {
+   "format": "avif",
+   "quality": 68,
+   "bytes": 202494,
+   "encodeMs": 1801,
+   "file": "avif-q68.avif",
+   "ssim": 0.97367
+  },
+  {
+   "format": "avif",
+   "quality": 70,
+   "bytes": 211329,
+   "encodeMs": 1829,
+   "file": "avif-q70.avif",
+   "ssim": 0.97486
+  },
+  {
+   "format": "avif",
+   "quality": 72,
+   "bytes": 220188,
+   "encodeMs": 1816,
+   "file": "avif-q72.avif",
+   "ssim": 0.976
+  },
+  {
+   "format": "avif",
+   "quality": 74,
+   "bytes": 239894,
+   "encodeMs": 1831,
+   "file": "avif-q74.avif",
+   "ssim": 0.97819
+  },
+  {
+   "format": "avif",
+   "quality": 76,
+   "bytes": 252711,
+   "encodeMs": 1991,
+   "file": "avif-q76.avif",
+   "ssim": 0.97947
+  },
+  {
+   "format": "avif",
+   "quality": 78,
+   "bytes": 265279,
+   "encodeMs": 1993,
+   "file": "avif-q78.avif",
+   "ssim": 0.98062
+  },
+  {
+   "format": "avif",
+   "quality": 80,
+   "bytes": 279650,
+   "encodeMs": 1923,
+   "file": "avif-q80.avif",
+   "ssim": 0.98175
+  },
+  {
+   "format": "avif",
+   "quality": 82,
+   "bytes": 316329,
+   "encodeMs": 2025,
+   "file": "avif-q82.avif",
+   "ssim": 0.98433
+  },
+  {
+   "format": "avif",
+   "quality": 84,
+   "bytes": 336975,
+   "encodeMs": 2057,
+   "file": "avif-q84.avif",
+   "ssim": 0.98558
+  },
+  {
+   "format": "avif",
+   "quality": 86,
+   "bytes": 361927,
+   "encodeMs": 2128,
+   "file": "avif-q86.avif",
+   "ssim": 0.98683
+  },
+  {
+   "format": "avif",
+   "quality": 88,
+   "bytes": 393882,
+   "encodeMs": 2276,
+   "file": "avif-q88.avif",
+   "ssim": 0.98829
+  },
+  {
+   "format": "avif",
+   "quality": 90,
+   "bytes": 475189,
+   "encodeMs": 2445,
+   "file": "avif-q90.avif",
+   "ssim": 0.99118
+  },
+  {
+   "format": "avif",
+   "quality": 92,
+   "bytes": 527054,
+   "encodeMs": 2469,
+   "file": "avif-q92.avif",
+   "ssim": 0.99261
+  },
+  {
+   "format": "avif",
+   "quality": 94,
+   "bytes": 597158,
+   "encodeMs": 2571,
+   "file": "avif-q94.avif",
+   "ssim": 0.99408
+  },
+  {
+   "format": "avif",
+   "quality": 96,
+   "bytes": 675881,
+   "encodeMs": 2619,
+   "file": "avif-q96.avif",
+   "ssim": 0.99538
+  },
+  {
+   "format": "jxl",
+   "quality": 30,
+   "bytes": 73798,
+   "encodeMs": 3103,
+   "file": "jxl-q30.jxl",
+   "ssim": 0.91215
+  },
+  {
+   "format": "jxl",
+   "quality": 32,
+   "bytes": 75430,
+   "encodeMs": 2815,
+   "file": "jxl-q32.jxl",
+   "ssim": 0.91416
+  },
+  {
+   "format": "jxl",
+   "quality": 34,
+   "bytes": 77084,
+   "encodeMs": 2785,
+   "file": "jxl-q34.jxl",
+   "ssim": 0.91601
+  },
+  {
+   "format": "jxl",
+   "quality": 36,
+   "bytes": 78861,
+   "encodeMs": 2801,
+   "file": "jxl-q36.jxl",
+   "ssim": 0.9181
+  },
+  {
+   "format": "jxl",
+   "quality": 38,
+   "bytes": 80967,
+   "encodeMs": 2818,
+   "file": "jxl-q38.jxl",
+   "ssim": 0.92028
+  },
+  {
+   "format": "jxl",
+   "quality": 40,
+   "bytes": 83211,
+   "encodeMs": 2790,
+   "file": "jxl-q40.jxl",
+   "ssim": 0.92244
+  },
+  {
+   "format": "jxl",
+   "quality": 42,
+   "bytes": 85441,
+   "encodeMs": 2830,
+   "file": "jxl-q42.jxl",
+   "ssim": 0.92467
+  },
+  {
+   "format": "jxl",
+   "quality": 44,
+   "bytes": 88528,
+   "encodeMs": 2818,
+   "file": "jxl-q44.jxl",
+   "ssim": 0.92686
+  },
+  {
+   "format": "jxl",
+   "quality": 46,
+   "bytes": 90929,
+   "encodeMs": 2812,
+   "file": "jxl-q46.jxl",
+   "ssim": 0.92895
+  },
+  {
+   "format": "jxl",
+   "quality": 48,
+   "bytes": 93404,
+   "encodeMs": 2800,
+   "file": "jxl-q48.jxl",
+   "ssim": 0.93093
+  },
+  {
+   "format": "jxl",
+   "quality": 50,
+   "bytes": 95981,
+   "encodeMs": 2826,
+   "file": "jxl-q50.jxl",
+   "ssim": 0.93306
+  },
+  {
+   "format": "jxl",
+   "quality": 52,
+   "bytes": 101308,
+   "encodeMs": 2874,
+   "file": "jxl-q52.jxl",
+   "ssim": 0.93479
+  },
+  {
+   "format": "jxl",
+   "quality": 54,
+   "bytes": 104835,
+   "encodeMs": 2822,
+   "file": "jxl-q54.jxl",
+   "ssim": 0.93697
+  },
+  {
+   "format": "jxl",
+   "quality": 56,
+   "bytes": 108330,
+   "encodeMs": 2905,
+   "file": "jxl-q56.jxl",
+   "ssim": 0.93935
+  },
+  {
+   "format": "jxl",
+   "quality": 58,
+   "bytes": 111903,
+   "encodeMs": 2837,
+   "file": "jxl-q58.jxl",
+   "ssim": 0.94168
+  },
+  {
+   "format": "jxl",
+   "quality": 60,
+   "bytes": 115798,
+   "encodeMs": 2832,
+   "file": "jxl-q60.jxl",
+   "ssim": 0.94375
+  },
+  {
+   "format": "jxl",
+   "quality": 62,
+   "bytes": 120311,
+   "encodeMs": 2888,
+   "file": "jxl-q62.jxl",
+   "ssim": 0.94595
+  },
+  {
+   "format": "jxl",
+   "quality": 64,
+   "bytes": 125094,
+   "encodeMs": 2866,
+   "file": "jxl-q64.jxl",
+   "ssim": 0.94834
+  },
+  {
+   "format": "jxl",
+   "quality": 66,
+   "bytes": 130541,
+   "encodeMs": 2831,
+   "file": "jxl-q66.jxl",
+   "ssim": 0.95082
+  },
+  {
+   "format": "jxl",
+   "quality": 68,
+   "bytes": 136526,
+   "encodeMs": 2724,
+   "file": "jxl-q68.jxl",
+   "ssim": 0.95334
+  },
+  {
+   "format": "jxl",
+   "quality": 70,
+   "bytes": 143253,
+   "encodeMs": 2725,
+   "file": "jxl-q70.jxl",
+   "ssim": 0.95586
+  },
+  {
+   "format": "jxl",
+   "quality": 72,
+   "bytes": 150891,
+   "encodeMs": 2783,
+   "file": "jxl-q72.jxl",
+   "ssim": 0.95853
+  },
+  {
+   "format": "jxl",
+   "quality": 74,
+   "bytes": 158634,
+   "encodeMs": 2728,
+   "file": "jxl-q74.jxl",
+   "ssim": 0.96099
+  },
+  {
+   "format": "jxl",
+   "quality": 76,
+   "bytes": 169032,
+   "encodeMs": 2742,
+   "file": "jxl-q76.jxl",
+   "ssim": 0.96382
+  },
+  {
+   "format": "jxl",
+   "quality": 78,
+   "bytes": 180606,
+   "encodeMs": 2761,
+   "file": "jxl-q78.jxl",
+   "ssim": 0.96658
+  },
+  {
+   "format": "jxl",
+   "quality": 80,
+   "bytes": 190162,
+   "encodeMs": 2732,
+   "file": "jxl-q80.jxl",
+   "ssim": 0.96937
+  },
+  {
+   "format": "jxl",
+   "quality": 82,
+   "bytes": 206020,
+   "encodeMs": 2784,
+   "file": "jxl-q82.jxl",
+   "ssim": 0.9722
+  },
+  {
+   "format": "jxl",
+   "quality": 84,
+   "bytes": 225465,
+   "encodeMs": 2766,
+   "file": "jxl-q84.jxl",
+   "ssim": 0.97513
+  },
+  {
+   "format": "jxl",
+   "quality": 86,
+   "bytes": 248941,
+   "encodeMs": 2798,
+   "file": "jxl-q86.jxl",
+   "ssim": 0.97798
+  },
+  {
+   "format": "jxl",
+   "quality": 88,
+   "bytes": 276681,
+   "encodeMs": 2840,
+   "file": "jxl-q88.jxl",
+   "ssim": 0.98079
+  },
+  {
+   "format": "jxl",
+   "quality": 90,
+   "bytes": 314485,
+   "encodeMs": 2893,
+   "file": "jxl-q90.jxl",
+   "ssim": 0.98374
+  },
+  {
+   "format": "jxl",
+   "quality": 92,
+   "bytes": 362644,
+   "encodeMs": 3073,
+   "file": "jxl-q92.jxl",
+   "ssim": 0.9867
+  },
+  {
+   "format": "jxl",
+   "quality": 94,
+   "bytes": 429568,
+   "encodeMs": 3121,
+   "file": "jxl-q94.jxl",
+   "ssim": 0.98986
+  },
+  {
+   "format": "jxl",
+   "quality": 96,
+   "bytes": 536656,
+   "encodeMs": 3219,
+   "file": "jxl-q96.jxl",
+   "ssim": 0.99328
+  }
+ ]
+}

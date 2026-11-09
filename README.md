@@ -41,6 +41,7 @@ npm run dev
 | [BinarySearch/TS](BinarySearch/TS) | Бінарний пошук: реалізація на TypeScript |
 | [BubbleSort](BubbleSort) | Сортування бульбашкою на D3 |
 | [ForceGraph](ForceGraph) | Force-directed граф |
+| [ImageFormats](ImageFormats) | Одне фото в JPEG, WebP, AVIF і JPEG XL: скільки важить **однакова якість**? |
 | [LineChart](LineChart) | Лінійні графіки на D3 |
 | [LinkedList](LinkedList) | Зв'язний список |
 | [MergeSort](MergeSort) | Сортування злиттям |
