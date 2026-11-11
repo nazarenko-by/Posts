@@ -1,0 +1,14 @@
+.base {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  border-radius: 0.75rem; font-weight: 600; transition: color .15s, background-color .15s, border-color .15s;
+}
+.base:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.base:disabled { opacity: 0.5; }
+.primary { background: var(--accent); color: var(--bg); }
+.primary:hover { background: color-mix(in oklab, var(--accent) 90%, transparent); }
+.secondary { border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+.secondary:hover { border-color: var(--accent); }
+.ghost { color: var(--muted); }
+.ghost:hover { background: var(--panel); color: var(--ink); }
+.md { height: 2.5rem; padding: 0 1rem; font-size: 0.875rem; line-height: 1.25rem; }
+.lg { height: 3rem; padding: 0 1.5rem; font-size: 1rem; line-height: 1.5rem; }

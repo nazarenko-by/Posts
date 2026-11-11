@@ -1,0 +1,13 @@
+/* порожня сторінка: лише preflight і змінні теми - «ціна входу» Tailwind без жодної утиліти */
+@import "tailwindcss" source(none);
+
+/* токени дизайну - ті самі значення, що в modules/tokens.css і vanilla/tokens.css.ts */
+@theme {
+  --color-bg: #0f1729;
+  --color-panel: #16213e;
+  --color-line: #2a2c4a;
+  --color-ink: #e8ecfb;
+  --color-muted: #8a93c7;
+  --color-accent: #ff9e64;
+  --font-sans: "Inter", system-ui, sans-serif;
+}

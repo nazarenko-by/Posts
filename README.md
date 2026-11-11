@@ -76,6 +76,7 @@ npm run dev
 | [ClipPath](ClipPath) | `clip-path` |
 | [CssGrid](CssGrid) | CSS Grid |
 | [CssThemes](CssThemes) | Теми через custom properties |
+| [CssWeight](CssWeight) | Скільки CSS (і JS) їде в браузер, якщо зверстати **ту саму сторінку** в Tailwind v4, CSS Modules і vanilla-extract? |
 | [FlexboxVsGrid](FlexboxVsGrid) | Flexbox vs Grid |
 | [FluidType](FluidType) | Один заголовок трьома способами: **`40px`**, **`2.5rem`** і **`clamp()`**. |
 

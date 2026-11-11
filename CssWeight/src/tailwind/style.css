@@ -1,0 +1,14 @@
+/* сканувати лише цю папку: інакше Tailwind знайде слова grid / flex у файлах інших варіантів і згенерує зайві класи */
+@import "tailwindcss" source(none);
+@source "./";
+
+/* токени дизайну - ті самі значення, що в modules/tokens.css і vanilla/tokens.css.ts */
+@theme {
+  --color-bg: #0f1729;
+  --color-panel: #16213e;
+  --color-line: #2a2c4a;
+  --color-ink: #e8ecfb;
+  --color-muted: #8a93c7;
+  --color-accent: #ff9e64;
+  --font-sans: "Inter", system-ui, sans-serif;
+}

@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-11",
+  "node": "v22.23.4",
+  "runs": 3,
+  "variants": {
+    "tailwind": {
+      "buildMs": 495,
+      "buildMsAll": [
+        495,
+        481,
+        524
+      ],
+      "css": {
+        "raw": 15707,
+        "gzip": 3875,
+        "brotli": 3401
+      },
+      "js": {
+        "raw": 225168,
+        "gzip": 70115,
+        "brotli": 60352
+      }
+    },
+    "modules": {
+      "buildMs": 459,
+      "buildMsAll": [
+        459,
+        456,
+        470
+      ],
+      "css": {
+        "raw": 5156,
+        "gzip": 1604,
+        "brotli": 1367
+      },
+      "js": {
+        "raw": 224191,
+        "gzip": 69799,
+        "brotli": 60016
+      }
+    },
+    "vanilla": {
+      "buildMs": 679,
+      "buildMsAll": [
+        679,
+        678,
+        692
+      ],
+      "css": {
+        "raw": 4775,
+        "gzip": 1414,
+        "brotli": 1206
+      },
+      "js": {
+        "raw": 223733,
+        "gzip": 69578,
+        "brotli": 59805
+      }
+    },
+    "tailwind-base": {
+      "buildMs": 471,
+      "buildMsAll": [
+        471,
+        462,
+        491
+      ],
+      "css": {
+        "raw": 4047,
+        "gzip": 1414,
+        "brotli": 1185
+      },
+      "js": {
+        "raw": 219482,
+        "gzip": 67681,
+        "brotli": 58317
+      }
+    }
+  }
+}
