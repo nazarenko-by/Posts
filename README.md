@@ -100,6 +100,7 @@ npm run dev
 
 | Папка | Опис |
 |-------|------|
+| [BiomeVsEslint](BiomeVsEslint) | Biome замість ESLint + Prettier на справжньому проєкті |
 | [CVATailwind](CVATailwind) | class-variance-authority + Tailwind |
 | [DateCompare](DateCompare) | Способи порівняння дат |
 | [Knip](Knip) | Knip знаходить мертвий код |

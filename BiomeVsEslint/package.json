@@ -1,0 +1,8 @@
+{
+  "name": "biome-vs-eslint",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "node scripts/bench.mjs"
+  }
+}

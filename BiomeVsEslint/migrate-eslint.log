@@ -1,0 +1,520 @@
+<ShopProject>/eslint.config.mjs migrate ━━━━━━━━━━
+
+  i 472 ESLint rules found
+    - 165 are obsolete because of Biome's formatter
+    - 75 can be migrated to Biome's rules (run with --write to migrate)
+      - +2 with --include-nursery (experimental rules)
+    - 51% (242) of your ESLint rules are fully covered by Biome
+      - 15% (75) via direct migration to Biome rules
+  
+  
+  i Rules that can be migrated:
+  
+  - constructor-super
+  - curly
+  - getter-return
+  - no-array-constructor
+  - no-class-assign
+  - no-console
+  - no-const-assign
+  - no-dupe-args
+  - no-dupe-class-members
+  - no-dupe-keys
+  - no-func-assign
+  - no-import-assign
+  - no-new-native-nonconstructor
+  - no-new-symbol
+  - no-obj-calls
+  - no-redeclare
+  - no-setter-return
+  - no-this-before-super
+  - no-undef
+  - no-unreachable
+  - no-unsafe-negation
+  - no-unused-expressions
+  - no-unused-vars
+  - no-var
+  - no-with
+  - prefer-const
+  - prefer-rest-params
+  - prefer-spread
+  - @next/next/google-font-display
+  - @next/next/google-font-preconnect
+  - @next/next/inline-script-id
+  - @next/next/no-async-client-component
+  - @next/next/no-before-interactive-script-outside-document
+  - @next/next/no-document-import-in-page
+  - @next/next/no-head-element
+  - @next/next/no-head-import-in-document
+  - @next/next/no-img-element
+  - @next/next/no-sync-scripts
+  - @next/next/no-unwanted-polyfillio
+  - @typescript-eslint/ban-ts-comment
+  - @typescript-eslint/no-array-constructor
+  - @typescript-eslint/no-duplicate-enum-values
+  - @typescript-eslint/no-empty-object-type
+  - @typescript-eslint/no-explicit-any
+  - @typescript-eslint/no-extra-non-null-assertion
+  - @typescript-eslint/no-misused-new
+  - @typescript-eslint/no-namespace
+  - @typescript-eslint/no-non-null-asserted-optional-chain
+  - @typescript-eslint/no-require-imports
+  - @typescript-eslint/no-this-alias
+  - @typescript-eslint/no-unnecessary-type-constraint
+  - @typescript-eslint/no-unsafe-declaration-merging
+  - @typescript-eslint/no-unsafe-function-type
+  - @typescript-eslint/no-unused-vars
+  - @typescript-eslint/no-wrapper-object-types
+  - @typescript-eslint/prefer-as-const
+  - @typescript-eslint/prefer-namespace-keyword
+  - jsx-a11y/alt-text
+  - jsx-a11y/aria-props
+  - jsx-a11y/aria-proptypes
+  - jsx-a11y/aria-unsupported-elements
+  - jsx-a11y/role-has-required-aria-props
+  - jsx-a11y/role-supports-aria-props
+  - react/jsx-key
+  - react/jsx-no-comment-textnodes
+  - react/jsx-no-duplicate-props
+  - react/jsx-no-target-blank
+  - react/no-children-prop
+  - react/no-danger-with-children
+  - react/no-render-return-value
+  - react/no-string-refs
+  - react/no-unknown-property
+  - react-hooks/exhaustive-deps
+  - react-hooks/rules-of-hooks
+  - unicorn/no-nested-ternary
+  
+  i Rules that can be migrated to a nursery rule using --include-nursery:
+  
+  - @next/next/next-script-for-ga
+  - react/no-direct-mutation-state
+  
+  i Unsupported rules (62 incompatible with formatter, 121 made obsolete by the formatter, 44 covered by a formatter option, 137 not yet implemented, 29 unknown source):
+  
+  i These rules enforce code styles that are incompatible with the formatter in some way:
+  
+  - arrow-spacing
+  - brace-style
+  - comma-dangle
+  - comma-style
+  - dot-location
+  - func-call-spacing
+  - implicit-arrow-linebreak
+  - lines-around-comment
+  - multiline-ternary
+  - no-mixed-operators
+  - no-spaced-func
+  - no-whitespace-before-property
+  - nonblock-statement-body-position
+  - one-var-declaration-per-line
+  - padded-blocks
+  - quote-props
+  - space-after-function-name
+  - space-before-function-paren
+  - space-before-function-parentheses
+  - wrap-iife
+  - wrap-regex
+  - @stylistic/arrow-spacing
+  - @stylistic/brace-style
+  - @stylistic/comma-dangle
+  - @stylistic/comma-style
+  - @stylistic/dot-location
+  - @stylistic/func-call-spacing
+  - @stylistic/implicit-arrow-linebreak
+  - @stylistic/jsx-first-prop-new-line
+  - @stylistic/jsx-indent-props
+  - @stylistic/jsx-max-props-per-line
+  - @stylistic/jsx-one-expression-per-line
+  - @stylistic/lines-around-comment
+  - @stylistic/multiline-ternary
+  - @stylistic/no-mixed-operators
+  - @stylistic/no-whitespace-before-property
+  - @stylistic/nonblock-statement-body-position
+  - @stylistic/one-var-declaration-per-line
+  - @stylistic/padded-blocks
+  - @stylistic/quote-props
+  - @stylistic/space-before-function-paren
+  - @stylistic/wrap-iife
+  - @stylistic/wrap-regex
+  - @typescript-eslint/brace-style
+  - @typescript-eslint/comma-dangle
+  - @typescript-eslint/space-before-function-paren
+  - react/jsx-first-prop-new-line
+  - react/jsx-indent-props
+  - react/jsx-max-props-per-line
+  - react/jsx-one-expression-per-line
+  - react/jsx-wrap-multilines
+  - vue/arrow-spacing
+  - vue/block-tag-newline
+  - vue/comma-style
+  - vue/dot-location
+  - vue/html-closing-bracket-newline
+  - vue/html-closing-bracket-spacing
+  - vue/html-quotes
+  - vue/max-attributes-per-line
+  - vue/multiline-ternary
+  - vue/quote-props
+  - vue/singleline-html-element-content-newline
+  
+  i These rules enforce behavior completely covered by the formatter (so you don't lose the functionality):
+  
+  - array-bracket-newline
+  - array-element-newline
+  - block-spacing
+  - comma-spacing
+  - eol-last
+  - function-call-argument-newline
+  - function-paren-newline
+  - generator-star
+  - generator-star-spacing
+  - key-spacing
+  - keyword-spacing
+  - max-statements-per-line
+  - new-parens
+  - newline-per-chained-call
+  - no-confusing-arrow
+  - no-extra-parens
+  - no-extra-semi
+  - no-floating-decimal
+  - no-multi-spaces
+  - no-multiple-empty-lines
+  - no-space-before-semi
+  - no-trailing-spaces
+  - object-curly-newline
+  - object-curly-spacing
+  - object-property-newline
+  - rest-spread-spacing
+  - semi-spacing
+  - semi-style
+  - space-after-keywords
+  - space-before-blocks
+  - space-before-keywords
+  - space-infix-ops
+  - space-return-throw-case
+  - space-unary-ops
+  - space-unary-word-ops
+  - switch-colon-spacing
+  - template-tag-spacing
+  - yield-star-spacing
+  - @stylistic/array-bracket-newline
+  - @stylistic/array-element-newline
+  - @stylistic/block-spacing
+  - @stylistic/comma-spacing
+  - @stylistic/eol-last
+  - @stylistic/function-call-argument-newline
+  - @stylistic/function-call-spacing
+  - @stylistic/function-paren-newline
+  - @stylistic/generator-star-spacing
+  - @stylistic/jsx-child-element-spacing
+  - @stylistic/jsx-closing-bracket-location
+  - @stylistic/jsx-closing-tag-location
+  - @stylistic/jsx-curly-newline
+  - @stylistic/jsx-equals-spacing
+  - @stylistic/jsx-newline
+  - @stylistic/jsx-tag-spacing
+  - @stylistic/jsx-wrap-multilines
+  - @stylistic/key-spacing
+  - @stylistic/keyword-spacing
+  - @stylistic/max-statements-per-line
+  - @stylistic/member-delimiter-style
+  - @stylistic/new-parens
+  - @stylistic/newline-per-chained-call
+  - @stylistic/no-confusing-arrow
+  - @stylistic/no-extra-parens
+  - @stylistic/no-extra-semi
+  - @stylistic/no-floating-decimal
+  - @stylistic/no-multi-spaces
+  - @stylistic/no-multiple-empty-lines
+  - @stylistic/no-trailing-spaces
+  - @stylistic/object-curly-newline
+  - @stylistic/object-curly-spacing
+  - @stylistic/object-property-newline
+  - @stylistic/rest-spread-spacing
+  - @stylistic/semi-spacing
+  - @stylistic/semi-style
+  - @stylistic/space-before-blocks
+  - @stylistic/space-infix-ops
+  - @stylistic/space-unary-ops
+  - @stylistic/switch-colon-spacing
+  - @stylistic/template-tag-spacing
+  - @stylistic/type-annotation-spacing
+  - @stylistic/type-generic-spacing
+  - @stylistic/type-named-tuple-spacing
+  - @stylistic/yield-star-spacing
+  - @typescript-eslint/comma-spacing
+  - @typescript-eslint/func-call-spacing
+  - @typescript-eslint/keyword-spacing
+  - @typescript-eslint/no-extra-parens
+  - @typescript-eslint/no-extra-semi
+  - @typescript-eslint/object-curly-spacing
+  - @typescript-eslint/space-before-blocks
+  - @typescript-eslint/space-infix-ops
+  - react/jsx-child-element-spacing
+  - react/jsx-closing-bracket-location
+  - react/jsx-closing-tag-location
+  - react/jsx-curly-newline
+  - react/jsx-equals-spacing
+  - react/jsx-newline
+  - react/jsx-props-no-multi-spaces
+  - react/jsx-space-before-closing
+  - react/jsx-tag-spacing
+  - unicorn/empty-brace-spaces
+  - vue/array-bracket-newline
+  - vue/array-element-newline
+  - vue/block-spacing
+  - vue/brace-style
+  - vue/comma-dangle
+  - vue/comma-spacing
+  - vue/func-call-spacing
+  - vue/html-indent
+  - vue/key-spacing
+  - vue/keyword-spacing
+  - vue/multiline-html-element-content-newline
+  - vue/mustache-interpolation-spacing
+  - vue/no-extra-parens
+  - vue/no-multi-spaces
+  - vue/no-spaces-around-equal-signs-in-attribute
+  - vue/object-curly-newline
+  - vue/object-curly-spacing
+  - vue/object-property-newline
+  - vue/space-infix-ops
+  - vue/space-unary-ops
+  
+  i These rules are covered by formatter options, but they require manual migration:
+  
+  - array-bracket-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - arrow-parens - Covered by Biome's arrowParentheses formatter option.
+  - computed-property-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - indent - Covered by Biome's indentWidth formatter option.
+  - indent-legacy - Covered by Biome's indentWidth formatter option.
+  - jsx-quotes - Covered by Biome's jsxQuoteStyle formatter option.
+  - linebreak-style - Covered by Biome's lineEnding formatter option.
+  - max-len - Covered by Biome's lineWidth formatter option.
+  - no-mixed-spaces-and-tabs - Covered by Biome's indentStyle formatter option.
+  - no-tabs - Covered by Biome's indentStyle formatter option.
+  - operator-linebreak - Covered by Biome's operatorLinebreak formatter option.
+  - quotes - Covered by Biome's quoteStyle formatter option.
+  - semi - Covered by Biome's semicolons formatter option.
+  - space-in-brackets - Covered by Biome's delimiterSpacing formatter option.
+  - space-in-parens - Covered by Biome's delimiterSpacing formatter option.
+  - template-curly-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - @stylistic/array-bracket-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - @stylistic/arrow-parens - Covered by Biome's arrowParentheses formatter option.
+  - @stylistic/computed-property-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - @stylistic/indent - Covered by Biome's indentWidth formatter option.
+  - @stylistic/indent-binary-ops - Covered by Biome's indentWidth formatter option.
+  - @stylistic/jsx-curly-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - @stylistic/jsx-quotes - Covered by Biome's jsxQuoteStyle formatter option.
+  - @stylistic/linebreak-style - Covered by Biome's lineEnding formatter option.
+  - @stylistic/max-len - Covered by Biome's lineWidth formatter option.
+  - @stylistic/no-mixed-spaces-and-tabs - Covered by Biome's indentStyle formatter option.
+  - @stylistic/no-tabs - Covered by Biome's indentStyle formatter option.
+  - @stylistic/operator-linebreak - Covered by Biome's operatorLinebreak formatter option.
+  - @stylistic/quotes - Covered by Biome's quoteStyle formatter option.
+  - @stylistic/semi - Covered by Biome's semicolons formatter option.
+  - @stylistic/space-in-parens - Covered by Biome's delimiterSpacing formatter option.
+  - @stylistic/template-curly-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - @typescript-eslint/indent - Covered by Biome's indentWidth formatter option.
+  - @typescript-eslint/quotes - Covered by Biome's quoteStyle formatter option.
+  - @typescript-eslint/semi - Covered by Biome's semicolons formatter option.
+  - react/jsx-curly-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - react/jsx-indent - Covered by Biome's indentStyle formatter option.
+  - vue/array-bracket-spacing - Covered by Biome's delimiterSpacing formatter option.
+  - vue/html-self-closing - Covered by Biome's selfCloseVoidElements formatter option.
+  - vue/max-len - Covered by Biome's lineWidth formatter option.
+  - vue/operator-linebreak - Covered by Biome's operatorLinebreak formatter option.
+  - vue/script-indent - Covered by Biome's indentScriptAndStyle formatter option.
+  - vue/space-in-parens - Covered by Biome's delimiterSpacing formatter option.
+  - vue/template-curly-spacing - Covered by Biome's delimiterSpacing formatter option.
+  
+  i These rules have not yet been implemented:
+  
+  - no-arrow-condition
+  - no-comma-dangle
+  - no-reserved-keys
+  - no-unexpected-multiline
+  - no-wrap-func
+  - @stylistic/js/array-bracket-newline
+  - @stylistic/js/array-bracket-spacing
+  - @stylistic/js/array-element-newline
+  - @stylistic/js/arrow-parens
+  - @stylistic/js/arrow-spacing
+  - @stylistic/js/block-spacing
+  - @stylistic/js/brace-style
+  - @stylistic/js/comma-dangle
+  - @stylistic/js/comma-spacing
+  - @stylistic/js/comma-style
+  - @stylistic/js/computed-property-spacing
+  - @stylistic/js/dot-location
+  - @stylistic/js/eol-last
+  - @stylistic/js/func-call-spacing
+  - @stylistic/js/function-call-argument-newline
+  - @stylistic/js/function-call-spacing
+  - @stylistic/js/function-paren-newline
+  - @stylistic/js/generator-star-spacing
+  - @stylistic/js/implicit-arrow-linebreak
+  - @stylistic/js/indent
+  - @stylistic/js/jsx-quotes
+  - @stylistic/js/key-spacing
+  - @stylistic/js/keyword-spacing
+  - @stylistic/js/linebreak-style
+  - @stylistic/js/lines-around-comment
+  - @stylistic/js/max-len
+  - @stylistic/js/max-statements-per-line
+  - @stylistic/js/multiline-ternary
+  - @stylistic/js/new-parens
+  - @stylistic/js/newline-per-chained-call
+  - @stylistic/js/no-confusing-arrow
+  - @stylistic/js/no-extra-parens
+  - @stylistic/js/no-extra-semi
+  - @stylistic/js/no-floating-decimal
+  - @stylistic/js/no-mixed-operators
+  - @stylistic/js/no-mixed-spaces-and-tabs
+  - @stylistic/js/no-multi-spaces
+  - @stylistic/js/no-multiple-empty-lines
+  - @stylistic/js/no-tabs
+  - @stylistic/js/no-trailing-spaces
+  - @stylistic/js/no-whitespace-before-property
+  - @stylistic/js/nonblock-statement-body-position
+  - @stylistic/js/object-curly-newline
+  - @stylistic/js/object-curly-spacing
+  - @stylistic/js/object-property-newline
+  - @stylistic/js/one-var-declaration-per-line
+  - @stylistic/js/operator-linebreak
+  - @stylistic/js/padded-blocks
+  - @stylistic/js/quote-props
+  - @stylistic/js/quotes
+  - @stylistic/js/rest-spread-spacing
+  - @stylistic/js/semi
+  - @stylistic/js/semi-spacing
+  - @stylistic/js/semi-style
+  - @stylistic/js/space-before-blocks
+  - @stylistic/js/space-before-function-paren
+  - @stylistic/js/space-in-parens
+  - @stylistic/js/space-infix-ops
+  - @stylistic/js/space-unary-ops
+  - @stylistic/js/switch-colon-spacing
+  - @stylistic/js/template-curly-spacing
+  - @stylistic/js/template-tag-spacing
+  - @stylistic/js/wrap-iife
+  - @stylistic/js/wrap-regex
+  - @stylistic/js/yield-star-spacing
+  - @stylistic/jsx/jsx-child-element-spacing
+  - @stylistic/jsx/jsx-closing-bracket-location
+  - @stylistic/jsx/jsx-closing-tag-location
+  - @stylistic/jsx/jsx-curly-newline
+  - @stylistic/jsx/jsx-curly-spacing
+  - @stylistic/jsx/jsx-equals-spacing
+  - @stylistic/jsx/jsx-first-prop-new-line
+  - @stylistic/jsx/jsx-indent
+  - @stylistic/jsx/jsx-indent-props
+  - @stylistic/jsx/jsx-max-props-per-line
+  - @stylistic/ts/block-spacing
+  - @stylistic/ts/brace-style
+  - @stylistic/ts/comma-dangle
+  - @stylistic/ts/comma-spacing
+  - @stylistic/ts/func-call-spacing
+  - @stylistic/ts/function-call-spacing
+  - @stylistic/ts/indent
+  - @stylistic/ts/key-spacing
+  - @stylistic/ts/keyword-spacing
+  - @stylistic/ts/lines-around-comment
+  - @stylistic/ts/member-delimiter-style
+  - @stylistic/ts/no-extra-parens
+  - @stylistic/ts/no-extra-semi
+  - @stylistic/ts/object-curly-spacing
+  - @stylistic/ts/quotes
+  - @stylistic/ts/semi
+  - @stylistic/ts/space-before-blocks
+  - @stylistic/ts/space-before-function-paren
+  - @stylistic/ts/space-infix-ops
+  - @stylistic/ts/type-annotation-spacing
+  - @typescript-eslint/block-spacing
+  - @typescript-eslint/key-spacing
+  - @typescript-eslint/lines-around-comment
+  - @typescript-eslint/member-delimiter-style
+  - @typescript-eslint/no-unused-expressions
+  - @typescript-eslint/triple-slash-reference
+  - @typescript-eslint/type-annotation-spacing
+  - import/no-anonymous-default-export
+  - react/display-name
+  - react/jsx-no-undef
+  - react/jsx-uses-react
+  - react/jsx-uses-vars
+  - react/no-deprecated
+  - react/no-find-dom-node
+  - react/no-is-mounted
+  - react/no-unescaped-entities
+  - react/no-unsafe
+  - react/prop-types
+  - react/react-in-jsx-scope
+  - react/require-render-return
+  - react-hooks/config
+  - react-hooks/error-boundaries
+  - react-hooks/gating
+  - react-hooks/globals
+  - react-hooks/immutability
+  - react-hooks/incompatible-library
+  - react-hooks/preserve-manual-memoization
+  - react-hooks/purity
+  - react-hooks/refs
+  - react-hooks/set-state-in-effect
+  - react-hooks/set-state-in-render
+  - react-hooks/static-components
+  - react-hooks/unsupported-syntax
+  - react-hooks/use-memo
+  - unicorn/number-literal-case
+  - unicorn/template-indent
+  - vue/html-end-tags
+  
+  i These rules originate from an eslint plugin or other tool that Biome doesn't know about:
+  
+  - @babel/object-curly-spacing
+  - @babel/semi
+  - @next/next/no-assign-module-variable
+  - @next/next/no-css-tags
+  - @next/next/no-duplicate-head
+  - @next/next/no-html-link-for-pages
+  - @next/next/no-location-assign-relative-destination
+  - @next/next/no-page-custom-font
+  - @next/next/no-script-component-in-head
+  - @next/next/no-styled-jsx-in-document
+  - @next/next/no-title-in-document-head
+  - @next/next/no-typos
+  - babel/object-curly-spacing
+  - babel/quotes
+  - babel/semi
+  - flowtype/boolean-style
+  - flowtype/delimiter-dangle
+  - flowtype/generic-spacing
+  - flowtype/object-type-curly-spacing
+  - flowtype/object-type-delimiter
+  - flowtype/quotes
+  - flowtype/semi
+  - flowtype/space-after-type-colon
+  - flowtype/space-before-generic-bracket
+  - flowtype/space-before-type-colon
+  - flowtype/union-intersection-spacing
+  - standard/array-bracket-even-spacing
+  - standard/computed-property-even-spacing
+  - standard/object-curly-even-spacing
+  
+  i These rules have been deprecated upstream:
+  
+  - @stylistic/jsx-indent
+  - @stylistic/jsx-props-no-multi-spaces
+  
+
+configuration ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Migration results:
+  
+  - <ShopProject>/biome.json: configuration needs migration.
+  
+  i Use --write to apply the changes.
+  
+  $ biome migrate --write
+  
+
