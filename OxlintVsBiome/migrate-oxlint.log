@@ -1,0 +1,27 @@
+
+✨ .oxlintrc.json created with 80 rules.
+
+   Skipped 7 rules:
+     - 1 Nursery
+       - react/require-render-return
+     - 1 Not Implemented
+       - @next/next/no-location-assign-relative-destination
+     - 5 Unsupported
+       - react/jsx-uses-react: It is unnecessary to import React for JSX/TSX files with React 17+ when using the new JSX transform. This rule is also not easy to implement in Oxlint as it modifies the behavior of another rule.
+       - react/jsx-uses-vars: Handled by `eslint/no-unused-vars`, which already evaluates whether vars are used in JSX.
+       - react/no-deprecated: No need to implement, already implemented by `typescript/no-deprecated` via tsgolint.
+       - react-hooks/config: Oxlint uses fixed, valid React Compiler options; add this rule when compiler options become configurable.
+       - react-hooks/gating: Oxlint does not expose React Compiler gating options; add this rule when compiler options become configurable.
+
+👉 Re-run with flags to include more:
+     npx @oxlint/migrate eslint.config.mjs --with-nursery
+
+🚀 Next:
+     npx oxlint .
+
+⚠️  Warnings (2):
+   * special parser detected: eslint-config-next/parser
+   * Settings found under a 'files' pattern — oxlint does not support settings in overrides and they will be skipped:
+     * `react`
+     * `import/parsers`
+     * `import/resolver`

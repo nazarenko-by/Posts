@@ -1,0 +1,8 @@
+{
+  "name": "oxlint-vs-biome",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "node scripts/bench.mjs"
+  }
+}

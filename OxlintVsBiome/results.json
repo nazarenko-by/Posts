@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-12",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 7,
+  "versions": {
+    "eslint": "9.39.5",
+    "prettier": "3.9.8",
+    "biome": "2.6.7",
+    "oxlint": "1.93.0",
+    "oxfmt": "0.78.0"
+  },
+  "cases": {
+    "eslint": {
+      "label": "eslint .",
+      "ms": 2767,
+      "all": [
+        2837,
+        2763,
+        2791,
+        2759,
+        2708,
+        2767,
+        2773
+      ]
+    },
+    "eslintCache": {
+      "label": "eslint --cache . (теплий кеш)",
+      "ms": 650,
+      "all": [
+        656,
+        655,
+        641,
+        650,
+        641,
+        649,
+        664
+      ]
+    },
+    "prettier": {
+      "label": "prettier --check .",
+      "ms": 936,
+      "all": [
+        944,
+        938,
+        950,
+        924,
+        881,
+        921,
+        936
+      ]
+    },
+    "biomeLint": {
+      "label": "biome lint .",
+      "ms": 83,
+      "all": [
+        87,
+        82,
+        85,
+        83,
+        81,
+        85,
+        82
+      ]
+    },
+    "biomeFormat": {
+      "label": "biome format .",
+      "ms": 42,
+      "all": [
+        41,
+        42,
+        41,
+        42,
+        42,
+        41,
+        46
+      ]
+    },
+    "biomeCheck": {
+      "label": "biome check . (лінт + формат)",
+      "ms": 88,
+      "all": [
+        90,
+        88,
+        88,
+        92,
+        88,
+        88,
+        88
+      ]
+    },
+    "oxlint": {
+      "label": "oxlint .",
+      "ms": 35,
+      "all": [
+        37,
+        35,
+        37,
+        35,
+        35,
+        33,
+        34
+      ]
+    },
+    "oxfmt": {
+      "label": "oxfmt --check",
+      "ms": 92,
+      "all": [
+        90,
+        89,
+        95,
+        92,
+        92,
+        93,
+        94
+      ]
+    }
+  },
+  "totals": {
+    "eslintPlusPrettier": 3703,
+    "biomeCheck": 88,
+    "oxlintPlusOxfmt": 127
+  },
+  "project": {
+    "name": "NBY Shop",
+    "filesFormatted": 73,
+    "filesLinted": 69,
+    "note": "у копії виправлено app/globals.css: `--color-*/` у коментарі закривав коментар достроково (Biome і Oxfmt видають parse error, Prettier мовчки псує)"
+  },
+  "rules": {
+    "eslintEnabled": 87,
+    "oxlintMigrated": 80,
+    "oxlintSkipped": 7,
+    "biomeMigrated": 51,
+    "oxlintReactCompilerRules": "purity, refs, immutability, set-state-in-effect, set-state-in-render, static-components, use-memo, globals, error-boundaries, incompatible-library, preserve-manual-memoization, unsupported-syntax",
+    "biomeReactCompilerRules": 0
+  },
+  "findings": {
+    "eslint": "1 warning (no-console, prisma/seed.ts)",
+    "oxlint": "1 warning (no-console, prisma/seed.ts)",
+    "biome": "6 warnings, 0 errors (lint)"
+  },
+  "formatDiffVsPrettier": {
+    "oxfmt": "0 файлів",
+    "biome": "2 файли (components/ui/button.tsx, package.json)"
+  },
+  "ratios": {
+    "eslintVsOxlint": 79,
+    "biomeLintVsOxlint": 2.4,
+    "prettierVsOxfmt": 10,
+    "oxfmtVsBiomeFormat": 2.2,
+    "legacyVsOxPair": 29,
+    "legacyVsBiomeCheck": 42
+  }
+}
