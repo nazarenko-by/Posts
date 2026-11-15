@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-15",
+  "n": 10000,
+  "runs": 3,
+  "cpus": 2,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "cases": {
+    "localStorage": {
+      "writeMs": 66,
+      "syncMs": 66,
+      "readMs": 11.8,
+      "stored": 10000,
+      "allWrite": [
+        66,
+        74.4,
+        60.3
+      ]
+    },
+    "idbEach": {
+      "writeMs": 3729.9,
+      "syncMs": 667.7,
+      "readMs": 53.4,
+      "stored": 10000,
+      "allWrite": [
+        3729.9,
+        3578.7,
+        3940.5
+      ]
+    },
+    "idbBatch": {
+      "writeMs": 494.5,
+      "syncMs": 166.8,
+      "readMs": 35.8,
+      "stored": 10000,
+      "allWrite": [
+        524.1,
+        491.8,
+        494.5
+      ]
+    },
+    "cookies": {
+      "writeMs": 59.2,
+      "syncMs": 680.9,
+      "readMs": 0,
+      "stored": 173,
+      "firstReadMs": 631.8,
+      "allWrite": [
+        144.8,
+        59.2,
+        49.1
+      ]
+    }
+  }
+}

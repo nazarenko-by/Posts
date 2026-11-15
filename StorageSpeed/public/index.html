@@ -1,0 +1,94 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>StorageSpeed</title>
+<script>
+// Запис і читання 10 000 ключів у localStorage, IndexedDB і cookies. Викликається з scripts/bench.mjs:
+//   await runAll(10000) → { case: { writeMs, syncMs, readMs, stored } }
+// writeMs - від першого виклику до моменту, коли дані записані (для IDB - oncomplete транзакції);
+// syncMs  - скільки з цього головний потік був зайнятий нашим кодом (для IDB - лише цикл put(), далі робота йде поза ним).
+const value = (i) => JSON.stringify({ id: i, name: `Товар #${i}`, price: 100 + (i % 900), qty: 1 + (i % 5) });
+const now = () => performance.now();
+
+function openDb(name) {
+    return new Promise((res, rej) => {
+        const r = indexedDB.open(name, 1);
+        r.onupgradeneeded = () => r.result.createObjectStore("kv");
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+    });
+}
+const done = (tx) => new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = tx.onabort = () => rej(tx.error); });
+const req = (r) => new Promise((res, rej) => { r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+
+async function lsCase(n) {
+    localStorage.clear();
+    let t0 = now();
+    for (let i = 0; i < n; i++) localStorage.setItem(`k${i}`, value(i));
+    const writeMs = now() - t0;
+    t0 = now();
+    let ok = 0;
+    for (let i = 0; i < n; i++) if (localStorage.getItem(`k${i}`)) ok++;
+    return { writeMs, syncMs: writeMs, readMs: now() - t0, stored: ok };
+}
+
+// як idb-keyval set() у циклі з await: одна транзакція на ключ, чекаємо кожну
+async function idbEachCase(n) {
+    const db = await openDb("each");
+    const t0 = now();
+    let sync = 0;
+    for (let i = 0; i < n; i++) {
+        const s = now();
+        const tx = db.transaction("kv", "readwrite");
+        tx.objectStore("kv").put(value(i), `k${i}`);
+        sync += now() - s;
+        await done(tx);
+    }
+    const writeMs = now() - t0;
+    const r0 = now();
+    const all = await req(db.transaction("kv").objectStore("kv").getAll());
+    const readMs = now() - r0;
+    db.close();
+    return { writeMs, syncMs: sync, readMs, stored: all.length };
+}
+
+// усі put() в одній транзакції
+async function idbBatchCase(n) {
+    const db = await openDb("batch");
+    const t0 = now();
+    const tx = db.transaction("kv", "readwrite");
+    const st = tx.objectStore("kv");
+    for (let i = 0; i < n; i++) st.put(value(i), `k${i}`);
+    const syncMs = now() - t0;
+    await done(tx);
+    const writeMs = now() - t0;
+    const r0 = now();
+    const all = await req(db.transaction("kv").objectStore("kv").getAll());
+    const readMs = now() - r0;
+    db.close();
+    return { writeMs, syncMs, readMs, stored: all.length };
+}
+
+async function cookieCase(n) {
+    const t0 = now();
+    for (let i = 0; i < n; i++) document.cookie = `k${i}=${encodeURIComponent(value(i))}; path=/; max-age=3600`;
+    const writeMs = now() - t0;
+    // запис у document.cookie лише ставить зміну в чергу; перше читання чекає, поки браузер обробить усі 10 000
+    const r0 = now();
+    const stored = document.cookie.split("; ").filter(Boolean).length;
+    const firstReadMs = now() - r0;
+    const r1 = now();
+    document.cookie.split("; ");
+    const readMs = now() - r1;
+    return { writeMs, syncMs: writeMs + firstReadMs, firstReadMs, readMs, stored };
+}
+
+async function runAll(n) {
+    return {
+        localStorage: await lsCase(n),
+        idbEach: await idbEachCase(n),
+        idbBatch: await idbBatchCase(n),
+        cookies: await cookieCase(n),
+        ua: navigator.userAgent,
+    };
+}
+</script>

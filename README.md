@@ -109,6 +109,7 @@ npm run dev
 | [PromiseTimeline](PromiseTimeline) | Один дашборд, три запити, один із них падає |
 | [RadixUI](RadixUI) | Radix UI |
 | [ShadcnUI](ShadcnUI) | shadcn/ui |
+| [StorageSpeed](StorageSpeedStorybook) | запис 10 000 ключів: localStorage, IndexedDB, cookies |
 | [Storybook](Storybook) | Storybook для UI-кіту |
 | [Zod](Zod) | Валідація з Zod |
 
