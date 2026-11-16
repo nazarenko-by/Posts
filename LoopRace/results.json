@@ -1,0 +1,169 @@
+{
+  "date": "2026-11-16",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 5,
+  "results": {
+    "sum/for/1000000": {
+      "node": {
+        "coldMs": 5.382,
+        "hotMs": 2.4862
+      },
+      "chromium": {
+        "coldMs": 4.3,
+        "hotMs": 1.6
+      }
+    },
+    "sum/forOf/1000000": {
+      "node": {
+        "coldMs": 26.511,
+        "hotMs": 9.0417
+      },
+      "chromium": {
+        "coldMs": 28.9,
+        "hotMs": 10
+      }
+    },
+    "sum/forEach/1000000": {
+      "node": {
+        "coldMs": 9.1,
+        "hotMs": 8.6385
+      },
+      "chromium": {
+        "coldMs": 27.2,
+        "hotMs": 12.6
+      }
+    },
+    "sum/reduce/1000000": {
+      "node": {
+        "coldMs": 9.691,
+        "hotMs": 8.8979
+      },
+      "chromium": {
+        "coldMs": 27,
+        "hotMs": 11.9
+      }
+    },
+    "totals/for/1000000": {
+      "node": {
+        "coldMs": 36.487,
+        "hotMs": 22.4967
+      },
+      "chromium": {
+        "coldMs": 29.1,
+        "hotMs": 10.4
+      }
+    },
+    "totals/forOf/1000000": {
+      "node": {
+        "coldMs": 43.775,
+        "hotMs": 28.7266
+      },
+      "chromium": {
+        "coldMs": 38.7,
+        "hotMs": 13.9
+      }
+    },
+    "totals/forEach/1000000": {
+      "node": {
+        "coldMs": 43.227,
+        "hotMs": 25.9884
+      },
+      "chromium": {
+        "coldMs": 35.2,
+        "hotMs": 13.3
+      }
+    },
+    "totals/map/1000000": {
+      "node": {
+        "coldMs": 12.523,
+        "hotMs": 11.9809
+      },
+      "chromium": {
+        "coldMs": 12.6,
+        "hotMs": 11.2
+      }
+    },
+    "sum/for/1000": {
+      "node": {
+        "coldMs": 0.075,
+        "hotMs": 0.0012
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0018
+      }
+    },
+    "sum/forOf/1000": {
+      "node": {
+        "coldMs": 0.073,
+        "hotMs": 0.0012
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0011
+      }
+    },
+    "sum/forEach/1000": {
+      "node": {
+        "coldMs": 0.047,
+        "hotMs": 0.0016
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0024
+      }
+    },
+    "sum/reduce/1000": {
+      "node": {
+        "coldMs": 0.041,
+        "hotMs": 0.0011
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0011
+      }
+    },
+    "totals/for/1000": {
+      "node": {
+        "coldMs": 0.095,
+        "hotMs": 0.0035
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0035
+      }
+    },
+    "totals/forOf/1000": {
+      "node": {
+        "coldMs": 0.093,
+        "hotMs": 0.0035
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0031
+      }
+    },
+    "totals/forEach/1000": {
+      "node": {
+        "coldMs": 0.095,
+        "hotMs": 0.0034
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0031
+      }
+    },
+    "totals/map/1000": {
+      "node": {
+        "coldMs": 0.041,
+        "hotMs": 0.002
+      },
+      "chromium": {
+        "coldMs": 0.1,
+        "hotMs": 0.0024
+      }
+    }
+  },
+  "chromium": "153.0.8010.12"
+}

@@ -105,6 +105,7 @@ npm run dev
 | [DateCompare](DateCompare) | Способи порівняння дат |
 | [Knip](Knip) | Knip знаходить мертвий код |
 | [LoadingWaterfall](LoadingWaterfall) | Один і той самий лендінг (шапка з мобільним меню, hero, три картки, FAQ-акордеон), зібраний трьома способами |
+| [LoopRace](LoopRace) | for, for...of, forEach, reduce, map на 1 000 000 елементів |
 | [OxlintVsBiome](OxlintVsBiome) | ESLint + Prettier, Biome і Oxlint + Oxfmt на одному справжньому проєкті |
 | [PromiseTimeline](PromiseTimeline) | Один дашборд, три запити, один із них падає |
 | [RadixUI](RadixUI) | Radix UI |
