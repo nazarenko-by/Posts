@@ -101,6 +101,7 @@ npm run dev
 | Папка | Опис |
 |-------|------|
 | [BiomeVsEslint](BiomeVsEslint) | Biome замість ESLint + Prettier на справжньому проєкті |
+| [BuildTime](BuildTime) | next build: Turbopack проти webpack на NBY Shop |
 | [CVATailwind](CVATailwind) | class-variance-authority + Tailwind |
 | [DateCompare](DateCompare) | Способи порівняння дат |
 | [Knip](Knip) | Knip знаходить мертвий код |

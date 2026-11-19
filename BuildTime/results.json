@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-19",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 3,
+  "next": "16.3.5",
+  "runsRaw": {
+    "turbopack": {
+      "cold": [
+        {
+          "wallMs": 15498,
+          "compileMs": 9500,
+          "peakMB": 1529
+        },
+        {
+          "wallMs": 14341,
+          "compileMs": 8500,
+          "peakMB": 1425
+        },
+        {
+          "wallMs": 13235,
+          "compileMs": 7700,
+          "peakMB": 1516
+        }
+      ],
+      "warm": [
+        {
+          "wallMs": 3424,
+          "compileMs": 202,
+          "peakMB": 684
+        },
+        {
+          "wallMs": 3674,
+          "compileMs": 214,
+          "peakMB": 702
+        },
+        {
+          "wallMs": 3174,
+          "compileMs": 230,
+          "peakMB": 706
+        }
+      ],
+      "clientJs": {
+        "files": 20,
+        "rawKB": 1114.1,
+        "gzipKB": 317
+      }
+    },
+    "webpack": {
+      "cold": [
+        {
+          "wallMs": 23682,
+          "compileMs": 9900,
+          "peakMB": 723
+        },
+        {
+          "wallMs": 24563,
+          "compileMs": 9900,
+          "peakMB": 740
+        },
+        {
+          "wallMs": 21522,
+          "compileMs": 8600,
+          "peakMB": 721
+        }
+      ],
+      "warm": [
+        {
+          "wallMs": 13856,
+          "compileMs": 2300,
+          "peakMB": 589
+        },
+        {
+          "wallMs": 14939,
+          "compileMs": 2600,
+          "peakMB": 651
+        },
+        {
+          "wallMs": 13410,
+          "compileMs": 2300,
+          "peakMB": 659
+        }
+      ],
+      "clientJs": {
+        "files": 35,
+        "rawKB": 1152.5,
+        "gzipKB": 357.2
+      }
+    }
+  },
+  "median": {
+    "turbopack": {
+      "coldWallMs": 14341,
+      "coldCompileMs": 8500,
+      "warmWallMs": 3424,
+      "warmCompileMs": 214,
+      "peakMB": 1516,
+      "clientJs": {
+        "files": 20,
+        "rawKB": 1114.1,
+        "gzipKB": 317
+      }
+    },
+    "webpack": {
+      "coldWallMs": 23682,
+      "coldCompileMs": 9900,
+      "warmWallMs": 13856,
+      "warmCompileMs": 2300,
+      "peakMB": 723,
+      "clientJs": {
+        "files": 35,
+        "rawKB": 1152.5,
+        "gzipKB": 357.2
+      }
+    }
+  }
+}
