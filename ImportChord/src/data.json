@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-20",
+  "files": 67,
+  "edges": 110,
+  "circular": 0,
+  "names": [
+    "components",
+    "app",
+    "lib",
+    "context",
+    "hooks",
+    "store"
+  ],
+  "matrix": [
+    [
+      13,
+      4,
+      12,
+      7,
+      2,
+      2
+    ],
+    [
+      23,
+      2,
+      35,
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      7,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "topImported": [
+    [
+      "lib/prisma.ts",
+      13
+    ],
+    [
+      "lib/format.ts",
+      8
+    ],
+    [
+      "lib/auth.ts",
+      6
+    ],
+    [
+      "context/WishlistContext.tsx",
+      5
+    ],
+    [
+      "components/ui/button.tsx",
+      5
+    ],
+    [
+      "components/EmptyState.tsx",
+      4
+    ],
+    [
+      "context/CartContext.tsx",
+      4
+    ],
+    [
+      "lib/card.ts",
+      3
+    ],
+    [
+      "lib/site.ts",
+      3
+    ],
+    [
+      "components/ProductGridSkeleton.tsx",
+      3
+    ]
+  ],
+  "examples": {
+    "components→components": [
+      "components/AuthForm.tsx → components/ui/button.tsx",
+      "components/BuyBoxActions.tsx → components/ui/button.tsx",
+      "components/CheckoutForm.tsx → components/PaymentDeclinedModal.tsx",
+      "components/Hero.tsx → components/ui/button.tsx",
+      "components/ReviewsSection.tsx → components/RatingStars.tsx",
+      "components/ShopHeader.tsx → components/CommandMenu.tsx"
+    ],
+    "components→app": [
+      "components/AuthForm.tsx → app/auth/actions.ts",
+      "components/CheckoutForm.tsx → app/checkout/actions.ts",
+      "components/admin/ProductForm.tsx → app/admin/actions.ts",
+      "components/admin/ProductsTable.tsx → app/admin/actions.ts"
+    ],
+    "components→lib": [
+      "components/AuthForm.tsx → lib/auth-schema.ts",
+      "components/BuyBoxActions.tsx → lib/format.ts",
+      "components/CheckoutForm.tsx → lib/card.ts",
+      "components/CheckoutForm.tsx → lib/checkout-schema.ts",
+      "components/CheckoutForm.tsx → lib/format.ts",
+      "components/CheckoutForm.tsx → lib/pricing.ts"
+    ],
+    "components→context": [
+      "components/BuyBoxActions.tsx → context/CartContext.tsx",
+      "components/BuyBoxActions.tsx → context/WishlistContext.tsx",
+      "components/CheckoutForm.tsx → context/CartContext.tsx",
+      "components/ProductCard.tsx → context/WishlistContext.tsx",
+      "components/ShopHeader.tsx → context/CartContext.tsx",
+      "components/ShopHeader.tsx → context/WishlistContext.tsx"
+    ],
+    "components→hooks": [
+      "components/CatalogFilters.tsx → hooks/useDebounce.ts",
+      "components/ShopHeader.tsx → hooks/useDebounce.ts"
+    ],
+    "components→store": [
+      "components/BuyBoxActions.tsx → store/toastStore.ts",
+      "components/ToastViewport.tsx → store/toastStore.ts"
+    ],
+    "app→components": [
+      "app/admin/products/page.tsx → components/admin/ProductsTable.tsx",
+      "app/auth/page.tsx → components/AuthForm.tsx",
+      "app/checkout/page.tsx → components/CheckoutForm.tsx",
+      "app/error.tsx → components/EmptyState.tsx",
+      "app/layout.tsx → components/Footer.tsx",
+      "app/layout.tsx → components/ShopHeader.tsx"
+    ],
+    "app→app": [
+      "app/account/page.tsx → app/auth/actions.ts",
+      "app/layout.tsx → app/globals.css"
+    ],
+    "app→lib": [
+      "app/account/page.tsx → lib/auth.ts",
+      "app/account/page.tsx → lib/format.ts",
+      "app/account/page.tsx → lib/order-number.ts",
+      "app/account/page.tsx → lib/prisma.ts",
+      "app/admin/actions.ts → lib/prisma.ts",
+      "app/admin/actions.ts → lib/product-schema.ts"
+    ],
+    "app→context": [
+      "app/layout.tsx → context/CartContext.tsx",
+      "app/layout.tsx → context/WishlistContext.tsx"
+    ],
+    "lib→lib": [
+      "lib/auth.ts → lib/jwt.ts",
+      "lib/auth.ts → lib/prisma.ts",
+      "lib/checkout-schema.ts → lib/card.ts",
+      "lib/mock-email.ts → lib/format.ts",
+      "lib/products.ts → lib/prisma.ts",
+      "lib/require-admin.ts → lib/auth.ts"
+    ],
+    "context→hooks": [
+      "context/CartContext.tsx → hooks/useDebounce.ts"
+    ]
+  }
+}

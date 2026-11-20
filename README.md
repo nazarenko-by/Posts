@@ -23,6 +23,7 @@ npm run dev
 | [BundleMap](BundleMap) | Що насправді вантажить браузер на кожній сторінці мого NBY Shop |
 | [GaugeKpi](GaugeKpi) | напівкруглий **gauge** (спідометр зі стрілкою, зонами й міткою цілі) і **donut** (з чого складається ціле) на D3 |
 | [HeatmapCalendar](HeatmapCalendar) | Heatmap Calendar на D3 |
+| [ImportChord](ImportChord) | хто кого імпортує в NBY Shop |
 | [RadialCommits](RadialCommits) | Радіальний heatmap комітів на D3 |
 | [Sankey](Sankey) | Sankey на D3 |
 | [Streamgraph](Streamgraph) | Streamgraph на D3 |
