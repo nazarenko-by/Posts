@@ -88,6 +88,7 @@ npm run dev
 | [ClientBundleDiff](ClientBundleDiff) | Скільки JS тримають на сервері Server Components у NBY Shop. Той самий магазин збирається двічі |
 | [CompilerVsMemo](CompilerVsMemo) | Чи потрібен `useMemo`, коли є React Compiler? |
 | [FormDialogToast](FormDialogToast) | Форма + діалог + toast |
+| [PackageManagers](FormDialogToast) | install NBY Shop: npm, pnpm, Yarn, Bun |
 | [ReactD3Integration](ReactD3Integration) | Інтеграція D3 у React |
 | [ReactHookForm](ReactHookForm) | React Hook Form |
 | [ReactPerformance](ReactPerformance) | Ре-рендери до і після оптимізації |

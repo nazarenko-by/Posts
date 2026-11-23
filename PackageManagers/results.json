@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-23",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 3,
+  "results": {
+    "npm": {
+      "version": "10.9.9",
+      "coldMs": 14961,
+      "warmMs": 14689,
+      "nodeModulesMB": 1008.5,
+      "nodeModulesFiles": 27343,
+      "cacheMB": 291.9,
+      "raw": {
+        "cold": [
+          17918,
+          14961,
+          14335
+        ],
+        "warm": [
+          17460,
+          13141,
+          14689
+        ]
+      }
+    },
+    "pnpm": {
+      "version": "12.21.0",
+      "coldMs": 6299,
+      "warmMs": 517,
+      "nodeModulesMB": 769.2,
+      "nodeModulesFiles": 27293,
+      "cacheMB": 974.2,
+      "raw": {
+        "cold": [
+          6180,
+          6299,
+          6321
+        ],
+        "warm": [
+          1286,
+          309,
+          517
+        ]
+      }
+    },
+    "yarn": {
+      "version": "4.19.0",
+      "coldMs": 18976,
+      "warmMs": 15809,
+      "nodeModulesMB": 849.1,
+      "nodeModulesFiles": 27306,
+      "cacheMB": 742.5,
+      "raw": {
+        "cold": [
+          25906,
+          18976,
+          17523
+        ],
+        "warm": [
+          16967,
+          10272,
+          15809
+        ]
+      }
+    },
+    "bun": {
+      "version": "1.4.5",
+      "coldMs": 4180,
+      "warmMs": 363,
+      "nodeModulesMB": 775.4,
+      "nodeModulesFiles": 27272,
+      "cacheMB": 778.7,
+      "raw": {
+        "cold": [
+          4180,
+          3626,
+          5590
+        ],
+        "warm": [
+          256,
+          363,
+          493
+        ]
+      }
+    }
+  }
+}
