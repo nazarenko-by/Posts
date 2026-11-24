@@ -1,0 +1,186 @@
+{
+  "date": "2026-11-24",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 5,
+  "versions": {
+    "zod": "4.6.7",
+    "valibot": "1.5.0",
+    "arktype": "2.2.10",
+    "esbuild": "0.28.2"
+  },
+  "results": {
+    "zod": {
+      "package": "zod",
+      "bundle": {
+        "minKB": 445.5,
+        "gzipKB": 92,
+        "brotliKB": 75.4
+      },
+      "coldMs": 21.87,
+      "validOps": 627670,
+      "invalidOps": 232653,
+      "raw": [
+        {
+          "lib": "zod",
+          "coldMs": 22.53,
+          "valid": 622833,
+          "invalid": 231871
+        },
+        {
+          "lib": "zod",
+          "coldMs": 20.9,
+          "valid": 648226,
+          "invalid": 232653
+        },
+        {
+          "lib": "zod",
+          "coldMs": 21.92,
+          "valid": 626274,
+          "invalid": 231244
+        },
+        {
+          "lib": "zod",
+          "coldMs": 20.92,
+          "valid": 649638,
+          "invalid": 234384
+        },
+        {
+          "lib": "zod",
+          "coldMs": 21.87,
+          "valid": 627670,
+          "invalid": 232734
+        }
+      ]
+    },
+    "zod-mini": {
+      "package": "zod",
+      "bundle": {
+        "minKB": 18.6,
+        "gzipKB": 6.5,
+        "brotliKB": 5.9
+      },
+      "coldMs": 3.64,
+      "validOps": 473376,
+      "invalidOps": 199015,
+      "raw": [
+        {
+          "lib": "zod-mini",
+          "coldMs": 3.6,
+          "valid": 468102,
+          "invalid": 205417
+        },
+        {
+          "lib": "zod-mini",
+          "coldMs": 3.6,
+          "valid": 474392,
+          "invalid": 194522
+        },
+        {
+          "lib": "zod-mini",
+          "coldMs": 3.64,
+          "valid": 476463,
+          "invalid": 197499
+        },
+        {
+          "lib": "zod-mini",
+          "coldMs": 3.66,
+          "valid": 465229,
+          "invalid": 199015
+        },
+        {
+          "lib": "zod-mini",
+          "coldMs": 3.78,
+          "valid": 473376,
+          "invalid": 202055
+        }
+      ]
+    },
+    "valibot": {
+      "package": "valibot",
+      "bundle": {
+        "minKB": 7,
+        "gzipKB": 2.6,
+        "brotliKB": 2.4
+      },
+      "coldMs": 1.54,
+      "validOps": 613961,
+      "invalidOps": 402339,
+      "raw": [
+        {
+          "lib": "valibot",
+          "coldMs": 1.56,
+          "valid": 605066,
+          "invalid": 409768
+        },
+        {
+          "lib": "valibot",
+          "coldMs": 1.51,
+          "valid": 616428,
+          "invalid": 395852
+        },
+        {
+          "lib": "valibot",
+          "coldMs": 1.5,
+          "valid": 608361,
+          "invalid": 403507
+        },
+        {
+          "lib": "valibot",
+          "coldMs": 1.57,
+          "valid": 616633,
+          "invalid": 400414
+        },
+        {
+          "lib": "valibot",
+          "coldMs": 1.54,
+          "valid": 613961,
+          "invalid": 402339
+        }
+      ]
+    },
+    "arktype": {
+      "package": "arktype",
+      "bundle": {
+        "minKB": 154.8,
+        "gzipKB": 47.5,
+        "brotliKB": 41.9
+      },
+      "coldMs": 119.66,
+      "validOps": 115628,
+      "invalidOps": 66737,
+      "raw": [
+        {
+          "lib": "arktype",
+          "coldMs": 119.66,
+          "valid": 115628,
+          "invalid": 66408
+        },
+        {
+          "lib": "arktype",
+          "coldMs": 117.66,
+          "valid": 115260,
+          "invalid": 66737
+        },
+        {
+          "lib": "arktype",
+          "coldMs": 144.06,
+          "valid": 116301,
+          "invalid": 66768
+        },
+        {
+          "lib": "arktype",
+          "coldMs": 136.7,
+          "valid": 115868,
+          "invalid": 67259
+        },
+        {
+          "lib": "arktype",
+          "coldMs": 119.27,
+          "valid": 114948,
+          "invalid": 66528
+        }
+      ]
+    }
+  }
+}
