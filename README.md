@@ -115,6 +115,7 @@ npm run dev
 | [ShadcnUI](ShadcnUI) | shadcn/ui |
 | [StorageSpeed](StorageSpeedStorybook) | запис 10 000 ключів: localStorage, IndexedDB, cookies |
 | [Storybook](Storybook) | Storybook для UI-кіту |
+| [TypecheckSpeed](TypecheckSpeed) | tsc на TypeScript 5.9 / 6.0 проти нативного 7.0 / 7.1 beta |
 | [ValidatorRace](ValidatorRace) | Zod, Zod Mini, Valibot, ArkType на справжній схемі |
 | [Zod](Zod) | Валідація з Zod |
 

@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-25",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 5,
+  "results": {
+    "5.9.3": {
+      "fullMs": 3571,
+      "warmMs": 1596,
+      "peakMB": 399,
+      "errors": 0,
+      "raw": {
+        "full": [
+          {
+            "ms": 3633,
+            "peakMB": 398,
+            "errors": 0
+          },
+          {
+            "ms": 3571,
+            "peakMB": 401,
+            "errors": 0
+          },
+          {
+            "ms": 3649,
+            "peakMB": 399,
+            "errors": 0
+          },
+          {
+            "ms": 3398,
+            "peakMB": 398,
+            "errors": 0
+          },
+          {
+            "ms": 3485,
+            "peakMB": 399,
+            "errors": 0
+          }
+        ],
+        "warm": [
+          {
+            "ms": 1663,
+            "peakMB": 313,
+            "errors": 0
+          },
+          {
+            "ms": 1560,
+            "peakMB": 317,
+            "errors": 0
+          },
+          {
+            "ms": 1479,
+            "peakMB": 308,
+            "errors": 0
+          },
+          {
+            "ms": 1596,
+            "peakMB": 319,
+            "errors": 0
+          },
+          {
+            "ms": 1625,
+            "peakMB": 321,
+            "errors": 0
+          }
+        ]
+      }
+    },
+    "6.0.3": {
+      "fullMs": 3625,
+      "warmMs": 1540,
+      "peakMB": 401,
+      "errors": 0,
+      "raw": {
+        "full": [
+          {
+            "ms": 3625,
+            "peakMB": 410,
+            "errors": 0
+          },
+          {
+            "ms": 3759,
+            "peakMB": 401,
+            "errors": 0
+          },
+          {
+            "ms": 3700,
+            "peakMB": 405,
+            "errors": 0
+          },
+          {
+            "ms": 3588,
+            "peakMB": 400,
+            "errors": 0
+          },
+          {
+            "ms": 3530,
+            "peakMB": 400,
+            "errors": 0
+          }
+        ],
+        "warm": [
+          {
+            "ms": 1712,
+            "peakMB": 320,
+            "errors": 0
+          },
+          {
+            "ms": 1620,
+            "peakMB": 308,
+            "errors": 0
+          },
+          {
+            "ms": 1538,
+            "peakMB": 311,
+            "errors": 0
+          },
+          {
+            "ms": 1540,
+            "peakMB": 312,
+            "errors": 0
+          },
+          {
+            "ms": 1470,
+            "peakMB": 312,
+            "errors": 0
+          }
+        ]
+      }
+    },
+    "7.0.2": {
+      "fullMs": 671,
+      "warmMs": 343,
+      "peakMB": 281,
+      "errors": 0,
+      "raw": {
+        "full": [
+          {
+            "ms": 731,
+            "peakMB": 281,
+            "errors": 0
+          },
+          {
+            "ms": 671,
+            "peakMB": 284,
+            "errors": 0
+          },
+          {
+            "ms": 668,
+            "peakMB": 273,
+            "errors": 0
+          },
+          {
+            "ms": 671,
+            "peakMB": 278,
+            "errors": 0
+          },
+          {
+            "ms": 748,
+            "peakMB": 290,
+            "errors": 0
+          }
+        ],
+        "warm": [
+          {
+            "ms": 343,
+            "peakMB": 157,
+            "errors": 0
+          },
+          {
+            "ms": 373,
+            "peakMB": 163,
+            "errors": 0
+          },
+          {
+            "ms": 331,
+            "peakMB": 157,
+            "errors": 0
+          },
+          {
+            "ms": 326,
+            "peakMB": 158,
+            "errors": 0
+          },
+          {
+            "ms": 359,
+            "peakMB": 148,
+            "errors": 0
+          }
+        ]
+      }
+    },
+    "7.1.0-beta": {
+      "fullMs": 577,
+      "warmMs": 307,
+      "peakMB": 207,
+      "errors": 0,
+      "raw": {
+        "full": [
+          {
+            "ms": 607,
+            "peakMB": 207,
+            "errors": 0
+          },
+          {
+            "ms": 552,
+            "peakMB": 200,
+            "errors": 0
+          },
+          {
+            "ms": 577,
+            "peakMB": 210,
+            "errors": 0
+          },
+          {
+            "ms": 562,
+            "peakMB": 206,
+            "errors": 0
+          },
+          {
+            "ms": 581,
+            "peakMB": 210,
+            "errors": 0
+          }
+        ],
+        "warm": [
+          {
+            "ms": 308,
+            "peakMB": 124,
+            "errors": 0
+          },
+          {
+            "ms": 307,
+            "peakMB": 122,
+            "errors": 0
+          },
+          {
+            "ms": 287,
+            "peakMB": 130,
+            "errors": 0
+          },
+          {
+            "ms": 291,
+            "peakMB": 126,
+            "errors": 0
+          },
+          {
+            "ms": 307,
+            "peakMB": 128,
+            "errors": 0
+          }
+        ]
+      }
+    }
+  }
+}
