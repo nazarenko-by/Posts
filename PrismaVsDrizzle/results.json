@@ -1,0 +1,527 @@
+{
+  "date": "2026-11-26",
+  "node": "v22.23.4",
+  "cpus": 2,
+  "runs": 5,
+  "results": {
+    "drizzle": {
+      "coldBundledMs": 40.2,
+      "coldExternalMs": 234.9,
+      "catalogUs": 75,
+      "productPageUs": 313,
+      "createOrderUs": 2671,
+      "raw": {
+        "bundled": [
+          {
+            "coldMs": 40.7,
+            "catalog": {
+              "medUs": 75,
+              "p95Us": 195
+            },
+            "productPage": {
+              "medUs": 317,
+              "p95Us": 759
+            },
+            "createOrder": {
+              "medUs": 2720,
+              "p95Us": 3388
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 39.3,
+            "catalog": {
+              "medUs": 75,
+              "p95Us": 141
+            },
+            "productPage": {
+              "medUs": 313,
+              "p95Us": 645
+            },
+            "createOrder": {
+              "medUs": 2673,
+              "p95Us": 3210
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 40.2,
+            "catalog": {
+              "medUs": 73,
+              "p95Us": 133
+            },
+            "productPage": {
+              "medUs": 313,
+              "p95Us": 703
+            },
+            "createOrder": {
+              "medUs": 2546,
+              "p95Us": 3004
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 40.5,
+            "catalog": {
+              "medUs": 73,
+              "p95Us": 140
+            },
+            "productPage": {
+              "medUs": 290,
+              "p95Us": 451
+            },
+            "createOrder": {
+              "medUs": 2507,
+              "p95Us": 3072
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 38.7,
+            "catalog": {
+              "medUs": 75,
+              "p95Us": 216
+            },
+            "productPage": {
+              "medUs": 310,
+              "p95Us": 644
+            },
+            "createOrder": {
+              "medUs": 2671,
+              "p95Us": 3291
+            },
+            "avg": 3
+          }
+        ],
+        "external": [
+          {
+            "coldMs": 234.9,
+            "catalog": {
+              "medUs": 77,
+              "p95Us": 122
+            },
+            "productPage": {
+              "medUs": 313,
+              "p95Us": 468
+            },
+            "createOrder": {
+              "medUs": 2731,
+              "p95Us": 3256
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 225.9,
+            "catalog": {
+              "medUs": 74,
+              "p95Us": 117
+            },
+            "productPage": {
+              "medUs": 308,
+              "p95Us": 449
+            },
+            "createOrder": {
+              "medUs": 2708,
+              "p95Us": 3384
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 209.5,
+            "catalog": {
+              "medUs": 72,
+              "p95Us": 115
+            },
+            "productPage": {
+              "medUs": 295,
+              "p95Us": 378
+            },
+            "createOrder": {
+              "medUs": 2568,
+              "p95Us": 3181
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 244,
+            "catalog": {
+              "medUs": 73,
+              "p95Us": 115
+            },
+            "productPage": {
+              "medUs": 292,
+              "p95Us": 391
+            },
+            "createOrder": {
+              "medUs": 2510,
+              "p95Us": 2928
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 262.1,
+            "catalog": {
+              "medUs": 76,
+              "p95Us": 192
+            },
+            "productPage": {
+              "medUs": 322,
+              "p95Us": 689
+            },
+            "createOrder": {
+              "medUs": 2650,
+              "p95Us": 3470
+            },
+            "avg": 3
+          }
+        ]
+      }
+    },
+    "prisma6": {
+      "coldBundledMs": 53.9,
+      "coldExternalMs": 56.5,
+      "catalogUs": 579,
+      "productPageUs": 919,
+      "createOrderUs": 3636,
+      "raw": {
+        "bundled": [
+          {
+            "coldMs": 51.6,
+            "catalog": {
+              "medUs": 650,
+              "p95Us": 794
+            },
+            "productPage": {
+              "medUs": 1136,
+              "p95Us": 1353
+            },
+            "createOrder": {
+              "medUs": 3962,
+              "p95Us": 5116
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 54.4,
+            "catalog": {
+              "medUs": 659,
+              "p95Us": 784
+            },
+            "productPage": {
+              "medUs": 1120,
+              "p95Us": 1492
+            },
+            "createOrder": {
+              "medUs": 3900,
+              "p95Us": 4732
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 53.9,
+            "catalog": {
+              "medUs": 557,
+              "p95Us": 623
+            },
+            "productPage": {
+              "medUs": 877,
+              "p95Us": 1050
+            },
+            "createOrder": {
+              "medUs": 3590,
+              "p95Us": 4497
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 57.7,
+            "catalog": {
+              "medUs": 579,
+              "p95Us": 655
+            },
+            "productPage": {
+              "medUs": 919,
+              "p95Us": 1136
+            },
+            "createOrder": {
+              "medUs": 3636,
+              "p95Us": 4289
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 49.9,
+            "catalog": {
+              "medUs": 488,
+              "p95Us": 546
+            },
+            "productPage": {
+              "medUs": 767,
+              "p95Us": 925
+            },
+            "createOrder": {
+              "medUs": 3228,
+              "p95Us": 3755
+            },
+            "avg": 3
+          }
+        ],
+        "external": [
+          {
+            "coldMs": 61.9,
+            "catalog": {
+              "medUs": 670,
+              "p95Us": 843
+            },
+            "productPage": {
+              "medUs": 1128,
+              "p95Us": 1451
+            },
+            "createOrder": {
+              "medUs": 3926,
+              "p95Us": 4594
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 64.2,
+            "catalog": {
+              "medUs": 682,
+              "p95Us": 894
+            },
+            "productPage": {
+              "medUs": 1145,
+              "p95Us": 1845
+            },
+            "createOrder": {
+              "medUs": 3581,
+              "p95Us": 4761
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 50.1,
+            "catalog": {
+              "medUs": 556,
+              "p95Us": 623
+            },
+            "productPage": {
+              "medUs": 881,
+              "p95Us": 1085
+            },
+            "createOrder": {
+              "medUs": 3416,
+              "p95Us": 4011
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 56.5,
+            "catalog": {
+              "medUs": 571,
+              "p95Us": 675
+            },
+            "productPage": {
+              "medUs": 945,
+              "p95Us": 1168
+            },
+            "createOrder": {
+              "medUs": 3645,
+              "p95Us": 4578
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 47.9,
+            "catalog": {
+              "medUs": 491,
+              "p95Us": 569
+            },
+            "productPage": {
+              "medUs": 732,
+              "p95Us": 876
+            },
+            "createOrder": {
+              "medUs": 3342,
+              "p95Us": 3953
+            },
+            "avg": 3
+          }
+        ]
+      }
+    },
+    "prisma7": {
+      "coldBundledMs": 114.8,
+      "coldExternalMs": 129.5,
+      "catalogUs": 102,
+      "productPageUs": 372,
+      "createOrderUs": 3232,
+      "raw": {
+        "bundled": [
+          {
+            "coldMs": 130.1,
+            "catalog": {
+              "medUs": 104,
+              "p95Us": 222
+            },
+            "productPage": {
+              "medUs": 447,
+              "p95Us": 722
+            },
+            "createOrder": {
+              "medUs": 3489,
+              "p95Us": 4298
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 109.3,
+            "catalog": {
+              "medUs": 102,
+              "p95Us": 182
+            },
+            "productPage": {
+              "medUs": 358,
+              "p95Us": 532
+            },
+            "createOrder": {
+              "medUs": 3136,
+              "p95Us": 3679
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 114.8,
+            "catalog": {
+              "medUs": 100,
+              "p95Us": 185
+            },
+            "productPage": {
+              "medUs": 372,
+              "p95Us": 610
+            },
+            "createOrder": {
+              "medUs": 3232,
+              "p95Us": 3837
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 121.1,
+            "catalog": {
+              "medUs": 103,
+              "p95Us": 258
+            },
+            "productPage": {
+              "medUs": 434,
+              "p95Us": 1137
+            },
+            "createOrder": {
+              "medUs": 3514,
+              "p95Us": 4144
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 105.8,
+            "catalog": {
+              "medUs": 97,
+              "p95Us": 169
+            },
+            "productPage": {
+              "medUs": 329,
+              "p95Us": 466
+            },
+            "createOrder": {
+              "medUs": 2984,
+              "p95Us": 3673
+            },
+            "avg": 3
+          }
+        ],
+        "external": [
+          {
+            "coldMs": 131.1,
+            "catalog": {
+              "medUs": 91,
+              "p95Us": 220
+            },
+            "productPage": {
+              "medUs": 344,
+              "p95Us": 607
+            },
+            "createOrder": {
+              "medUs": 3476,
+              "p95Us": 4237
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 117,
+            "catalog": {
+              "medUs": 93,
+              "p95Us": 165
+            },
+            "productPage": {
+              "medUs": 316,
+              "p95Us": 451
+            },
+            "createOrder": {
+              "medUs": 3144,
+              "p95Us": 3841
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 128.8,
+            "catalog": {
+              "medUs": 95,
+              "p95Us": 223
+            },
+            "productPage": {
+              "medUs": 307,
+              "p95Us": 748
+            },
+            "createOrder": {
+              "medUs": 3138,
+              "p95Us": 3723
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 129.5,
+            "catalog": {
+              "medUs": 93,
+              "p95Us": 221
+            },
+            "productPage": {
+              "medUs": 319,
+              "p95Us": 541
+            },
+            "createOrder": {
+              "medUs": 3494,
+              "p95Us": 4391
+            },
+            "avg": 3
+          },
+          {
+            "coldMs": 130.3,
+            "catalog": {
+              "medUs": 91,
+              "p95Us": 201
+            },
+            "productPage": {
+              "medUs": 281,
+              "p95Us": 404
+            },
+            "createOrder": {
+              "medUs": 3005,
+              "p95Us": 3845
+            },
+            "avg": 3
+          }
+        ]
+      }
+    }
+  }
+}

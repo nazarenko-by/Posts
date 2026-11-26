@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./shop.db"
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Product {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  title     String
+  category  String
+
+  priceUAH  Int
+  compareAt Int?
+  rating    Float         @default(0)
+  badge     String?
+  image     String
+  imageCount Int          @default(4)
+  description String?
+  specs     Json?
+  stock     Int           @default(0)
+  status    ProductStatus @default(PUBLISHED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  reviews   Review[]
+  orderItems OrderItem[]
+
+  @@index([status, createdAt])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  author    String
+
+  rating    Int
+  comment   String
+  verified  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  isAdmin      Boolean  @default(false)
+  orders       Order[]
+  createdAt    DateTime @default(now())
+}
+
+enum OrderStatus {
+  PACKING
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderSeq        Int         @unique
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status          OrderStatus @default(PACKING)
+  firstName       String
+  lastName        String
+  email           String
+  phone           String
+  city            String
+  address         String
+
+  shipping        String
+  shippingCostUAH Int
+
+  payment         String
+  codFeeUAH       Int         @default(0)
+  totalUAH        Int
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+
+  @@index([email])
+  @@index([userId])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String?
+  product     Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productSlug String
+  title       String
+  priceUAH    Int
+  qty         Int
+
+  @@index([orderId])
+}

@@ -110,6 +110,7 @@ npm run dev
 | [LoadingWaterfall](LoadingWaterfall) | Один і той самий лендінг (шапка з мобільним меню, hero, три картки, FAQ-акордеон), зібраний трьома способами |
 | [LoopRace](LoopRace) | for, for...of, forEach, reduce, map на 1 000 000 елементів |
 | [OxlintVsBiome](OxlintVsBiome) | ESLint + Prettier, Biome і Oxlint + Oxfmt на одному справжньому проєкті |
+| [PrismaVsDrizzle](PrismaVsDrizzle) | Prisma 6, Prisma 7 і Drizzle на SQLite-базі NBY Shop |
 | [PromiseTimeline](PromiseTimeline) | Один дашборд, три запити, один із них падає |
 | [RadixUI](RadixUI) | Radix UI |
 | [ShadcnUI](ShadcnUI) | shadcn/ui |
