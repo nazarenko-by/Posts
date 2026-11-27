@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-26",
+  "node": "v22.23.4",
+  "chromium": "153.0.8010.12",
+  "cpus": 2,
+  "lodash": "4.18.1",
+  "runs": 5,
+  "chromiumResults": {
+    "product": {
+      "structuredClone": {
+        "ok": true,
+        "us": 2.59
+      },
+      "json": {
+        "ok": true,
+        "us": 0.99
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 1.34
+      }
+    },
+    "cart": {
+      "structuredClone": {
+        "ok": true,
+        "us": 84.57
+      },
+      "json": {
+        "ok": true,
+        "us": 48.44
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 119.73
+      }
+    },
+    "catalog": {
+      "structuredClone": {
+        "ok": true,
+        "us": 15600
+      },
+      "json": {
+        "ok": true,
+        "us": 13725
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 18200
+      }
+    },
+    "rich": {
+      "structuredClone": {
+        "ok": true,
+        "us": 74.51
+      },
+      "json": {
+        "ok": false,
+        "us": 1
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 112.3
+      }
+    },
+    "cycle": {
+      "structuredClone": {
+        "ok": true,
+        "us": 7.23
+      },
+      "json": {
+        "ok": false,
+        "error": "Converting circular structure to JSON\n    --> starting at object with constructo"
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 7.71
+      }
+    }
+  },
+  "nodeResults": {
+    "product": {
+      "structuredClone": {
+        "ok": true,
+        "us": 1.52
+      },
+      "json": {
+        "ok": true,
+        "us": 1.48
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 1.55
+      }
+    },
+    "cart": {
+      "structuredClone": {
+        "ok": true,
+        "us": 66.45
+      },
+      "json": {
+        "ok": true,
+        "us": 65.53
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 140.79
+      }
+    },
+    "catalog": {
+      "structuredClone": {
+        "ok": true,
+        "us": 11456.76
+      },
+      "json": {
+        "ok": true,
+        "us": 13166.81
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 23735.05
+      }
+    },
+    "rich": {
+      "structuredClone": {
+        "ok": true,
+        "us": 58.29
+      },
+      "json": {
+        "ok": false,
+        "us": 0.93
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 146.57
+      }
+    },
+    "cycle": {
+      "structuredClone": {
+        "ok": true,
+        "us": 5.77
+      },
+      "json": {
+        "ok": false,
+        "error": "Converting circular structure to JSON\n    --> starting at object with constructo"
+      },
+      "cloneDeep": {
+        "ok": true,
+        "us": 8.69
+      }
+    }
+  }
+}

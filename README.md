@@ -106,6 +106,7 @@ npm run dev
 | [BuildTime](BuildTime) | next build: Turbopack проти webpack на NBY Shop |
 | [CVATailwind](CVATailwind) | class-variance-authority + Tailwind |
 | [DateCompare](DateCompare) | Способи порівняння дат |
+| [DeepCloneRace](DeepCloneRace) | structuredClone, JSON і lodash cloneDeep |
 | [Knip](Knip) | Knip знаходить мертвий код |
 | [LoadingWaterfall](LoadingWaterfall) | Один і той самий лендінг (шапка з мобільним меню, hero, три картки, FAQ-акордеон), зібраний трьома способами |
 | [LoopRace](LoopRace) | for, for...of, forEach, reduce, map на 1 000 000 елементів |
